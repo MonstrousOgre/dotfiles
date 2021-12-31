@@ -5,6 +5,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 #pkill polybar
 #~/.config/polybar/launch.sh
 
+pkill picom
 picom --experimental-backends &
 
 #bspc monitor -d I II III IV V VI VII VIII IX X
