@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Personal
+export DIR_PERSONAL=/mnt/Kash/PS

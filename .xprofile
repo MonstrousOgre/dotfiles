@@ -1,0 +1,4 @@
+#!/bin/sh
+#[[ -f ~/.zshenv ]] && source ~/.zshenv
+#light-locker --no-lock-on-suspend &
+#export DISPLAY=:0
