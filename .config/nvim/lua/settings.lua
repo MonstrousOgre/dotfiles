@@ -1,0 +1,49 @@
+vim.o.hidden = true
+vim.o.termguicolors = true
+vim.o.fileencoding = "utf-8"
+vim.o.ambiwidth = "single"
+-- vim.o.pumheight = 10 -- Makes popup menu smaller
+vim.o.ruler = true
+-- vim.o.cmdheight = 2 -- More space for displaying messages
+-- vim.cmd('set iskeyword+=-') -- treat dash separated words as a word text object
+vim.o.mouse = "a"
+vim.o.splitbelow = true -- Horizontal splits will automatically be below
+vim.o.splitright = true -- Vertical splits will automatically be to the right
+-- vim.o.t_Co = '256'
+vim.o.conceallevel = 0 -- So that I can see `` in markdown files
+vim.o.smarttab = true
+vim.o.laststatus = 2
+vim.o.background = "dark"
+vim.o.showtabline = 2
+vim.o.showmode = false
+vim.o.backup = false
+vim.o.writebackup = false
+-- vim.o.updatetime = 300
+vim.o.timeoutlen = 500
+-- vim.o.timeoutlen = 300
+vim.o.clipboard = "unnamedplus"
+vim.o.shortmess = vim.o.shortmess .. "c"
+-- vim.o.guicursor = ''
+
+vim.wo.wrap = false
+vim.o.number = true
+vim.wo.number = true
+vim.o.relativenumber = true
+vim.wo.relativenumber = true
+vim.wo.cursorline = true
+
+vim.o.tabstop = 2
+vim.bo.tabstop = 2
+vim.o.shiftwidth = 2
+vim.bo.shiftwidth = 2
+vim.o.expandtab = true -- Converts tabs to spaces
+vim.bo.expandtab = true -- Converts tabs to spaces
+vim.o.smartindent = true
+vim.bo.smartindent = true
+vim.o.autoindent = true
+vim.bo.autoindent = true
+
+vim.wo.colorcolumn = "99999"
+
+-- vim.g.mapleader = ' '
+-- vim.b.mapleader = ' '

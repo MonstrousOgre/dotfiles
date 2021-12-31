@@ -1,0 +1,26 @@
+#!bin/zsh
+
+# alias sudo='sudo -E '
+alias sudo='sudo '
+alias sudoedit='sudoedit '
+
+# lsd aliases
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+# vim aliases
+alias vim='nvim'
+alias vi='vim'
+alias v='vi'
+
+alias cat="bat"
+
+alias ue='update-everything'
+
+alias yay='paru'
+
+
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
