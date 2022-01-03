@@ -21,7 +21,7 @@
 	base0A: #FFCB6B;
 	base0B: #C3E88D;
 	base0C: #89DDFF;
-	base0D: #5294e2;
+	base0D: #5294e2CC;
 	base0E: #C792EA;
 	base0F: #FF5370;
 
@@ -145,11 +145,11 @@ element normal active, element selected active, element alternate active {
 }
 
 element-text {
-    background-color: inherit;
+    /*background-color: inherit;*/
     text-color:       inherit;
 }
 
 element-icon {
-    background-color: inherit;
+    /*background-color: inherit;*/
     text-color:       inherit;
 }
