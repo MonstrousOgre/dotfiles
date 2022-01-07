@@ -171,5 +171,9 @@ super + {Left,Down,Up,Right}
 #XF86Calculator
 	#qalculate-gtk
 
+# Calculator
+XF86Calculator
+  kcalc
+
 #Print
 	#flameshot gui

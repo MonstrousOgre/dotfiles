@@ -18,8 +18,6 @@ alias v='vi'
 
 alias cat="bat"
 
-alias ue='update-everything'
-
 alias yay='paru'
 
 
