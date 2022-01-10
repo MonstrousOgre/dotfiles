@@ -21,7 +21,8 @@ bspc config gapless_monocle      true
 bspc config top_padding 28
 
 bspc config focused_border_color "#5294e2"
-bspc config normal_border_color "#282a33"
+bspc config normal_border_color "#32343d"
+
 
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
 #bspc rule -a Chromium desktop='^2'
