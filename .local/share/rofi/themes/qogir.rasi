@@ -29,7 +29,7 @@
 
 	spacing: 0;
 	background-color: transparent;
-	/*font: "Symbols Nerd Font 12";*/
+  font: "Symbols Nerd Font 12";
 }
 
 window {

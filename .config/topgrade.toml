@@ -58,7 +58,7 @@ set_title = false
 # Custom commands
 [commands]
 #"Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
-"Pip packages" = "pip-review --local --auto"
+"pip packages" = "pip-review --local --auto"
 
 [brew]
 #greedy_cask = true
