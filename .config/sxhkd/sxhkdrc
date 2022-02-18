@@ -12,8 +12,11 @@ super + d
 
 # program launcher
 #super + @space
+#super + space
+	#rofi -show combi
+
 super + space
-	rofi -show combi
+	ulauncher-toggle
 
 alt + Tab
 #	rofi -show window

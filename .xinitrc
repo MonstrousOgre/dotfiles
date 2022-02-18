@@ -54,14 +54,10 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
-#~/.fehbg &
-
-#exec bspwm
-
 numlockx &
 
 export KDEWM=/usr/bin/bspwm
 export DESKTOP_SESSION=plasma
 exec startplasma-x11
 
-#exec dbus-launch $@
+#exec bspwm

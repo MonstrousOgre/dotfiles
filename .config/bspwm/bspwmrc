@@ -8,8 +8,9 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 pkill picom
 picom --experimental-backends &
 
-#bspc monitor -d I II III IV V VI VII VIII IX X
+#bspc monitor -d I II III IV V VI VII VIII IX X 
 bspc monitor -d     爵   調  
+bspc config merge_overlapping_monitors true
 
 bspc config border_width         3
 bspc config window_gap          15
@@ -35,10 +36,12 @@ bspc rule -a Spotify desktop=
 # bspc rule -a vlc desktop=video
 #bspc rule -a Pavucontrol state=floating
 #bspc rule -a Qalculate-gtk state=floating
-bspc rule -a Steam desktop=調
-bspc rule -a "Microsoft Teams - Preview" desktop=
+#bspc rule -a Steam desktop=調
+#bspc rule -a "Microsoft Teams - Preview" desktop=
 
 bspc rule -a plasmashell state=floating border=off sticky=off center=off
+bspc rule -a krunner state=floating border=off sticky=off center=off 
+#bspc rule -a Ulauncher border=off
 
 bspc config external_rules_command "$HOME/.config/bspwm/rules.sh"
 
