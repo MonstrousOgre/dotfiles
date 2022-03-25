@@ -1,7 +1,3 @@
 [ncspot]
 default_features = true
 features = ["cover"]
-
-[starship]
-default_features = true
-features = ["notify-rust"]
