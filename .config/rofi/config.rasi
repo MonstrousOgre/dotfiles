@@ -73,7 +73,8 @@ configuration {
 	display-run: "  ";
 /*	display-ssh: ;*/
 	display-drun: "  ";
-	display-combi: " ";
+	/*display-combi: " ";*/
+	display-combi: "";
 /*	display-keys: ;*/
 /*	display-file-browser: ;*/
 /*	kb-primary-paste: "Control+V,Shift+Insert";*/
@@ -149,6 +150,6 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
-@theme "qogir"
+@theme "custom"
 
 /* vim:ft=css 

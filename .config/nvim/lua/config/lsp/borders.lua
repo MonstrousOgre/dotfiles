@@ -1,12 +1,12 @@
 local border = {
-	{ "🭽", "FloatBorder" },
-	{ "▔", "FloatBorder" },
-	{ "🭾", "FloatBorder" },
-	{ "▕", "FloatBorder" },
-	{ "🭿", "FloatBorder" },
-	{ "▁", "FloatBorder" },
-	{ "🭼", "FloatBorder" },
-	{ "▏", "FloatBorder" },
+    { "🭽", "FloatBorder" },
+    { "▔",  "FloatBorder" },
+    { "🭾", "FloatBorder" },
+    { "▕",  "FloatBorder" },
+    { "🭿", "FloatBorder" },
+    { "▁",  "FloatBorder" },
+    { "🭼", "FloatBorder" },
+    { "▏",  "FloatBorder" },
 }
 
 --vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"})
@@ -14,8 +14,10 @@ local border = {
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-	opts = opts or {}
-	--opts.border = opts.border or border
-	opts.border = "rounded"
-	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  --opts.border = opts.border or border
+  opts.border = "rounded"
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+vim.g.code_action_menu_window_border = 'rounded'

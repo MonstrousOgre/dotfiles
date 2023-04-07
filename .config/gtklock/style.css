@@ -1,0 +1,24 @@
+window {
+  /*background-image: url("/home/ogre/.local/share/wallpapers/ShinJaw.jpg");*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+}
+
+window#eDP-1 {
+  background-image: url("/home/ogre/.local/share/wallpapers/5023219-daft-punk-minimalism-music.jpg");
+}
+
+window#HDMI-A-1 {
+  background-image: url("/home/ogre/.local/share/wallpapers/ShinJaw.jpg");
+}
+
+#window-box {
+  padding: 64px;
+  /*border: 1px solid black;*/
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 12px;
+  /*background-color: white;*/
+  background-color: rgba(50, 52, 61, 0.8);
+}

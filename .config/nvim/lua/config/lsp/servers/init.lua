@@ -1,25 +1,35 @@
+local lspconfig = require("lspconfig")
+local mason_lspconfig = require("mason-lspconfig")
 local on_attach = require("config.lsp.servers.on_attach")
-local lsp_installer = require("nvim-lsp-installer")
-local tsserver = require("config.lsp.servers.tsserver")
-local emmet = require("config.lsp.servers.emmet")
 
-require("config.lsp.servers.installer")
+require("config.lsp.servers.mason")
 
---require("config.lsp.on_attach.diagnostics")
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lsp_installer.on_server_ready(function(server)
-	local opts = { on_attach = on_attach }
+mason_lspconfig.setup_handlers {
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  function(server_name) -- default handler (optional)
+    if server_name == "html" or server_name == "cssls" or server_name == "tsserver" or server_name == "jsonls" or server_name == "yamlls" then
+      lspconfig[server_name].setup { on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+        on_attach(client, bufnr)
+      end,
+        capabilities = capabilities
+      }
+    else
+      lspconfig[server_name].setup { on_attach = on_attach, capabilities = capabilities }
+    end
+  end,
+  -- Next, you can provide a dedicated handler for specific servers.
+  -- For example, a handler override for the `rust_analyzer`:
+  --["rust_analyzer"] = function()
+  --require("rust-tools").setup {}
+  --end
+}
 
-	if server.name == "tsserver" then
-		opts = tsserver
-	end
-
-	if server.name == "emmet_ls" then
-		opts = emmet
-	end
-	-- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
-	server:setup(opts)
-	--vim.cmd([[ do User LspAttachBuffers ]])
-end)
+--lspconfig.vala_ls.setup { on_attach = on_attach }
 
 require("config.lsp.servers.null-ls")

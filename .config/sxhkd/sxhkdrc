@@ -12,11 +12,15 @@ super + d
 
 # program launcher
 #super + @space
-#super + space
-  #rofi -show combi
-
 super + space
-  ulauncher-toggle
+  rofi -show combi
+  #rofi -x11 -show combi
+
+#super + space
+  #ulauncher-toggle
+
+#super + space
+  #krunner
 
 #alt + Tab
 #	rofi -show window
@@ -171,12 +175,12 @@ super + {Left,Down,Up,Right}
 ## 	playerctl stop
 
 ## Calculator
-#XF86Calculator
-	#qalculate-gtk
-
-# Calculator
 XF86Calculator
-  kcalc
+  qalculate-qt
+
+## Calculator
+#XF86Calculator
+  #kcalc
 
 #Print
 	#flameshot gui

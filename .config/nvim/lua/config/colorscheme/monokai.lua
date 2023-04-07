@@ -10,13 +10,13 @@ palette.base2 = "NONE"
 --palette.yellow = "#E1E120"
 
 monokai.setup({
-	palette = palette,
-	custom_hlgroups = {
-		NormalFloat = {
-			bg = palette.base2,
-		},
-		FloatBorder = {
-			fg = palette.white,
-		},
-	},
+  palette = palette,
+  custom_hlgroups = {
+    NormalFloat = {
+      bg = palette.base2,
+    },
+    FloatBorder = {
+      fg = palette.white,
+    },
+  },
 })

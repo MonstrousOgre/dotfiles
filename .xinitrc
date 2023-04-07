@@ -56,7 +56,7 @@ fi
 
 numlockx &
 
-export KDEWM=/usr/bin/bspwm
+#export KDEWM=/usr/bin/bspwm
 export DESKTOP_SESSION=plasma
 exec startplasma-x11
 

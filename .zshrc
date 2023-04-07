@@ -1,4 +1,4 @@
-# The following lines were added by compinstall
+
 
 zstyle ':completion:*' completer _complete _ignored _correct _approximate
 zstyle ':completion:*' group-name ''

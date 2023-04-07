@@ -1,44 +1,40 @@
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- Capture real implementation of function that sets signs
-local orig_set_signs = vim.lsp.diagnostic.set_signs
-local set_signs_limited = function(diagnostics, bufnr, client_id, sign_ns, opts)
-	-- original func runs some checks, which I think is worth doing
-	-- but maybe overkill
-	if not diagnostics then
-		diagnostics = diagnostic_cache[bufnr][client_id]
-	end
+-- Create a custom namespace. This will aggregate signs from all other
+-- namespaces and only show the one with the highest severity on a
+-- given line
+local ns = vim.api.nvim_create_namespace("my_namespace")
 
-	-- early escape
-	if not diagnostics then
-		return
-	end
+-- Get a reference to the original signs handler
+local orig_signs_handler = vim.diagnostic.handlers.signs
 
-	-- Work out max severity diagnostic per line
-	local max_severity_per_line = {}
-	for _, d in pairs(diagnostics) do
-		if max_severity_per_line[d.range.start.line] then
-			local current_d = max_severity_per_line[d.range.start.line]
-			if d.severity < current_d.severity then
-				max_severity_per_line[d.range.start.line] = d
-			end
-		else
-			max_severity_per_line[d.range.start.line] = d
-		end
-	end
+-- Override the built-in signs handler
+vim.diagnostic.handlers.signs = {
+  show = function(_, bufnr, _, opts)
+    -- Get all diagnostics from the whole buffer rather than just the
+    -- diagnostics passed to the handler
+    local diagnostics = vim.diagnostic.get(bufnr)
 
-	-- map to list
-	local filtered_diagnostics = {}
-	for i, v in pairs(max_severity_per_line) do
-		table.insert(filtered_diagnostics, v)
-	end
+    -- Find the "worst" diagnostic per line
+    local max_severity_per_line = {}
+    for _, d in pairs(diagnostics) do
+      local m = max_severity_per_line[d.lnum]
+      if not m or d.severity < m.severity then
+        max_severity_per_line[d.lnum] = d
+      end
+    end
 
-	-- call original function
-	orig_set_signs(filtered_diagnostics, bufnr, client_id, sign_ns, opts)
-end
-vim.lsp.diagnostic.set_signs = set_signs_limited
+    -- Pass the filtered diagnostics (with our custom namespace) to
+    -- the original handler
+    local filtered_diagnostics = vim.tbl_values(max_severity_per_line)
+    orig_signs_handler.show(ns, bufnr, filtered_diagnostics, opts)
+  end,
+  hide = function(_, bufnr)
+    orig_signs_handler.hide(ns, bufnr)
+  end,
+}

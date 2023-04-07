@@ -13,8 +13,8 @@ export TERMINAL="kitty"
 # Use bat as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-#export QT_QPA_PLATFORMTHEME='qt5ct'
-# export QT_STYLE_OVERRIDE=kvantum
+export QT_QPA_PLATFORMTHEME='qt5ct'
+#export QT_STYLE_OVERRIDE=kvantum
 
 # For visual paradigm
 export _JAVA_AWT_WM_NONREPARENTING=1

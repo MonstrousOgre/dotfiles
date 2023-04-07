@@ -6,7 +6,8 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 #~/.config/polybar/launch.sh
 
 pkill picom
-picom --experimental-backends &
+#picom --experimental-backends &
+picom &
 
 #bspc monitor -d I II III IV V VI VII VIII IX X 
 bspc monitor -d     爵   調  
@@ -33,12 +34,15 @@ bspc config normal_border_color "#32343d"
 
 bspc rule -a Vivaldi-stable desktop=
 bspc rule -a Opera desktop=
+bspc rule -a firefox desktop=
 bspc rule -a Spotify desktop=
 # bspc rule -a vlc desktop=video
 #bspc rule -a Pavucontrol state=floating
 #bspc rule -a Qalculate-gtk state=floating
 #bspc rule -a Steam desktop=調
 #bspc rule -a "Microsoft Teams - Preview" desktop=
+bspc rule -a 'zoom ' desktop= state=floating center=on follow=on border=off
+bspc rule -a 'zoom' desktop= state=floating center=on follow=on border=off
 
 bspc rule -a plasmashell state=floating border=off sticky=off center=off
 bspc rule -a krunner state=floating border=off sticky=off center=off 

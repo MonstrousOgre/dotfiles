@@ -1,7 +1,7 @@
 require("bufferline").setup({
-	options = {
-		offsets = { { filetype = "NvimTree", text = "File Explorer" } },
-	},
+    options = {
+        offsets = { { filetype = "NvimTree", text = "File Explorer" } },
+    },
 })
 
 local opts = { noremap = true, silent = true }
