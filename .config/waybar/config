@@ -38,16 +38,19 @@
         "sort-by-number": true,
         "on-click": "activate",
         "persistent_workspaces": {
-            "1": [],
+            "1": [],// Always show a workspace with name '3', on all outputs if it does not exists
             "2": [],
-            "3": [], // Always show a workspace with name '3', on all outputs if it does not exists
-            "4": [], // Always show a workspace with name '4', on output 'eDP-1' if it does not exists
-            "5": ["eDP-1", "HDMI-A-1"], // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
-            "6": ["eDP-1", "HDMI-A-1"], // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
-            "7": ["eDP-1", "HDMI-A-1"], // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
-            "8": ["eDP-1", "HDMI-A-1"], // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
-            "9": ["HDMI-A-1"], // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
-            "10": ["eDP-1", "HDMI-A-1"] // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
+            "3": [], 
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": [],
+            //"3": [],  // Always show a workspace with name '3', on all outputs if it does not exists
+            //"4": ["eDP-1"], // Always show a workspace with name '4', on output 'eDP-1' if it does not exists
+            //"5": ["eDP-1", "DP-2"] // Always show a workspace with name '5', on outputs 'eDP-1' and 'DP-2' if it does not exists
         }
     },
     "keyboard-state": {
