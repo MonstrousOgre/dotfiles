@@ -75,21 +75,21 @@ table.insert(components.active[3], {
   provider = "diagnostic_hints",
   right_sep = " ",
   hl = "DiagnosticSignHint",
-  icon = " ",
+  icon = "󰌶 ",
 })
 
 table.insert(components.active[3], {
   provider = "diagnostic_warnings",
   right_sep = " ",
   hl = "DiagnosticSignWarn",
-  icon = " ",
+  icon = "󰀪 ",
 })
 
 table.insert(components.active[3], {
   provider = "diagnostic_errors",
   right_sep = " ",
   hl = "DiagnosticSignError",
-  icon = " ",
+  icon = "󰅚 ",
 })
 
 table.insert(components.active[3], {

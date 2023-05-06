@@ -13,7 +13,7 @@ export TERMINAL="kitty"
 # Use bat as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-export QT_QPA_PLATFORMTHEME='qt5ct'
+#export QT_QPA_PLATFORMTHEME='qt5ct'
 #export QT_STYLE_OVERRIDE=kvantum
 
 # For visual paradigm

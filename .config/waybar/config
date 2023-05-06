@@ -20,16 +20,16 @@
         // "format": "{name}: {icon}",
         "format": "{icon}",
         "format-icons": {
-            "1": "",
+            "1": "",
             "2": "",
-            "3": "",
+            "3": "󰘦",
             "4": "",
             "5": "",
-            "6": "",
-            //"7": "調",
-            "7": "﫮",
-            "8": "",
-            "9": "",
+            "6": "󰍪",
+            //"7": "󰖺",
+            "7": "󰗯",
+            "8": "󰎁",
+            "9": "󰎈",
             "10": "",
             "urgent": "",
             "focused": "",
@@ -38,7 +38,7 @@
         "sort-by-number": true,
         "on-click": "activate",
         "persistent_workspaces": {
-            "1": [],// Always show a workspace with name '3', on all outputs if it does not exists
+            "1": [],
             "2": [],
             "3": [], 
             "4": [],
@@ -142,7 +142,7 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""]
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -160,7 +160,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
@@ -173,10 +173,10 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        /*"format-ethernet": "{ipaddr}/{cidr} ",*/
-        "format-ethernet": "{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        /*"format-ethernet": "{ipaddr}/{cidr} 󰈁",*/
+        "format-ethernet": "{cidr} 󰈁",
+        "tooltip-format": "{ifname} via {gwaddr} 󰈁",
+        "format-linked": "{ifname} (No IP) 󰈁",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
@@ -187,10 +187,10 @@
         "format": "{volume}% {icon}",
         /*"format-bluetooth": "{volume}% {icon} {format_source}",*/
         "format-bluetooth": "{icon}",
-        /*"format-bluetooth-muted": " {icon} {format_source}",*/
-        "format-bluetooth-muted": " ",
-        /*"format-muted": " {format_source}",*/
-        /*"format-muted": " ",*/
+        /*"format-bluetooth-muted": "󰝟 {icon} {format_source}",*/
+        "format-bluetooth-muted": "󰝟 ",
+        /*"format-muted": "󰝟 {format_source}",*/
+        /*"format-muted": "󰝟 ",*/
         "format-muted": "",
         "format-source": "{volume}% ",
         "format-source-muted": "",
@@ -202,7 +202,7 @@
             "portable": "",
             "car": "",
             /*"default": ["", "", ""]*/
-            "default": ["", "", "墳", ""]
+            "default": ["", "", "󰕾", ""]
         },
         /*"on-click": "pavucontrol",*/
         "on-click": "volumectl -u toggle-mute",
@@ -229,15 +229,15 @@
         /*// "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name*/
     /*},*/
     "custom/media": {
-        "format": "{icon} {}",
+        "format": "{icon}   {}",
         "return-type": "json",
         /*"format-icons": {*/
             /*"Playing": " ",*/
             /*"Paused": " ",*/
         /*},*/
         "format-icons": {
-                "spotify": "  ",
-                "default": "🎜"
+                "spotify": "",
+                "default": ""
         },
         "max-length":70,
         /*"exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",*/

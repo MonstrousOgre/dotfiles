@@ -45,18 +45,11 @@ return packer.startup(function(use)
   -- Packer can manage itself
   use("wbthomason/packer.nvim")
 
-  use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+  use({ "nvim-tree/nvim-tree.lua", requires = "nvim-tree/nvim-web-devicons" })
 
-  --use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
-  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
-  --use {
-  --'glepnir/galaxyline.nvim',
-  --branch = 'main',
-  --requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  --}
-
-  use({ "feline-nvim/feline.nvim", requires = { "lewis6991/gitsigns.nvim", "kyazdani42/nvim-web-devicons" } })
+  use({ "feline-nvim/feline.nvim", requires = { "lewis6991/gitsigns.nvim", "nvim-tree/nvim-web-devicons" } })
 
   use("voldikss/vim-floaterm")
 
@@ -76,22 +69,19 @@ return packer.startup(function(use)
   use("preservim/nerdcommenter")
 
   -- Better Syntax Support
-  --use("sheerun/vim-polyglot")
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
   use("baskerville/vim-sxhkdrc")
 
-  use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
-  use("hrsh7th/nvim-cmp") -- Autocompletion plugin
-  use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
+  use("neovim/nvim-lspconfig")    -- Collection of configurations for built-in LSP client
+  use("hrsh7th/nvim-cmp")         -- Autocompletion plugin
+  use("hrsh7th/cmp-nvim-lsp")     -- LSP source for nvim-cmp
   use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
-  use("L3MON4D3/LuaSnip") -- Snippets plugin use 'neovim/nvim-lspconfig'
-  --use("williamboman/nvim-lsp-installer")
+  use("L3MON4D3/LuaSnip")         -- Snippets plugin use 'neovim/nvim-lspconfig'
 
   use { "williamboman/mason.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }
 
-  --use("rafamadriz/friendly-snippets")
 
   use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } })
 

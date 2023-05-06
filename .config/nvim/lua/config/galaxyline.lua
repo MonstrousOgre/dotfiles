@@ -77,7 +77,7 @@ gls.left = {
 		DiffModified = {
 			provider = "DiffModified",
 			condition = condition.hide_in_width,
-			icon = " 柳",
+			icon = " 󰝤",
 			highlight = { colors.orange, "NONE" },
 		},
 	},

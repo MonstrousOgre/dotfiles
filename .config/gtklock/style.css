@@ -21,4 +21,5 @@ window#HDMI-A-1 {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 12px;
   /*background-color: white;*/
   background-color: rgba(50, 52, 61, 0.8);
+  color: #ccc
 }
