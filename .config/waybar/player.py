@@ -11,15 +11,15 @@ from subprocess import run
 
 def getPlayer():
     data = run('playerctl metadata --format {{playerName}}',capture_output=True,shell=True)
-    return data.stdout.decode('ascii').strip()
+    return data.stdout.decode('utf-8').strip()
 
 def getArtist():
     data = run('playerctl metadata artist',capture_output=True,shell=True)
-    return data.stdout.decode('ascii').strip()
+    return data.stdout.decode('utf-8').strip()
 
 def getTitle():
     data = run('playerctl metadata title',capture_output=True,shell=True)
-    return data.stdout.decode('ascii').strip()
+    return data.stdout.decode('utf-8').strip()
 
 def main():
     artist = html.escape(getArtist())
