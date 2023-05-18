@@ -1,0 +1,5 @@
+#!/bin/sh
+
+unset WAYLAND_DISPLAY
+
+exec zoom

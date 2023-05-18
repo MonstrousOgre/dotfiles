@@ -12,7 +12,7 @@
     /*"modules-center": ["sway/window"],*/
     "modules-center": ["hyprland/window"],
     /*"modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],*/
-    "modules-right": ["cpu", "memory", "temperature", "backlight", "battery", "clock","pulseaudio",  "tray"],
+    "modules-right": ["idle_inhibitor", "cpu", "memory", "temperature", "backlight", "battery", "clock","pulseaudio",  "tray"],
     // Modules configuration
     "wlr/workspaces": {
         "disable-scroll": true,

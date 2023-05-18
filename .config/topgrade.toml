@@ -46,8 +46,9 @@ disable = ["firmware","spicetify"]
 # Skip sending a notification at the end of a run
 skip_notify = true
 
-#[python]
+[python]
 #enable_pip_review = true
+#enable_pip_review_local = true
 
 [git]
 #max_concurrency = 5
