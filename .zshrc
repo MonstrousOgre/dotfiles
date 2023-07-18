@@ -31,6 +31,10 @@ if [[ $(uname -s) == "Linux" ]]; then
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 fi
+if [[ $(uname -s) == "Darwin" ]]; then
+  source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+fi
 
 source ~/.shell-aliases
 
