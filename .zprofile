@@ -7,3 +7,6 @@ if [[ $(uname -s) == "Linux" ]]; then
     exec startx
   fi
 fi
+if [[ $(uname -s) == "Darwin" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
