@@ -48,7 +48,7 @@ skip_notify = true
 
 [python]
 #enable_pip_review = true
-#enable_pip_review_local = true
+enable_pip_review_local = true
 
 [git]
 #max_concurrency = 5
@@ -74,7 +74,7 @@ skip_notify = true
 # Custom commands
 [commands]
 #"Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
-"pip packages" = "pip-review --local --auto"
+#"pip packages" = "pip-review --local --auto"
 
 [brew]
 #greedy_cask = true

@@ -13,7 +13,7 @@ zstyle ':completion:*' original true
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' squeeze-slashes true
-zstyle :compinstall filename '/home/ogre/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
@@ -27,14 +27,11 @@ setopt INC_APPEND_HISTORY
 # export KEYTIMEOUT=1
 # End of lines configured by zsh-newuser-install
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+if [[ $(uname -s) == "Linux" ]]; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+fi
 
 source ~/.shell-aliases
-
-#export TEST="hello"
-
-# export PATH=$PATH:~/.local/bin
-# source "$HOME/.cargo/env"
 
 eval "$(starship init zsh)"
