@@ -43,7 +43,7 @@ yabai -m config                                 \
     right_padding                12             \
     window_gap                   06             \
     layout                       bsp            \
-    mouse_modifier               fn             \
+    mouse_modifier               alt            \
     mouse_action1                move           \
     mouse_action2                resize         \
     mouse_drop_action            swap
@@ -52,3 +52,5 @@ yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Installer$" manage=off
 yabai -m rule --add app="^Google Drive$" manage=off
+yabai -m rule --add app="^Microsoft Teams$" manage=off
+yabai -m rule --add app="^zoom.us$" manage=off
