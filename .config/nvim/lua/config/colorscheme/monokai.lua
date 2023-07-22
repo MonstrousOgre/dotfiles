@@ -7,6 +7,7 @@ local palette = monokai.soda
 --palette.none = 'NONE'
 --palette.base1 = 'NONE'
 palette.base2 = "NONE"
+palette.base4 = "#555862"
 --palette.yellow = "#E1E120"
 
 monokai.setup({
