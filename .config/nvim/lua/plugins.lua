@@ -49,7 +49,10 @@ return packer.startup(function(use)
 
   use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
-  use({ "feline-nvim/feline.nvim", requires = { "lewis6991/gitsigns.nvim", "nvim-tree/nvim-web-devicons" } })
+  use({
+    "freddiehaddad/feline.nvim",
+    requires = { "lewis6991/gitsigns.nvim", "nvim-tree/nvim-web-devicons" }
+  })
 
   use("voldikss/vim-floaterm")
 
@@ -100,6 +103,12 @@ return packer.startup(function(use)
 
   use("tpope/vim-fugitive")
   use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
+
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

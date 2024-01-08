@@ -47,6 +47,7 @@ bspc config normal_border_color "#32343d"
 bspc rule -a 'zoom ' state=floating center=on follow=on border=off
 bspc rule -a 'zoom' state=floating center=on follow=on border=off
 bspc rule -a 'spectacle' state=floating center=on follow=on
+bspc rule -a 'Com.cisco.anyconnect.gui' state=floating center=on follow=on
 
 bspc rule -a plasmashell state=floating border=off sticky=off center=off
 bspc rule -a krunner state=floating border=off sticky=off center=off 

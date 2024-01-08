@@ -135,3 +135,7 @@ require("feline").setup({
   },
   components = components,
 })
+
+--require('feline').winbar.setup()
+
+--require('feline').statuscolumn.setup()

@@ -63,6 +63,13 @@ button:hover {
   background: rgba(0, 0, 0, 0.2);
 }
 
+/*#workspaces button.persistent {*/
+#workspaces button.empty {
+  /*color: rgba(100, 114, 125, 1);*/
+  /*color: #696969;*/
+  color: #999999;
+}
+
 #workspaces button.focused,
 #workspaces button.active {
   /*background-color: #64727d;*/
@@ -83,12 +90,6 @@ button:hover {
   /*background-color: #eb4d4b;*/
   background-color: #eb4d4b;
   border-radius: 3px;
-}
-
-#workspaces button.persistent {
-  /*color: rgba(100, 114, 125, 1);*/
-  /*color: #696969;*/
-  color: #999999;
 }
 
 #window {
@@ -226,7 +227,9 @@ label:focus {
 #custom-media {
   /*background-color: #66cc99;*/
   /*color: #2a5c45;*/
-  font-family: PT Sans, UbuntuMono Nerd Font;
+  font-family:
+    PT Sans,
+    UbuntuMono Nerd Font;
   min-width: 100px;
 }
 

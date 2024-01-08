@@ -8,6 +8,8 @@
 
 # lower panels. desktop must be underneath everything else
 xdo lower -n plasmashell
+xdo raise -n plasmashell
+xdo lower -n plasmashell
 xdo lower -n plasmashell -a Desktop
 
 # bspwm root prevents clicking on desktop icons/panels when focus_follows_mouse is active (?)
