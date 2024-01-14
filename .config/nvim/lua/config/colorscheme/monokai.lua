@@ -13,14 +13,17 @@ palette.base4 = "#555862"
 monokai.setup({
   palette = palette,
   custom_hlgroups = {
-    TelescopeNormal = {
-      bg = palette.base2,
-    },
     NormalFloat = {
       bg = palette.base2,
     },
     FloatBorder = {
       fg = palette.white,
+    },
+    TelescopeNormal = {
+      bg = palette.base2,
+    },
+    FoldColumn = {
+      bg = palette.base2,
     },
   },
 })

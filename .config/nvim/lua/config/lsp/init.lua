@@ -5,6 +5,8 @@ completionKinds.setup()
 
 require("config.lsp.servers")
 
+require("config.lsp.ufo")
+
 require("config.lsp.cmp")
 
 require("config.lsp.lsp_auto_cmd")

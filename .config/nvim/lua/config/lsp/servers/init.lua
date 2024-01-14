@@ -15,6 +15,10 @@ mason_lspconfig.setup_handlers {
       lspconfig[server_name].setup { on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
+        capabilities.textDocument.foldingRange = {
+          dynamicRegistration = false,
+          lineFoldingOnly = true
+        }
         on_attach(client, bufnr)
       end,
         capabilities = capabilities
