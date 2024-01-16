@@ -22,3 +22,4 @@ alias yay='paru'
 
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias lz-config='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

@@ -37,6 +37,12 @@ const Workspaces = () =>
 const ClientTitle = () =>
   Widget.Label({
     class_name: "client-title",
+    label: "-",
+    truncate: "end",
+    xalign: 0,
+    max_width_chars: 80,
+    wrap: true,
+    use_markup: true,
     label: Hyprland.active.client.bind("title"),
   });
 
@@ -81,7 +87,7 @@ const Media = () =>
           label: "-",
           truncate: "end",
           xalign: 0,
-          max_width_chars: 40,
+          max_width_chars: 60,
           wrap: true,
           use_markup: true,
         }).hook(
