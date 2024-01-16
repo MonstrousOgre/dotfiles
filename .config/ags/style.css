@@ -1,0 +1,73 @@
+window.bar {
+  /*background-color: @theme_bg_color;*/
+  color: @theme_fg_color;
+  border-bottom: 3px solid rgba(86, 87, 245, 0.5);
+  background-color: rgba(49, 49, 58, 0.5);
+}
+
+icon {
+  font-family: UbuntuMono Nerd Font;
+  font-size: 13px;
+}
+
+button {
+  min-width: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+  border-bottom: 3px solid transparent;
+  color: @theme_fg_color;
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+button.nohover:hover {
+  background: transparent;
+}
+
+button:active {
+  background-color: @theme_selected_bg_color;
+}
+
+.workspaces button {
+  padding: 2 10px;
+  font-family: UbuntuMono Nerd Font;
+  font-size: 13px;
+  border-radius: 0;
+}
+
+.workspaces button.persistent {
+  color: @insensitive_fg_color;
+}
+
+.workspaces button:hover {
+  border-bottom: 3px solid @theme_fg_color;
+}
+
+.workspaces button:hover {
+  border-bottom: 3px solid @theme_fg_color;
+}
+
+.workspaces button.focused {
+  background-color: @theme_selected_bg_color;
+  border-radius: 3px;
+}
+
+label {
+  /*font-weight: bold;*/
+}
+
+.client-title {
+  /*color: @theme_selected_bg_color;*/
+}
+
+.notification {
+  color: yellow;
+}
+
+progress,
+highlight {
+  min-height: 8px;
+}
