@@ -44,6 +44,7 @@ const ClientTitle = () =>
     wrap: true,
     use_markup: true,
     label: Hyprland.active.client.bind("title"),
+    tooltip_text: Hyprland.active.client.bind("title"),
   });
 
 const Clock = () =>
@@ -87,7 +88,7 @@ const Media = () =>
           label: "-",
           truncate: "end",
           xalign: 0,
-          max_width_chars: 60,
+          max_width_chars: 50,
           wrap: true,
           use_markup: true,
         }).hook(
@@ -95,7 +96,8 @@ const Media = () =>
           (self) => {
             if (Mpris.getPlayer("playerctld")?.track_title !== "Unknown title") {
               const { track_artists, track_title } = Mpris.getPlayer("playerctld");
-              self.label = `${track_artists.join(", ")} - ${track_title}`;
+              const text = `${track_artists.join(", ")} - ${track_title}`;
+              self.label = self.tooltip_text = text;
             } else {
               self.label = "Nothing is playing";
             }
