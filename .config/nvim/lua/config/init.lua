@@ -8,5 +8,6 @@ require("config.floaterm")
 require("config.treesitter")
 require("config.lsp")
 require("config.telescope")
+require("config.comment")
 
 require("ibl").setup()

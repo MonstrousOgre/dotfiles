@@ -69,7 +69,9 @@ return packer.startup(function(use)
   use("tanvirtin/monokai.nvim")
   --use("psliwka/termcolors.nvim")
 
-  use("preservim/nerdcommenter")
+  --use("preservim/nerdcommenter")
+
+  use { 'numToStr/Comment.nvim' }
 
   -- Better Syntax Support
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
