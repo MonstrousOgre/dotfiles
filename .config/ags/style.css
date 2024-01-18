@@ -23,8 +23,13 @@ button:hover {
   background: rgba(0, 0, 0, 0.2);
 }
 
-button.nohover:hover {
+button.nohover:hover,
+button.disabled:hover {
   background: transparent;
+}
+
+button.disabled {
+  color: @insensitive_fg_color;
 }
 
 button:active {
