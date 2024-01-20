@@ -1,5 +1,6 @@
 import App from "resource:///com/github/Aylur/ags/app.js";
 import Bar from "./bar/bar.js";
+import OSD from "./osd/osd.js";
 
 import { monitors } from "./options.js";
 
@@ -11,6 +12,7 @@ monitorFile(`${App.configDir}/style.css`, function () {
 });
 
 const bars = monitors.map((monitor) => Bar(monitor));
+const osds = monitors.map((monitor) => OSD(monitor));
 
 // exporting the config so ags can manage the windows
 export default {
@@ -19,5 +21,6 @@ export default {
     //Bar(),
     //Bar(0),
     bars,
+    osds,
   ],
 };

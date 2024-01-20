@@ -2,6 +2,9 @@ import Mpris from "resource:///com/github/Aylur/ags/service/mpris.js";
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
 
 import { defaultPlayerName } from "../options.js";
+import icons from "../icons.js";
+
+const { prev, play, pause, next } = icons.player;
 
 const Player = () =>
   Widget.Box({
@@ -45,7 +48,7 @@ const Player = () =>
       Widget.Button({
         className: "media icon",
         onPrimaryClick: () => Mpris.getPlayer(defaultPlayerName)?.previous(),
-        child: Widget.Icon("media-skip-backward-symbolic"),
+        child: Widget.Icon(prev),
       }).hook(
         Mpris,
         (self) => {
@@ -62,9 +65,9 @@ const Player = () =>
         onPrimaryClick: () => Mpris.getPlayer(defaultPlayerName)?.playPause(),
         child: Widget.Icon("").hook(Mpris, (self) => {
           if (Mpris.getPlayer(defaultPlayerName)?.playBackStatus !== "Playing") {
-            self.icon = "media-playback-start-symbolic";
+            self.icon = play;
           } else {
-            self.icon = "media-playback-pause-symbolic";
+            self.icon = pause;
           }
         }),
       }).hook(
@@ -82,7 +85,7 @@ const Player = () =>
         className: "media icon",
         onPrimaryClick: () => Mpris.getPlayer(defaultPlayerName)?.next(),
         //child: Widget.Icon("media-seek-forward-symbolic"),
-        child: Widget.Icon("media-skip-forward-symbolic"),
+        child: Widget.Icon(next),
       }).hook(
         Mpris,
         (self) => {

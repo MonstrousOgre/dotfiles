@@ -1,8 +1,17 @@
-window.bar {
+window {
   /*background-color: @theme_bg_color;*/
   color: @theme_fg_color;
-  border-bottom: 3px solid rgba(86, 87, 245, 0.5);
   background-color: rgba(49, 49, 58, 0.5);
+}
+
+window.bar {
+  border-bottom: 3px solid rgba(86, 87, 245, 0.5);
+}
+
+window.osd {
+  padding: 10px;
+  border: 2px solid @theme_selected_bg_color;
+  border-radius: 8px;
 }
 
 icon {

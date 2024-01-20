@@ -1,5 +1,7 @@
 export const monitors = [0, 1];
 
+export const osdTimeout = 5000;
+
 export const defaultPlayerName = "playerctld";
 
 export const timeFormat = "+%I:%M:%S %p %b %e";
