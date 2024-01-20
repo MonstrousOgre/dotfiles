@@ -3,15 +3,15 @@ import Widget from "resource:///com/github/Aylur/ags/widget.js";
 
 const WindowTitle = () =>
   Widget.Label({
-    class_name: "client-title",
+    className: "client-title",
     label: "-",
     truncate: "end",
     xalign: 0,
-    max_width_chars: 80,
+    maxWidthChars: 80,
     wrap: true,
-    use_markup: true,
+    useMarkup: true,
     label: Hyprland.active.client.bind("title"),
-    tooltip_text: Hyprland.active.client.bind("title"),
+    tooltipText: Hyprland.active.client.bind("title"),
   });
 
 export default WindowTitle;

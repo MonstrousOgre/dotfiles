@@ -1,29 +1,30 @@
 import Mpris from "resource:///com/github/Aylur/ags/service/mpris.js";
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
 
+import { defaultPlayerName } from "../options.js";
+
 const Player = () =>
   Widget.Box({
     children: [
       Widget.Button({
-        class_name: "media nohover",
-        on_scroll_up: () => Mpris.getPlayer("playerctld")?.next(),
-        on_scroll_down: () => Mpris.getPlayer("playerctld")?.previous(),
+        className: "media nohover",
+        onScrollUp: () => Mpris.getPlayer(defaultPlayerName)?.next(),
+        onScrollDown: () => Mpris.getPlayer(defaultPlayerName)?.previous(),
         child: Widget.Label({
-          class_name: "track",
+          className: "track",
           label: "-",
           truncate: "end",
           xalign: 0,
-          max_width_chars: 50,
+          maxWidthChars: 50,
           wrap: true,
-          use_markup: true,
+          useMarkup: true,
         }).hook(
           Mpris,
           (self) => {
-            if (Mpris.getPlayer("playerctld")?.track_title !== "Unknown title") {
-              const { track_artists, track_title } = Mpris.getPlayer("playerctld");
-              const text =
-                track_artists && track_artists[0] ? `${track_artists.join(", ")} - ${track_title}` : track_title;
-              self.label = self.tooltip_text = text;
+            if (Mpris.getPlayer(defaultPlayerName)?.trackTitle !== "Unknown title") {
+              const { trackArtists, trackTitle } = Mpris.getPlayer(defaultPlayerName);
+              const text = trackArtists && trackArtists[0] ? `${trackArtists.join(", ")} - ${trackTitle}` : trackTitle;
+              self.label = self.tooltipText = text;
             } else {
               self.label = "Nothing is playing";
             }
@@ -33,7 +34,7 @@ const Player = () =>
       }).hook(
         Mpris,
         (self) => {
-          if (Mpris.getPlayer("playerctld")?.track_title !== "Unknown title") {
+          if (Mpris.getPlayer(defaultPlayerName)?.trackTitle !== "Unknown title") {
             self.toggleClassName("disabled", false);
           } else {
             self.toggleClassName("disabled", true);
@@ -42,13 +43,13 @@ const Player = () =>
         "changed",
       ),
       Widget.Button({
-        class_name: "media icon",
-        on_primary_click: () => Mpris.getPlayer("playerctld")?.previous(),
+        className: "media icon",
+        onPrimaryClick: () => Mpris.getPlayer(defaultPlayerName)?.previous(),
         child: Widget.Icon("media-skip-backward-symbolic"),
       }).hook(
         Mpris,
         (self) => {
-          if (Mpris.getPlayer("playerctld")?.can_go_prev) {
+          if (Mpris.getPlayer(defaultPlayerName)?.canGoPrev) {
             self.toggleClassName("disabled", false);
           } else {
             self.toggleClassName("disabled", true);
@@ -57,10 +58,10 @@ const Player = () =>
         "changed",
       ),
       Widget.Button({
-        class_name: "media icon",
-        on_primary_click: () => Mpris.getPlayer("playerctld")?.playPause(),
+        className: "media icon",
+        onPrimaryClick: () => Mpris.getPlayer(defaultPlayerName)?.playPause(),
         child: Widget.Icon("").hook(Mpris, (self) => {
-          if (Mpris.getPlayer("playerctld")?.play_back_status !== "Playing") {
+          if (Mpris.getPlayer(defaultPlayerName)?.playBackStatus !== "Playing") {
             self.icon = "media-playback-start-symbolic";
           } else {
             self.icon = "media-playback-pause-symbolic";
@@ -69,7 +70,7 @@ const Player = () =>
       }).hook(
         Mpris,
         (self) => {
-          if (Mpris.getPlayer("playerctld")?.can_play) {
+          if (Mpris.getPlayer(defaultPlayerName)?.canPlay) {
             self.toggleClassName("disabled", false);
           } else {
             self.toggleClassName("disabled", true);
@@ -78,14 +79,14 @@ const Player = () =>
         "changed",
       ),
       Widget.Button({
-        class_name: "media icon",
-        on_primary_click: () => Mpris.getPlayer("playerctld")?.next(),
+        className: "media icon",
+        onPrimaryClick: () => Mpris.getPlayer(defaultPlayerName)?.next(),
         //child: Widget.Icon("media-seek-forward-symbolic"),
         child: Widget.Icon("media-skip-forward-symbolic"),
       }).hook(
         Mpris,
         (self) => {
-          if (Mpris.getPlayer("playerctld")?.can_go_next) {
+          if (Mpris.getPlayer(defaultPlayerName)?.canGoNext) {
             self.toggleClassName("disabled", false);
           } else {
             self.toggleClassName("disabled", true);
