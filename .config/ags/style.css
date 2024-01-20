@@ -11,7 +11,7 @@ window.bar {
 window.osd {
   padding: 10px;
   border: 2px solid @theme_selected_bg_color;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 icon {
