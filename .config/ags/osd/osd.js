@@ -1,11 +1,12 @@
 import Audio from "resource:///com/github/Aylur/ags/service/audio.js";
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
 
-import { showOSD, osdIcon, osdProgress, volumePopup } from "./indicator.js";
+import { showOSD, osdIcon, osdProgress } from "./indicator.js";
+import { volumePopup } from "./audioIndicator.js";
 
 const OSD = (monitor = 0) =>
   Widget.Window({
-    name: `osd-${monitor}`, // name has to be unique
+    name: "osd", // name has to be unique
     class_name: "osd",
     visible: showOSD.bind(),
     focusable: false,

@@ -1,9 +1,11 @@
-@import "./bar/style.css";
-@import "./osd/style.css";
-@import "./notification-popups/style.css";
-
 window {
   /*background-color: @theme_bg_color;*/
   color: @theme_fg_color;
   background-color: rgba(49, 49, 58, 0.5);
+}
+
+window.osd {
+  padding: 10px;
+  border: 2px solid @theme_selected_bg_color;
+  border-radius: 10px;
 }

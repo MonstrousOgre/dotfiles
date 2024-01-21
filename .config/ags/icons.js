@@ -12,4 +12,10 @@ export default {
     medium: "audio-volume-medium-symbolic",
     low: "audio-volume-low-symbolic",
   },
+  pan: {
+    down: "pan-down-symbolic",
+    left: "pan-start-symbolic",
+    right: "pan-end-symbolic",
+    up: "pan-up-symbolic",
+  },
 };

@@ -1,37 +1,38 @@
-import Hyprland from "resource:///com/github/Aylur/ags/service/hyprland.js";
-//import Notifications from "resource:///com/github/Aylur/ags/service/notifications.js";
-import Mpris from "resource:///com/github/Aylur/ags/service/mpris.js";
-import Audio from "resource:///com/github/Aylur/ags/service/audio.js";
-import Battery from "resource:///com/github/Aylur/ags/service/battery.js";
-import SystemTray from "resource:///com/github/Aylur/ags/service/systemtray.js";
 import App from "resource:///com/github/Aylur/ags/app.js";
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
-import { exec, execAsync } from "resource:///com/github/Aylur/ags/utils.js";
 
 import Workspaces from "./hyprland/workspaces.js";
 import Player from "./player.js";
 import WindowTitle from "./hyprland/window-title.js";
 import Clock from "./clock.js";
 import SysTray from "./system-tray.js";
+import Toggler from "./toggler.js";
 
 // layout of the bar
-const Left = () =>
+const Left = (monitor = 0) =>
   Widget.Box({
     spacing: 8,
     children: [Workspaces()],
   });
 
-const Center = () =>
+const Center = (monitor = 0) =>
   Widget.Box({
     spacing: 8,
     children: [WindowTitle()],
   });
 
-const Right = () =>
+const Right = (monitor = 0) =>
   Widget.Box({
     hpack: "end",
     spacing: 8,
-    children: [Player(), Clock(), SysTray()],
+    children: [
+      Player(),
+      Clock(),
+      SysTray(),
+      Toggler(() => {
+        App.toggleWindow(`settings-${monitor}`);
+      }),
+    ],
   });
 
 const Bar = (monitor = 0) =>
@@ -44,7 +45,7 @@ const Bar = (monitor = 0) =>
     child: Widget.CenterBox({
       start_widget: Left(),
       center_widget: Center(),
-      end_widget: Right(),
+      end_widget: Right(monitor),
     }),
   });
 

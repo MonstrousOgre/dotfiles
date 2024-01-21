@@ -1,0 +1,64 @@
+window#notifications {
+  all: unset;
+}
+
+window#notifications box.notifications {
+  padding: 0.5em;
+}
+
+.notifications .icon {
+  min-width: 68px;
+  min-height: 68px;
+  margin-right: 1em;
+}
+
+.notifications .icon image {
+  font-size: 58px;
+  /* to center the icon */
+  margin: 5px;
+  color: @theme_fg_color;
+}
+
+.notifications .icon box {
+  min-width: 68px;
+  min-height: 68px;
+  border-radius: 7px;
+}
+
+.notification {
+  min-width: 350px;
+  border-radius: 11px;
+  padding: 1em;
+  margin: 0.5em;
+  /*border: 2px solid @wm_borders_edge;*/
+  border: 2px solid @theme_selected_bg_color;
+  /*background-color: @theme_bg_color;*/
+  background-color: rgba(49, 49, 58, 0.5);
+}
+
+.notification.critical {
+  /*border: 2px solid lightcoral;*/
+  border: 2px solid #ff0000;
+}
+
+.notifications .title {
+  color: @theme_fg_color;
+  font-size: 1.4em;
+}
+
+.notifications .body {
+  color: @theme_unfocused_fg_color;
+}
+
+.notifications .actions .action-button {
+  margin: 0 0.4em;
+  margin-top: 0.8em;
+}
+
+.notifications .actions .action-button:first-child {
+  margin-left: 0;
+}
+
+.notifications .actions .action-button:last-child {
+  margin-right: 0;
+}
