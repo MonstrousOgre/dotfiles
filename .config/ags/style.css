@@ -60,12 +60,14 @@ button:active {
   border-bottom: 3px solid @theme_fg_color;
 }
 
-.workspaces button:hover {
-  border-bottom: 3px solid @theme_fg_color;
-}
-
 .workspaces button.focused {
   background-color: @theme_selected_bg_color;
+  border-radius: 3px;
+}
+
+.workspaces button.urgent {
+  /*background-color: #eb4d4b;*/
+  background-color: #eb4d4b;
   border-radius: 3px;
 }
 

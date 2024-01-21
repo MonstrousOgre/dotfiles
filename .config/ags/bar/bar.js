@@ -8,9 +8,9 @@ import App from "resource:///com/github/Aylur/ags/app.js";
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
 import { exec, execAsync } from "resource:///com/github/Aylur/ags/utils.js";
 
-import Workspaces from "./workspaces.js";
+import Workspaces from "./hyprland/workspaces.js";
 import Player from "./player.js";
-import WindowTitle from "./window-title.js";
+import WindowTitle from "./hyprland/window-title.js";
 import Clock from "./clock.js";
 import SysTray from "./system-tray.js";
 
