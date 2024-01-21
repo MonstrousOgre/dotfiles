@@ -15,7 +15,7 @@ const OSD = (monitor = 0) =>
       spacing: 40,
       vertical: true,
       css: "padding: 30px;",
-      children: [Widget.Icon({ icon: osdIcon.bind(), size: 40 }), Widget.ProgressBar({ value: osdProgress.bind() })],
+      children: [Widget.Icon({ icon: osdIcon.bind(), size: 80 }), Widget.ProgressBar({ value: osdProgress.bind() })],
     }),
     setup: (self) => {
       self.hook(

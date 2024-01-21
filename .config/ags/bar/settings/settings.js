@@ -9,7 +9,8 @@ import Widget from "resource:///com/github/Aylur/ags/widget.js";
 import { exec, execAsync } from "resource:///com/github/Aylur/ags/utils.js";
 import icons from "../../icons.js";
 
-import AudioWidget from "./audio.js";
+import AudioOutput from "./audioOutput.js";
+import AudioInput from "./audioInput.js";
 
 const Settings = (monitor = 0) =>
   Widget.Window({
@@ -24,7 +25,7 @@ const Settings = (monitor = 0) =>
       spacing: 4,
       vertical: true,
       css: "padding: 10px;",
-      children: [AudioWidget()],
+      children: [AudioOutput(), AudioInput()],
     }),
   });
 

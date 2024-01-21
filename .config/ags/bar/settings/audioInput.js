@@ -13,22 +13,24 @@ import icons from "../../icons.js";
 
 import Toggler from "../toggler.js";
 
-const AudioDevices = () =>
+const Devices = () =>
   Widget.Box({ className: "devices", vertical: true }).hook(Audio, (self) => {
-    if (Audio.speakers) {
-      self.children = Audio.speakers.map((speaker) =>
+    if (Audio.microphones) {
+      self.children = Audio.microphones.map((microphone) =>
         Widget.Button({
-          className: `${Audio.speaker.id === speaker.id ? "selected" : ""}`,
-          child: Widget.Label(speaker.description),
+          className: `${Audio.microphone.id === microphone.id ? "selected" : ""}`,
+          child: Widget.Label(microphone.description),
           onPrimaryClick: () => {
-            Audio.speaker = speaker;
+            Audio.microphone = microphone;
           },
         }),
       );
     }
   });
 
-const AudioWidget = () => {
+const AudioInput = () => {
+  const { muted, mic } = icons.mic;
+
   const showDevices = Variable(false);
   return Widget.Box({
     vertical: true,
@@ -38,19 +40,26 @@ const AudioWidget = () => {
         css: "min-width: 180px;",
         children: [
           Widget.Button({
-            child: Widget.Icon(icons.volume.medium),
+            child: Widget.Icon(icons.volume.medium).hook(Audio, (self) => {
+              if (Audio.microphone?.stream) {
+                self.icon = Audio.microphone.stream.isMuted ? muted : mic;
+              }
+            }),
+            onPrimaryClick: () => {
+              Audio.microphone.stream.isMuted = !Audio.microphone.stream.isMuted;
+            },
           }),
           Widget.Slider({
             hexpand: true,
             drawValue: false,
-            onChange: ({ value }) => (Audio.speaker.volume = value),
+            onChange: ({ value }) => (Audio.microphone.volume = value),
             setup: (self) =>
               self.hook(
                 Audio,
                 () => {
-                  self.value = Audio.speaker?.volume || 0;
+                  self.value = Audio.microphone?.volume || 0;
                 },
-                "speaker-changed",
+                "microphone-changed",
               ),
           }),
           Toggler(() => {
@@ -58,8 +67,8 @@ const AudioWidget = () => {
           }),
         ],
       }),
-      Widget.Revealer({ revealChild: showDevices.bind(), child: AudioDevices() }),
+      Widget.Revealer({ revealChild: showDevices.bind(), child: Devices() }),
     ],
   });
 };
-export default AudioWidget;
+export default AudioInput;

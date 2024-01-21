@@ -12,6 +12,10 @@ export default {
     medium: "audio-volume-medium-symbolic",
     low: "audio-volume-low-symbolic",
   },
+  mic: {
+    mic: "audio-input-microphone-symbolic",
+    muted: "microphone-sensitivity-muted-symbolic",
+  },
   pan: {
     down: "pan-down-symbolic",
     left: "pan-start-symbolic",
