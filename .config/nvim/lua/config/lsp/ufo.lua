@@ -4,7 +4,6 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
---vim.o.statuscolumn = "%=%l%s%C"
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)

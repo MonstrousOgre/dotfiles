@@ -4,11 +4,10 @@ local monokai = require("monokai")
 local palette = monokai.soda
 --require('monokai').setup { palette = require('monokai').soda }
 
---palette.none = 'NONE'
---palette.base1 = 'NONE'
 palette.base2 = "NONE"
 palette.base4 = "#555862"
---palette.yellow = "#E1E120"
+palette.base5 = "#B2AEAB"
+palette.base6 = "#8D9695"
 
 monokai.setup({
   palette = palette,

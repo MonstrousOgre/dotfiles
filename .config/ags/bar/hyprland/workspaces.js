@@ -27,7 +27,6 @@ const Workspaces = () =>
               (_, windowaddress) => {
                 if (windowaddress) {
                   const client = Hyprland.getClient(windowaddress);
-                  // console.log(client);
                   urgentWorkspaces.add(client.workspace.id);
                 }
               },

@@ -1,4 +1,9 @@
 export default {
+  session: {
+    shutdown: "system-shutdown-symbolic",
+    logout: "system-log-out-symbolic",
+    restart: "system-restart-symbolic",
+  },
   player: {
     play: "media-playback-start-symbolic",
     pause: "media-playback-pause-symbolic",
@@ -21,5 +26,9 @@ export default {
     left: "pan-start-symbolic",
     right: "pan-end-symbolic",
     up: "pan-up-symbolic",
+  },
+  bluetooth: {
+    enabled: "bluetooth-active-symbolic",
+    disabled: "bluetooth-disabled-symbolic",
   },
 };

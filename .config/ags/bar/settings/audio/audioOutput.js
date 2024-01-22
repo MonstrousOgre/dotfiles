@@ -9,9 +9,9 @@ import Widget from "resource:///com/github/Aylur/ags/widget.js";
 import { exec, execAsync } from "resource:///com/github/Aylur/ags/utils.js";
 import Variable from "resource:///com/github/Aylur/ags/variable.js";
 
-import icons from "../../icons.js";
+import icons from "../../../icons.js";
 
-import Toggler from "../toggler.js";
+import Toggler from "../../toggler.js";
 
 const Devices = () =>
   Widget.Box({ className: "devices", vertical: true }).hook(Audio, (self) => {
@@ -36,8 +36,6 @@ const AudioOutput = () => {
     vertical: true,
     children: [
       Widget.Box({
-        spacing: 8,
-        css: "min-width: 180px;",
         children: [
           Widget.Button({
             child: Widget.Icon(icons.volume.medium).hook(Audio, (self) => {
@@ -56,7 +54,8 @@ const AudioOutput = () => {
               }
             }),
             onPrimaryClick: () => {
-              Audio.speaker.stream.isMuted = !Audio.speaker.stream.isMuted;
+              execAsync("pactl set-sink-mute @DEFAULT_SINK@ toggle");
+              // Audio.speaker.stream.isMuted = !Audio.speaker.stream.isMuted;
             },
           }),
           Widget.Slider({

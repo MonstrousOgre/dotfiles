@@ -5,6 +5,7 @@ window {
 }
 
 window.bar {
+  /* border-bottom: 2px solid @theme_selected_bg_color; */
   border-bottom: 3px solid rgba(86, 87, 245, 0.5);
 }
 
@@ -79,14 +80,37 @@ window.bar {
 
 .bar progress,
 .bar highlight {
-  min-height: 8px;
+  /* min-height: 8px; */
+}
+
+progress {
+  margin-bottom: 20px;
 }
 
 window.settings {
   padding: 10px;
-  /* border: 2px solid @theme_selected_bg_color; */
-  border: 3px solid rgba(86, 87, 245, 0.5);
+  border: 2px solid @theme_selected_bg_color;
+  /* border: 3px solid rgba(86, 87, 245, 0.5); */
   border-radius: 10px;
+}
+
+.settings .box {
+  padding: 10px;
+  /* min-width: 350px; */
+  min-width: 150px;
+}
+
+.settings .box .vert {
+  padding: 10px;
+}
+
+.settings .user {
+  font-size: 20px;
+}
+
+.settings button.nohover:hover,
+.settings button.disabled:hover {
+  background: transparent;
 }
 
 .settings .devices .selected {
