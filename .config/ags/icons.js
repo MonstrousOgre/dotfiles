@@ -31,4 +31,5 @@ export default {
     enabled: "bluetooth-active-symbolic",
     disabled: "bluetooth-disabled-symbolic",
   },
+  idleInhibit: "image-red-eye-symbolic",
 };

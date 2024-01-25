@@ -7,6 +7,7 @@ import WindowTitle from "./hyprland/window-title.js";
 import Clock from "./clock.js";
 import SysTray from "./system-tray.js";
 import Toggler from "./toggler.js";
+import IdleInhibitor from "./idleInhibitor.js";
 
 // layout of the bar
 const Left = (monitor = 0) =>
@@ -28,6 +29,7 @@ const Right = (monitor = 0) =>
     children: [
       Player(),
       Clock(),
+      IdleInhibitor(),
       SysTray(),
       Toggler(() => {
         App.toggleWindow(`settings-${monitor}`);

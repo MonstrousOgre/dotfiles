@@ -10,6 +10,7 @@ const OSD = (monitor = 0) =>
     class_name: "osd",
     visible: showOSD.bind(),
     focusable: false,
+    layer: "overlay",
     monitor,
     child: Widget.Box({
       spacing: 40,

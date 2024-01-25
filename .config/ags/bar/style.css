@@ -66,6 +66,10 @@ window.bar {
   border-radius: 3px;
 }
 
+.bar button.inhibiting {
+  background-color: @theme_selected_bg_color;
+}
+
 .bar label {
   /*font-weight: bold;*/
 }
