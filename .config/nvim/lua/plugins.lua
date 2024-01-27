@@ -33,8 +33,10 @@ require("lazy").setup({
   {
     'freddiehaddad/feline.nvim'
   },
-  { 'voldikss/vim-floaterm' },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  -- { 'voldikss/vim-floaterm' },
+  -- amongst your other plugins
+  { 'akinsho/toggleterm.nvim',             version = "*", config = true },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",  opts = {} },
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
@@ -90,7 +92,10 @@ require("lazy").setup({
     'kosayoda/nvim-lightbulb',
     config = function()
       require("nvim-lightbulb").setup({
-        autocmd = { enabled = true }
+        autocmd = { enabled = true },
+        sign = { enabled = false },
+        virtual_text = { enabled = true },
+        float = { enabled = false },
       })
     end
   },

@@ -15,8 +15,8 @@ vim.g.floaterm_autoclose = 2
 vim.g.floaterm_borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
 
 function Floaterm()
-	-- HIGHLIGHT('FloatermBorder', { guibg = 'NONE', guifg = 'cyan' })
-	vim.cmd("highlight link FloatermBorder LspSagaHoverBorder")
+  -- HIGHLIGHT('FloatermBorder', { guibg = 'NONE', guifg = 'cyan' })
+  vim.cmd("highlight link FloatermBorder LspSagaHoverBorder")
 end
 
-CREATE_AUGROUP("Floaterm", { { "ColorScheme", "*", "lua Floaterm()" } })
+-- CREATE_AUGROUP("Floaterm", { { "ColorScheme", "*", "lua Floaterm()" } })
