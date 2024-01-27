@@ -84,7 +84,25 @@ require("lazy").setup({
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
-  { 'kevinhwang91/nvim-ufo',   dependencies = 'kevinhwang91/promise-async' },
+  { 'nvim-telescope/telescope-ui-select.nvim', dependencies = { 'nvim-telescope/telescope.nvim' } },
+
+  {
+    'kosayoda/nvim-lightbulb',
+    config = function()
+      require("nvim-lightbulb").setup({
+        autocmd = { enabled = true }
+      })
+    end
+  },
+
+  -- {
+  --   "aznhe21/actions-preview.nvim",
+  --   config = function()
+  --     vim.keymap.set({ "v", "n" }, "ca", require("actions-preview").code_actions)
+  --   end,
+  -- },
+
+  { 'kevinhwang91/nvim-ufo',                   dependencies = 'kevinhwang91/promise-async' },
 
   { "luukvbaal/statuscol.nvim" },
 
