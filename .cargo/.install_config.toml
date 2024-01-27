@@ -1,3 +1,7 @@
+[cargo-update]
+default_features = true
+features = ["curl/force-system-lib-on-osx"]
+
 [ncspot]
 default_features = true
 features = ["cover"]
