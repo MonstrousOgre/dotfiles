@@ -1,137 +1,91 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-  print("Installing packer close and reopen Neovim...")
-  vim.cmd([[packadd packer.nvim]])
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+require("lazy").setup({
+  -- "folke/which-key.nvim",
+  -- { "folke/neoconf.nvim", cmd = "Neoconf" },
+  -- "folke/neodev.nvim",
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
--- Have packer use a popup window
-packer.init({
-  display = {
-    open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
-    end,
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
   },
-})
 
--- Only required if you have packer configured as `opt`
-vim.cmd([[packadd packer.nvim]])
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
+  {
+    'freddiehaddad/feline.nvim'
+  },
+  { 'voldikss/vim-floaterm' },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+  },
 
-return packer.startup(function(use)
-  -- Packer can manage itself
-  use("wbthomason/packer.nvim")
+  --{"sjl/badwolf"},
+  { "tanvirtin/monokai.nvim" },
+  --{"psliwka/termcolors.nvim"},
 
-  use({ "nvim-tree/nvim-tree.lua", requires = "nvim-tree/nvim-web-devicons" })
+  --{ 'preservim/nerdcommenter' },
+  { 'numToStr/Comment.nvim' },
 
-  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+  { "nvim-treesitter/nvim-treesitter",  build = ":TSUpdate" },
 
-  use({
-    "freddiehaddad/feline.nvim",
-    requires = { "lewis6991/gitsigns.nvim", "nvim-tree/nvim-web-devicons" }
-  })
+  { "baskerville/vim-sxhkdrc" },
 
-  use("voldikss/vim-floaterm")
+  { "neovim/nvim-lspconfig" },
+  { "hrsh7th/nvim-cmp" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "saadparwaiz1/cmp_luasnip" },
+  { "L3MON4D3/LuaSnip" },
 
-  use("lukas-reineke/indent-blankline.nvim")
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
 
-  use({
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup()
-    end,
-  })
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" }
+  },
 
-  --use("sjl/badwolf")
-  use("tanvirtin/monokai.nvim")
-  --use("psliwka/termcolors.nvim")
+  { "onsails/lspkind-nvim" },
 
-  --use("preservim/nerdcommenter")
-
-  use { 'numToStr/Comment.nvim' }
-
-  -- Better Syntax Support
-  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-
-  use("baskerville/vim-sxhkdrc")
-
-  use("neovim/nvim-lspconfig")    -- Collection of configurations for built-in LSP client
-  use("hrsh7th/nvim-cmp")         -- Autocompletion plugin
-  use("hrsh7th/cmp-nvim-lsp")     -- LSP source for nvim-cmp
-  use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
-  use("L3MON4D3/LuaSnip")         -- Snippets plugin use 'neovim/nvim-lspconfig'
-
-  use { "williamboman/mason.nvim" }
-  use { "williamboman/mason-lspconfig.nvim" }
-
-
-  use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } })
-
-  use("onsails/lspkind-nvim")
-
-  require('packer').use({
-    'weilbith/nvim-code-action-menu',
-    cmd = 'CodeActionMenu',
-  })
-
-  use {
+  {
     'filipdutescu/renamer.nvim',
     branch = 'master',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
 
-  use("tpope/vim-fugitive")
-  use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
+  { "tpope/vim-fugitive" },
 
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
-    -- or                            , branch = '0.1.x',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+  { "lewis6991/gitsigns.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
-  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.5',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
 
-  use { "luukvbaal/statuscol.nvim",
-    config = function()
-      local builtin = require("statuscol.builtin")
-      require("statuscol").setup(
-        {
-          relculright = true,
-          segments = {
-            { text = { builtin.foldfunc },      click = "v:lua.ScFa" },
-            { text = { "%s" },                  click = "v:lua.ScSa" },
-            { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" }
-          }
-        }
-      )
-    end }
+  { 'kevinhwang91/nvim-ufo',   dependencies = 'kevinhwang91/promise-async' },
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+  { "luukvbaal/statuscol.nvim" },
+
+})

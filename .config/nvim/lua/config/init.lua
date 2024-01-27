@@ -10,4 +10,6 @@ require("config.lsp")
 require("config.telescope")
 require("config.comment")
 
+require("config.statuscol")
+
 require("ibl").setup()
