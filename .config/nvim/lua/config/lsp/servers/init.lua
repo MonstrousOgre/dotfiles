@@ -35,5 +35,3 @@ mason_lspconfig.setup_handlers {
 }
 
 --lspconfig.vala_ls.setup { on_attach = on_attach }
-
-require("config.lsp.servers.null-ls")
