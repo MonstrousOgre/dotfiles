@@ -43,9 +43,7 @@ require("lazy").setup({
     opts = {} -- this is equalent to setup({}) function
   },
 
-  --{"sjl/badwolf"},
   { "tanvirtin/monokai.nvim" },
-  --{"psliwka/termcolors.nvim"},
 
   --{ 'preservim/nerdcommenter' },
   { 'numToStr/Comment.nvim' },
@@ -99,13 +97,6 @@ require("lazy").setup({
       })
     end
   },
-
-  -- {
-  --   "aznhe21/actions-preview.nvim",
-  --   config = function()
-  --     vim.keymap.set({ "v", "n" }, "ca", require("actions-preview").code_actions)
-  --   end,
-  -- },
 
   { 'kevinhwang91/nvim-ufo',                   dependencies = 'kevinhwang91/promise-async' },
 
