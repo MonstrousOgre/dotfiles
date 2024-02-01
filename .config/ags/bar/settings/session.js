@@ -11,7 +11,7 @@ import { exec, execAsync } from "resource:///com/github/Aylur/ags/utils.js";
 import icons from "../../icons.js";
 
 const Session = () => {
-  const { logout, restart, shutdown } = icons.session;
+  const { lock, logout, restart, shutdown } = icons.session;
 
   return Widget.CenterBox({
     spacing: 20,
@@ -24,6 +24,12 @@ const Session = () => {
     endWidget: Widget.Box({
       spacing: 40,
       children: [
+        Widget.Button({
+          child: Widget.Icon(lock),
+          onPrimaryClickRelease: () => {
+            exec("gtklock -i");
+          },
+        }),
         Widget.Button({
           child: Widget.Icon(logout),
           onPrimaryClickRelease: () => {

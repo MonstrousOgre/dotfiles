@@ -2,6 +2,7 @@ export default {
   session: {
     shutdown: "system-shutdown-symbolic",
     logout: "system-log-out-symbolic",
+    lock: "system-lock-screen-symbolic",
     restart: "system-restart-symbolic",
   },
   player: {
