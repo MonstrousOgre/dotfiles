@@ -69,9 +69,10 @@ require("lazy").setup({
   { "onsails/lspkind-nvim" },
 
   {
-    'filipdutescu/renamer.nvim',
-    branch = 'master',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup {}
+    end
   },
 
   { "tpope/vim-fugitive" },
@@ -83,8 +84,6 @@ require("lazy").setup({
     tag = '0.1.5',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
-
-  { 'nvim-telescope/telescope-ui-select.nvim', dependencies = { 'nvim-telescope/telescope.nvim' } },
 
   {
     'kosayoda/nvim-lightbulb',
@@ -98,7 +97,7 @@ require("lazy").setup({
     end
   },
 
-  { 'kevinhwang91/nvim-ufo',                   dependencies = 'kevinhwang91/promise-async' },
+  { 'kevinhwang91/nvim-ufo',   dependencies = 'kevinhwang91/promise-async' },
 
   { "luukvbaal/statuscol.nvim" },
 

@@ -9,6 +9,4 @@ require("config.lsp.ufo")
 
 require("config.lsp.cmp")
 
-require("config.lsp.renamer")
-
 require("config.lsp.conform")

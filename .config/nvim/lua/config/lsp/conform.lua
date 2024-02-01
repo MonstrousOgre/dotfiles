@@ -5,8 +5,12 @@ require("conform").setup({
     -- python = { "isort", "black" },
     -- Use a sub-list to run only the first available formatter
     javascript = { { "prettierd", "prettier" } },
+    typescript = { { "prettierd", "prettier" } },
+    javascriptreact = { { "prettierd", "prettier" } },
+    typescriptreact = { { "prettierd", "prettier" } },
     html = { { "prettierd", "prettier" } },
     css = { { "prettierd", "prettier" } },
+    json = { { "prettierd", "prettier" } },
     yaml = { { "prettierd", "prettier" } },
   },
   format_on_save = {
