@@ -11,7 +11,7 @@ const OSD = (monitor = 0) =>
     visible: showOSD.bind(),
     focusable: false,
     layer: "overlay",
-    clickthrough: false,
+    clickThrough: false,
     monitor,
     child: Widget.Box({
       spacing: 40,
