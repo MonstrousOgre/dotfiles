@@ -30,7 +30,7 @@ const Settings = (monitor = 0) =>
     name: `settings-${monitor}`, // name has to be unique
     visible: false,
     popup: true,
-    exclusive: false,
+    exclusivity: "exclusive",
     class_name: "bar settings",
     monitor,
     anchor: ["top", "right"],

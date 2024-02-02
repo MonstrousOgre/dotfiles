@@ -41,7 +41,7 @@ window.bar {
 }
 
 .bar .workspaces button {
-  padding: 2 10px;
+  padding: 2px 10px;
   font-family: UbuntuMono Nerd Font;
   font-size: 13px;
   border-radius: 0;

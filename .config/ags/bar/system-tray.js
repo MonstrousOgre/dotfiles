@@ -6,11 +6,10 @@ const SysTray = () =>
     children: SystemTray.bind("items").transform((items) => {
       return items.map((item) =>
         Widget.Button({
-          child: Widget.Icon({ binds: [["icon", item, "icon"]] }),
+          child: Widget.Icon().bind("icon", item, "icon"),
           onPrimaryClick: (_, event) => item.activate(event),
           onSecondaryClick: (_, event) => item.openMenu(event),
-          binds: [["tooltip-markup", item, "tooltip-markup"]],
-        }),
+        }).bind("tooltip-markup", item, "tooltip-markup"),
       );
     }),
   });
