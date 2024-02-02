@@ -49,7 +49,9 @@ const AudioOutput = () => {
                     [34, medium],
                     [0, low],
                   ];
-                  self.icon = cons.find(([n]) => n <= Audio.speaker.volume * 100)?.[1] || "";
+                  self.icon =
+                    cons.find(([n]) => n <= Audio.speaker.volume * 100)?.[1] ||
+                    "";
                 }
               }
             }),

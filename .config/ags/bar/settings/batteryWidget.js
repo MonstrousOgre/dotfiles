@@ -18,9 +18,16 @@ const BatteryWidget = () =>
       Widget.Box({
         spacing: 20,
         children: [
-          Widget.Button({ className: "nohover", child: Widget.Icon({ icon: Battery.bind("icon-name") }) }),
-          Widget.ProgressBar({ value: Battery.bind("percent").transform((v) => v / 100) }),
-          Widget.Label({ label: Battery.bind("percent").transform((v) => `${v}%`) }),
+          Widget.Button({
+            className: "nohover",
+            child: Widget.Icon({ icon: Battery.bind("icon-name") }),
+          }),
+          Widget.ProgressBar({
+            value: Battery.bind("percent").transform((v) => v / 100),
+          }),
+          Widget.Label({
+            label: Battery.bind("percent").transform((v) => `${v}%`),
+          }),
         ],
       }),
       Widget.Box({

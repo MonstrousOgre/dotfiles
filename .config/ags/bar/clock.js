@@ -6,7 +6,10 @@ import { timeFormat } from "../options.js";
 const Clock = () =>
   Widget.Label({
     className: "clock",
-    setup: (self) => self.poll(1000, (self) => execAsync(["date", timeFormat]).then((date) => (self.label = date))),
+    setup: (self) =>
+      self.poll(1000, (self) =>
+        execAsync(["date", timeFormat]).then((date) => (self.label = date)),
+      ),
   });
 
 export default Clock;

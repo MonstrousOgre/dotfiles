@@ -24,9 +24,15 @@ const Player = () =>
         }).hook(
           Mpris,
           (self) => {
-            if (Mpris.getPlayer(defaultPlayerName)?.trackTitle !== "Unknown title") {
-              const { trackArtists, trackTitle } = Mpris.getPlayer(defaultPlayerName);
-              const text = trackArtists && trackArtists[0] ? `${trackArtists.join(", ")} - ${trackTitle}` : trackTitle;
+            if (
+              Mpris.getPlayer(defaultPlayerName)?.trackTitle !== "Unknown title"
+            ) {
+              const { trackArtists, trackTitle } =
+                Mpris.getPlayer(defaultPlayerName);
+              const text =
+                trackArtists && trackArtists[0]
+                  ? `${trackArtists.join(", ")} - ${trackTitle}`
+                  : trackTitle;
               self.label = self.tooltipText = text;
             } else {
               self.label = "Nothing is playing";
@@ -37,7 +43,9 @@ const Player = () =>
       }).hook(
         Mpris,
         (self) => {
-          if (Mpris.getPlayer(defaultPlayerName)?.trackTitle !== "Unknown title") {
+          if (
+            Mpris.getPlayer(defaultPlayerName)?.trackTitle !== "Unknown title"
+          ) {
             self.toggleClassName("disabled", false);
           } else {
             self.toggleClassName("disabled", true);
@@ -64,7 +72,9 @@ const Player = () =>
         className: "media icon",
         onPrimaryClick: () => Mpris.getPlayer(defaultPlayerName)?.playPause(),
         child: Widget.Icon("").hook(Mpris, (self) => {
-          if (Mpris.getPlayer(defaultPlayerName)?.playBackStatus !== "Playing") {
+          if (
+            Mpris.getPlayer(defaultPlayerName)?.playBackStatus !== "Playing"
+          ) {
             self.icon = play;
           } else {
             self.icon = pause;

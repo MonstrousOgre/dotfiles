@@ -1,6 +1,9 @@
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
 import Variable from "resource:///com/github/Aylur/ags/variable.js";
-import { execAsync, subprocess } from "resource:///com/github/Aylur/ags/utils.js";
+import {
+  execAsync,
+  subprocess,
+} from "resource:///com/github/Aylur/ags/utils.js";
 
 import icons from "../icons.js";
 

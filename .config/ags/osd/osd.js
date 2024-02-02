@@ -11,12 +11,16 @@ const OSD = (monitor = 0) =>
     visible: showOSD.bind(),
     focusable: false,
     layer: "overlay",
+    clickthrough: false,
     monitor,
     child: Widget.Box({
       spacing: 40,
       vertical: true,
       css: "padding: 30px;",
-      children: [Widget.Icon({ icon: osdIcon.bind(), size: 80 }), Widget.ProgressBar({ value: osdProgress.bind() })],
+      children: [
+        Widget.Icon({ icon: osdIcon.bind(), size: 80 }),
+        Widget.ProgressBar({ value: osdProgress.bind() }),
+      ],
     }),
     setup: (self) => {
       self.hook(

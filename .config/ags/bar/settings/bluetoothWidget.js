@@ -19,7 +19,9 @@ const BluetoothIndicator = (showDevices) =>
     children: [
       Widget.Button({
         child: Widget.Icon({
-          icon: Bluetooth.bind("enabled").transform((v) => (v ? icons.bluetooth.enabled : icons.bluetooth.disabled)),
+          icon: Bluetooth.bind("enabled").transform((v) =>
+            v ? icons.bluetooth.enabled : icons.bluetooth.disabled,
+          ),
         }),
         onPrimaryClick: () => Bluetooth.toggle(),
       }),
@@ -51,13 +53,21 @@ const NetworkWidget = () => {
         revealChild: showDevices.bind(),
         child: Widget.Scrollable({
           css: "min-height: 80px;",
-          child: Widget.Box({ className: "devices", vertical: true }).hook(Bluetooth, (self) => {
-            self.children = Bluetooth.devices.map((device) =>
-              Widget.Button({
-                child: Widget.Box({ children: [Widget.Icon(device.iconName), Widget.Label(device.name)] }),
-              }),
-            );
-          }),
+          child: Widget.Box({ className: "devices", vertical: true }).hook(
+            Bluetooth,
+            (self) => {
+              self.children = Bluetooth.devices.map((device) =>
+                Widget.Button({
+                  child: Widget.Box({
+                    children: [
+                      Widget.Icon(device.iconName),
+                      Widget.Label(device.name),
+                    ],
+                  }),
+                }),
+              );
+            },
+          ),
         }),
       }),
     ],

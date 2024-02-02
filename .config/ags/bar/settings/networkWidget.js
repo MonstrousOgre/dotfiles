@@ -69,13 +69,21 @@ const NetworkWidget = () => {
         revealChild: showNetworks.bind(),
         child: Widget.Scrollable({
           css: "min-height: 80px;",
-          child: Widget.Box({ className: "devices", vertical: true }).hook(Network, (self) => {
-            self.children = Network.wifi.accessPoints.map((accessPoint) =>
-              Widget.Button({
-                child: Widget.Box({ children: [Widget.Icon(accessPoint.iconName), Widget.Label(accessPoint.ssid)] }),
-              }),
-            );
-          }),
+          child: Widget.Box({ className: "devices", vertical: true }).hook(
+            Network,
+            (self) => {
+              self.children = Network.wifi.accessPoints.map((accessPoint) =>
+                Widget.Button({
+                  child: Widget.Box({
+                    children: [
+                      Widget.Icon(accessPoint.iconName),
+                      Widget.Label(accessPoint.ssid),
+                    ],
+                  }),
+                }),
+              );
+            },
+          ),
         }),
       }),
     ],

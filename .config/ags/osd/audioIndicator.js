@@ -19,7 +19,10 @@ let isMuted = false;
 
 export const volumePopup = () => {
   if (Audio.speaker) {
-    if (Audio.speaker.stream?.isMuted === isMuted && Audio.speaker.volume === volume) {
+    if (
+      Audio.speaker.stream?.isMuted === isMuted &&
+      Audio.speaker.volume === volume
+    ) {
       return;
     }
     const { muted, low, high, medium, overamplified } = icons.volume;
@@ -36,7 +39,8 @@ export const volumePopup = () => {
           [34, medium],
           [0, low],
         ];
-        osdIcon.value = cons.find(([n]) => n <= Audio.speaker.volume * 100)?.[1] || "";
+        osdIcon.value =
+          cons.find(([n]) => n <= Audio.speaker.volume * 100)?.[1] || "";
       }
     }
 
