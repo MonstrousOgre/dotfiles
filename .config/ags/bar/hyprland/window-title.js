@@ -4,7 +4,6 @@ import Widget from "resource:///com/github/Aylur/ags/widget.js";
 const WindowTitle = () =>
   Widget.Label({
     className: "client-title",
-    label: "-",
     truncate: "end",
     xalign: 0,
     maxWidthChars: 80,
