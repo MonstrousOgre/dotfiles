@@ -11,7 +11,8 @@ window#eDP-1 {
 }
 
 window#HDMI-A-1 {
-  background-image: url("/home/ogre/.local/share/wallpapers/ShinJaw.jpg");
+  /* background-image: url("/home/ogre/.local/share/wallpapers/ShinJaw.jpg"); */
+  background-image: url("/home/ogre/.local/share/wallpapers/SamuraiSunset.jpg");
 }
 
 #window-box {
