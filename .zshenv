@@ -1,7 +1,7 @@
 source "$HOME/.cargo/env"
 typeset -U PATH path
 NPM_PACKAGES="${HOME}/.npm-packages"
-path=("$HOME/.local/bin" "$HOME/.luarocks/bin" "$NPM_PACKAGES/bin" "$path[@]")
+path=("$HOME/.local/bin" "$HOME/.luarocks/bin" "$NPM_PACKAGES/bin" "$HOME/.spicetify" "$path[@]")
 export PATH
 
 #export PATH="$HOME/.dotnet/tools:$PATH"
