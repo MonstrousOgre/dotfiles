@@ -13,7 +13,7 @@ do
   sketchybar --add space space.$sid left                                 \
              --set space.$sid space=$sid                                 \
                               icon=${SPACE_ICONS[i]}                     \
-                              background.color=0x44ffffff                \
+                              background.color=0xccdc5a97                \
                               background.corner_radius=5                 \
                               background.height=20                       \
                               background.drawing=off                     \
