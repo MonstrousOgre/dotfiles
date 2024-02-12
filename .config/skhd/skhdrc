@@ -181,6 +181,9 @@ alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 # toggle sticky(+float), topmost, picture-in-picture
 # alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
 
-alt - return : open -a /Applications/iTerm.app
+# alt - return : open -a /Applications/iTerm.app
+alt - return : open -a iTerm
+alt - f : open -a Finder
+alt - e : open -a Commander\ One
 
 alt - w : yabai -m window --close
