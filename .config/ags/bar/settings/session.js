@@ -27,7 +27,7 @@ const Session = () => {
         Widget.Button({
           child: Widget.Icon(lock),
           onPrimaryClickRelease: () => {
-            exec("gtklock -i");
+            exec("loginctl lock-session");
           },
         }),
         Widget.Button({
