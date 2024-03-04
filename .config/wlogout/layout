@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "gtklock -d",
+    "action" : "loginctl lock-session",
     "text" : "Lock",
     "keybind" : "l"
 }
