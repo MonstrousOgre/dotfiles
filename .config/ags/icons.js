@@ -3,7 +3,7 @@ export default {
     shutdown: "system-shutdown-symbolic",
     logout: "system-log-out-symbolic",
     lock: "system-lock-screen-symbolic",
-    restart: "system-restart-symbolic",
+    restart: "system-reboot-symbolic",
   },
   player: {
     play: "media-playback-start-symbolic",

@@ -16,7 +16,8 @@ window#notifications box.notifications {
   font-size: 58px;
   /* to center the icon */
   margin: 5px;
-  color: @theme_fg_color;
+  /* color: @theme_fg_color; */
+  color: white;
 }
 
 .notifications .icon box {
@@ -33,7 +34,7 @@ window#notifications box.notifications {
   /*border: 2px solid @wm_borders_edge;*/
   border: 2px solid @theme_selected_bg_color;
   /*background-color: @theme_bg_color;*/
-  background-color: rgba(49, 49, 58, 0.5);
+  background-color: rgba(29, 32, 48, 0.8);
 }
 
 .notification.critical {
@@ -42,7 +43,8 @@ window#notifications box.notifications {
 }
 
 .notifications .title {
-  color: @theme_fg_color;
+  /* color: @theme_fg_color; */
+  color: white;
   font-size: 1.4em;
 }
 

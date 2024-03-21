@@ -14,7 +14,7 @@ import BatteryWidget from "./batteryWidget.js";
 import AudioInput from "./audio/audioInput.js";
 import AudioOutput from "./audio/audioOutput.js";
 import NetworkWidget from "./networkWidget.js";
-import BluetoothWidget from "./bluetoothWidget.js";
+// import BluetoothWidget from "./bluetoothWidget.js";
 
 const Row = (children) =>
   Widget.Box({
@@ -42,7 +42,8 @@ const Settings = (monitor = 0) =>
         Session(),
         Row([AudioOutput(), AudioInput()]),
         BatteryWidget(),
-        Row([NetworkWidget(), BluetoothWidget()]),
+        // Row([NetworkWidget(), BluetoothWidget()]),
+        Row([NetworkWidget()]),
       ],
     }),
   });
