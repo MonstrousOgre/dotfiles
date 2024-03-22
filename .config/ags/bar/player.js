@@ -30,7 +30,9 @@ const Player = () =>
               const { trackArtists, trackTitle } =
                 Mpris.getPlayer(defaultPlayerName);
               const text =
-                trackArtists && trackArtists[0]
+                trackArtists &&
+                trackArtists[0] &&
+                trackArtists[0] !== "Unknown artist"
                   ? `${trackArtists.join(", ")} - ${trackTitle}`
                   : trackTitle;
               self.label = self.tooltipText = text;
