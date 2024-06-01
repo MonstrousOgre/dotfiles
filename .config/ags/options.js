@@ -1,4 +1,5 @@
 export const monitors = [0, 1];
+// export const monitors = [0];
 
 export const osdTimeout = 5000;
 

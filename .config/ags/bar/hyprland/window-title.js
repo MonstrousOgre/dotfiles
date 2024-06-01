@@ -10,6 +10,9 @@ const WindowTitle = () =>
     wrap: true,
     useMarkup: true,
     label: Hyprland.active.client.bind("title"),
+    // label: Hyprland.active.client
+    //   .bind("title")
+    //   .as((address) => Hyprland.getClient(address)?.initialTitle),
     tooltipText: Hyprland.active.client.bind("title"),
   });
 

@@ -1,17 +1,16 @@
-import SystemTray from "resource:///com/github/Aylur/ags/service/systemtray.js";
-import Widget from "resource:///com/github/Aylur/ags/widget.js";
+const systemtray = await Service.import("systemtray");
 
-const SysTray = () =>
-  Widget.Box({
-    children: SystemTray.bind("items").transform((items) => {
-      return items.map((item) =>
-        Widget.Button({
-          child: Widget.Icon().bind("icon", item, "icon"),
-          onPrimaryClick: (_, event) => item.activate(event),
-          onSecondaryClick: (_, event) => item.openMenu(event),
-        }).bind("tooltip-markup", item, "tooltip-markup"),
-      );
-    }),
+/** @param {import('types/service/systemtray').TrayItem} item */
+const SysTrayItem = (item) =>
+  Widget.Button({
+    child: Widget.Icon().bind("icon", item, "icon"),
+    tooltipMarkup: item.bind("tooltip_markup"),
+    onPrimaryClick: (_, event) => item.activate(event),
+    onSecondaryClick: (_, event) => item.openMenu(event),
   });
 
-export default SysTray;
+const sysTray = () =>
+  Widget.Box({
+    children: systemtray.bind("items").as((i) => i.map(SysTrayItem)),
+  });
+export default sysTray;

@@ -37,6 +37,7 @@ require("lazy").setup({
   -- amongst your other plugins
   { 'akinsho/toggleterm.nvim',             version = "*", config = true },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl",  opts = {} },
+  -- { "lukas-reineke/indent-blankline.nvim", version = "=3.5.4" },
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",

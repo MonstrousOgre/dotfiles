@@ -3,6 +3,7 @@ import Widget from "resource:///com/github/Aylur/ags/widget.js";
 
 import Workspaces from "./hyprland/workspaces.js";
 import Player from "./player.js";
+import SpotifyPlayer from "./spotify-player.js";
 import WindowTitle from "./hyprland/window-title.js";
 import Clock from "./clock.js";
 import SysTray from "./system-tray.js";
@@ -27,6 +28,7 @@ const Right = (monitor = 0) =>
     hpack: "end",
     spacing: 8,
     children: [
+      // SpotifyPlayer(),
       Player(),
       Clock(),
       IdleInhibitor(),

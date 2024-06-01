@@ -4,7 +4,8 @@
 
 window {
   /*background-color: @theme_bg_color;*/
-  /* color: @theme_fg_color; */
-  color: white;
-  background-color: rgba(29, 32, 48, 0.5);
+  color: @theme_fg_color;
+  /* color: white; */
+  /* background-color: rgba(29, 32, 48, 0.8); */
+  background-color: rgba(49, 49, 58, 0.8);
 }

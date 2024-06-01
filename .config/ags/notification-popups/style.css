@@ -34,7 +34,8 @@ window#notifications box.notifications {
   /*border: 2px solid @wm_borders_edge;*/
   border: 2px solid @theme_selected_bg_color;
   /*background-color: @theme_bg_color;*/
-  background-color: rgba(29, 32, 48, 0.8);
+  /* background-color: rgba(29, 32, 48, 0.8); */
+  background-color: rgba(49, 49, 58, 0.8);
 }
 
 .notification.critical {

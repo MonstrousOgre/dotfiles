@@ -19,7 +19,13 @@ const Devices = () =>
       self.children = Audio.microphones.map((microphone) =>
         Widget.Button({
           className: `${Audio.microphone.id === microphone.id ? "selected" : ""}`,
-          child: Widget.Label(microphone.description),
+          child: Widget.Label({
+            truncate: "end",
+            wrap: true,
+            useMarkup: true,
+            label: microphone.description,
+            tooltipText: microphone.description,
+          }),
           onPrimaryClick: () => {
             Audio.microphone = microphone;
           },
