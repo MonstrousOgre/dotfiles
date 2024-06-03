@@ -29,9 +29,29 @@ mason_lspconfig.setup_handlers {
   end,
   -- Next, you can provide a dedicated handler for specific servers.
   -- For example, a handler override for the `rust_analyzer`:
-  --["rust_analyzer"] = function()
-  --require("rust-tools").setup {}
-  --end
+  ["rust_analyzer"] = function()
+    lspconfig.rust_analyzer.setup({
+      settings = {
+        ['rust-analyzer'] = {
+          cargo = {
+            allFeatures = true,
+          },
+          checkOnSave = {
+            command = 'clippy',
+          },
+          diagnostics = {
+            enable = true,
+            experimental = {
+              enable = true,
+            },
+          },
+        },
+      },
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+    -- require("rust-tools").setup {}
+  end
 }
 
 --lspconfig.vala_ls.setup { on_attach = on_attach }
