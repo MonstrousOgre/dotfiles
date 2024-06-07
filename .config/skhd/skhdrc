@@ -182,8 +182,11 @@ alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 # alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
 
 # alt - return : open -a /Applications/iTerm.app
-alt - return : open -a iTerm
+# alt - return : open -a iTerm
+alt - return : open -a Kitty
 alt - f : open -a Finder
 alt - e : open -a Commander\ One
 
 alt - w : yabai -m window --close
+
+alt - r : yabai --restart-service && sketchybar --reload
