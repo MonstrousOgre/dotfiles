@@ -54,4 +54,6 @@ mason_lspconfig.setup_handlers {
   end
 }
 
+lspconfig.nushell.setup { on_attach = on_attach, capabilities = capabilities, }
+
 --lspconfig.vala_ls.setup { on_attach = on_attach }
