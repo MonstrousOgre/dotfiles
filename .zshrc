@@ -27,6 +27,8 @@ setopt INC_APPEND_HISTORY
 # export KEYTIMEOUT=1
 # End of lines configured by zsh-newuser-install
 
+setopt autocd
+
 if [[ $(uname -s) == "Linux" ]]; then
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
