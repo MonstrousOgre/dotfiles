@@ -901,3 +901,5 @@ $env.config = {
 }
 
 source aliases.nu
+
+source ~/.cache/carapace/init.nu
