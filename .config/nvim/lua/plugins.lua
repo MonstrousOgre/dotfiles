@@ -33,10 +33,10 @@ require("lazy").setup({
   {
     'freddiehaddad/feline.nvim'
   },
-  -- { 'voldikss/vim-floaterm' },
+  { 'voldikss/vim-floaterm' },
   -- amongst your other plugins
-  { 'akinsho/toggleterm.nvim',             version = "*", config = true },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl",  opts = {} },
+  -- { 'akinsho/toggleterm.nvim',             version = "*", config = true },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   -- { "lukas-reineke/indent-blankline.nvim", version = "=3.5.4" },
   {
     'windwp/nvim-autopairs',

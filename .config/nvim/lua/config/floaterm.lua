@@ -4,6 +4,17 @@ vim.g.floaterm_keymap_prev = "<F2>"
 vim.g.floaterm_keymap_next = "<F3>"
 vim.g.floaterm_keymap_new = "<F4>"
 
+local set_keymap = vim.api.nvim_set_keymap
+set_keymap("n", "<F1>", ":FloatermToggle<CR>", { noremap = true, silent = true })
+set_keymap("n", "<F2>", ":FloatermPrev<CR>", { noremap = true, silent = true })
+set_keymap("n", "<F3>", ":FloatermNext<CR>", { noremap = true, silent = true })
+set_keymap("n", "<F4>", ":FloatermNew<CR>", { noremap = true, silent = true })
+set_keymap("t", "<F1>", "<C-\\><C-n>:FloatermToggle<CR>", { noremap = true, silent = true })
+set_keymap("t", "<F2>", "<C-\\><C-n>:FloatermPrev<CR>", { noremap = true, silent = true })
+set_keymap("t", "<F3>", "<C-\\><C-n>:FloatermNext<CR>", { noremap = true, silent = true })
+set_keymap("t", "<F4>", "<C-\\><C-n>:FloatermNew<CR>", { noremap = true, silent = true })
+
+
 -- Floaterm
 vim.g.floaterm_gitcommit = "floaterm"
 vim.g.floaterm_autoinsert = 1
