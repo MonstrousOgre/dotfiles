@@ -22,3 +22,6 @@ alias yay = paru
 
 alias config = /usr/bin/git $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
 alias lz-config = lazygit $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
+
+alias http = ~/.local/bin/http
+

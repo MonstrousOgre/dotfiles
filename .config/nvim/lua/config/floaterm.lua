@@ -25,6 +25,8 @@ vim.g.floaterm_title = "terminal: $1/$2"
 vim.g.floaterm_autoclose = 2
 vim.g.floaterm_borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
 
+vim.g.floaterm_shell = "nu"
+
 function Floaterm()
   -- HIGHLIGHT('FloatermBorder', { guibg = 'NONE', guifg = 'cyan' })
   vim.cmd("highlight link FloatermBorder LspSagaHoverBorder")
