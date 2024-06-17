@@ -391,8 +391,10 @@ $env.config = {
     keybindings: [
         {
             name: completion_menu
-            modifier: none
-            keycode: tab
+            # modifier: none
+            modifier: control
+            # keycode: tab
+            keycode: char_t
             mode: [emacs vi_normal vi_insert]
             event: {
                 until: [
@@ -404,9 +406,10 @@ $env.config = {
         }
         {
             name: ide_completion_menu
-            modifier: control
+            # modifier: control
+            modifier: none
             # keycode: char_n
-            keycode: char_o
+            keycode: tab
             mode: [emacs vi_normal vi_insert]
             event: {
                 until: [
@@ -494,8 +497,8 @@ $env.config = {
         {
             name: open_command_editor
             modifier: control
-            # keycode: char_o
-            keycode: char_v
+            keycode: char_o
+            # keycode: char_v
             mode: [emacs, vi_normal, vi_insert]
             event: { send: openeditor }
         }
