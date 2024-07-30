@@ -19,6 +19,7 @@ alias cat = bat
 
 alias yay = paru
 
+alias upgrade = topgrade
 
 alias config = /usr/bin/git $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
 alias lz-config = lazygit $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'

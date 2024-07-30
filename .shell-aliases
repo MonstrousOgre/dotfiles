@@ -20,6 +20,7 @@ alias cat="bat"
 
 alias yay='paru'
 
+alias upgrade='topgrade'
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias lz-config='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
