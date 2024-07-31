@@ -14,13 +14,13 @@ ITEM_DIR="$CONFIG_DIR/items"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar height=32        \
-                 blur_radius=30   \
+sketchybar --bar height=24        \
+                 blur_radius=00   \
                  position=top     \
                  sticky=off       \
                  padding_left=10  \
                  padding_right=10 \
-                 color=0x00333333
+                 color=0x11333333
 
 ##### Changing Defaults #####
 # We now change some default values that are applied to all further items
