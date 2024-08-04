@@ -109,3 +109,5 @@ if (uname).kernel-name == "Darwin" {
 }
 
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+
+$env.NU_STARTED = 'yes'

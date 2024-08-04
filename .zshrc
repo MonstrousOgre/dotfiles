@@ -27,4 +27,8 @@ fi
 
 source ~/.shell-aliases
 
+if [[ ! (-o login) ]] && [[ (-o interactive) ]] && [[ ! (-v NU_STARTED) ]]; then
+  exec nu
+fi
+
 eval "$(starship init zsh)"
