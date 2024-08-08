@@ -40,13 +40,17 @@
     "shortTimeFormat": "+%I:%M:%S %p",
     "longTimeFormat": "+%b %e %Y, %I:%M:%S %p "
   },
-  "osd": {
-    "timeout": 5000
-  },
   "session": {
     "lock": "loginctl lock-session",
     "logout": "hyprctl dispatch exit",
     "restart": "systemctl reboot",
     "shutdown": "systemctl poweroff"
+  },
+  "osd": {
+    "allMonitors": false,
+    "timeout": 5000
+  },
+  "notifications": {
+    "allMonitors": false
   }
 }

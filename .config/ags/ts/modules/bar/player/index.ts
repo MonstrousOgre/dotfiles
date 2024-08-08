@@ -33,7 +33,7 @@ const Player = (playerName = "playerctld") =>
                   : track_title;
               self.label = self.tooltip_text = text;
             } else {
-              self.label = "Nothing is playing";
+              self.label = "No media playing";
             }
           },
           "changed",
@@ -41,7 +41,7 @@ const Player = (playerName = "playerctld") =>
       }).hook(
         mpris,
         (self) => {
-          if (mpris.getPlayer(playerName)?.track_title !== "Unknown title") {
+          if (mpris.getPlayer(playerName)?.track_title !== "") {
             self.toggleClassName("disabled", false);
           } else {
             self.toggleClassName("disabled", true);

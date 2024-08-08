@@ -30,13 +30,17 @@ type ConfigOptions = {
     shortTimeFormat: string;
     longTimeFormat: string;
   };
-  osd: {
-    timeout: number;
-  };
   session: {
     lock: string;
     logout: string;
     restart: string;
     shutdown: string;
+  };
+  osd: {
+    allMonitors: boolean;
+    timeout: number;
+  };
+  notifications: {
+    allMonitors: boolean;
   };
 };

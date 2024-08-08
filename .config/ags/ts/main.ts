@@ -4,6 +4,7 @@ import MenuWindows from "./modules/menus/main";
 import { getMonitorsForBar } from "./utils/monitors";
 import { forMonitor } from "./utils/utils";
 import OSD from "./modules/osd/index";
+import { options } from "./globals";
 
 // main scss file
 const scss = `${App.configDir}/styles/style.scss`;
@@ -29,8 +30,11 @@ Utils.monitorFile(
 
 const bars = forMonitor(Bar, getMonitorsForBar());
 
-const notifications = forMonitor(Notifications, getMonitorsForBar());
-const osds = forMonitor(OSD, getMonitorsForBar());
+if (options.osd.allMonitors) forMonitor(Notifications, getMonitorsForBar());
+else Notifications();
+
+if (options.osd.allMonitors) forMonitor(OSD, getMonitorsForBar());
+else OSD();
 
 App.config({
   style: css,
