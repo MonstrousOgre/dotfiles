@@ -22,4 +22,4 @@ export MANPAGER="bat -l man -p"
 # For visual paradigm
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-source "$HOME/.shell-env"
+source "$HOME/.sh-env"

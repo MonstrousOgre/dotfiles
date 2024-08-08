@@ -25,7 +25,7 @@ if [[ $(uname -s) == "Darwin" ]]; then
   source $HOMEBREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 fi
 
-source ~/.shell-aliases
+source ~/.sh-aliases
 
 if [[ ! (-o login) ]] && [[ (-o interactive) ]] && [[ ! (-v NU_STARTED) ]]; then
   exec nu
