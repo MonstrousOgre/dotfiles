@@ -47,7 +47,8 @@ export default (monitor: Monitor) => {
   );
 
   return Widget.Window({
-    name: `bar-${monitor.id}`,
+    // name: `bar-${monitor.id}`,
+    name: `bar`,
     class_name: "bar",
     monitor: monitor.id,
     anchor: ["top", "left", "right"],

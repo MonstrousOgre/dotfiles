@@ -38,5 +38,5 @@ else OSD();
 
 App.config({
   style: css,
-  windows: [...MenuWindows, ...bars],
+  windows: [...MenuWindows],
 });
