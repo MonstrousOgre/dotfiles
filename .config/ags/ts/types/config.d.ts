@@ -31,10 +31,11 @@ type ConfigOptions = {
     longTimeFormat: string;
   };
   session: {
-    lock: string;
-    logout: string;
-    restart: string;
-    shutdown: string;
+    options: {
+      command: string;
+      icon: string;
+      text: string;
+    }[];
   };
   osd: {
     allMonitors: boolean;

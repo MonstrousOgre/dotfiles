@@ -21,8 +21,10 @@ const Player = (playerName = "playerctld") =>
         }).hook(
           mpris,
           (self) => {
-            console.log(mpris.players);
-            if (mpris.getPlayer(playerName)?.track_title !== "") {
+            if (
+              mpris.getPlayer(playerName)?.track_title !== "" &&
+              mpris.getPlayer(playerName)?.track_title !== "Unknown title"
+            ) {
               const { track_artists, track_title } =
                 mpris.getPlayer(playerName)!;
               const text =
@@ -41,7 +43,10 @@ const Player = (playerName = "playerctld") =>
       }).hook(
         mpris,
         (self) => {
-          if (mpris.getPlayer(playerName)?.track_title !== "") {
+          if (
+            mpris.getPlayer(playerName)?.track_title !== "" &&
+            mpris.getPlayer(playerName)?.track_title !== "Unknown title"
+          ) {
             self.toggleClassName("disabled", false);
           } else {
             self.toggleClassName("disabled", true);

@@ -41,10 +41,28 @@
     "longTimeFormat": "+%b %e %Y, %I:%M:%S %p "
   },
   "session": {
-    "lock": "loginctl lock-session",
-    "logout": "hyprctl dispatch exit",
-    "restart": "systemctl reboot",
-    "shutdown": "systemctl poweroff"
+    "options": [
+      {
+        "icon": "lock",
+        "command": "loginctl lock-session",
+        "text": "Lock Screen"
+      },
+      {
+        "icon": "logout",
+        "command": "hyprctl dispatch exit",
+        "text": "Logout"
+      },
+      {
+        "icon": "restart",
+        "command": "systemctl reboot",
+        "text": "Restart"
+      },
+      {
+        "icon": "shutdown",
+        "command": "systemctl poweroff",
+        "text": "Shut Down"
+      }
+    ]
   },
   "osd": {
     "allMonitors": false,

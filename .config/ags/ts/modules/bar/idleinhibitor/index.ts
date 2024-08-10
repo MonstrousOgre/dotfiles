@@ -3,7 +3,7 @@ import icons from "ts/utils/icons";
 
 const inhibiting = Variable(false);
 
-let proc;
+// let proc;
 
 const IdleInhibitor = () =>
   Widget.Button({
@@ -11,10 +11,12 @@ const IdleInhibitor = () =>
     child: Widget.Icon(icons.idleInhibit),
     onPrimaryClick: () => {
       if (inhibiting.value) {
-        proc.force_exit();
+        // proc.force_exit();
+        Utils.exec("systemctl --user stop wayland-idle-inhibitor.service");
         inhibiting.value = false;
       } else {
-        proc = Utils.subprocess("wayland-idle-inhibitor.py");
+        // proc = Utils.subprocess("wayland-idle-inhibitor.py");
+        Utils.exec("systemctl --user start wayland-idle-inhibitor.service");
         inhibiting.value = true;
       }
     },

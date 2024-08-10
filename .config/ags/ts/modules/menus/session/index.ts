@@ -29,25 +29,33 @@ export default () =>
       css: "padding: 1px; margin: -1px;",
       vexpand: false,
       children: [
-        Widget.CenterBox({
+        Widget.Box({
           spacing: 20,
           className: "vert",
-          startWidget: Widget.Label({
-            className: "user",
-            label: Utils.exec("sh -c 'echo $USER'"),
-          }),
-          centerWidget: Widget.Label(),
-          endWidget: Widget.Box({
-            spacing: 40,
-            children: sessionOptions.map((opt) =>
-              Widget.Button({
-                child: Widget.Icon(opt.icon),
-                onPrimaryClickRelease: () => {
-                  Utils.exec(opt.command);
-                },
-              }),
-            ),
-          }),
+          vertical: true,
+          children: [
+            Widget.Label({
+              className: "user",
+              label: Utils.exec("sh -c 'echo $USER'"),
+            }),
+            Widget.Box({
+              vertical: true,
+              children: options.session.options.map((opt) =>
+                Widget.Button({
+                  child: Widget.Box({
+                    spacing: 10,
+                    children: [
+                      Widget.Icon(icons.session[opt.icon]),
+                      Widget.Label(opt.text),
+                    ],
+                  }),
+                  onPrimaryClickRelease: () => {
+                    Utils.exec(opt.command);
+                  },
+                }),
+              ),
+            }),
+          ],
         }),
       ],
     }),
