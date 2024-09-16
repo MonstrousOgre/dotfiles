@@ -9,7 +9,11 @@ const WindowTitle = () =>
       Widget.Icon("").hook(hyprland.active.client, (self) => {
         const client = hyprland.active.client;
         const apps = query(client.class);
-        if (client.class === "" || apps.length === 0) {
+        if (
+          hyprland.getClient(client.address)?.initialTitle.includes("Spotify")
+        ) {
+          self.icon = "spotify";
+        } else if (client.class === "" || apps.length === 0) {
           self.icon = "";
         } else {
           self.icon = apps[0].icon_name ?? "";
@@ -27,7 +31,8 @@ const WindowTitle = () =>
         const client = hyprland.active.client;
         const apps = query(client.class);
         if (client.class === "" || apps.length === 0) {
-          self.label = client.title;
+          self.label =
+            hyprland.getClient(client.address)?.initialTitle ?? client.title;
         } else {
           self.label = apps[0].name;
         }

@@ -8,16 +8,18 @@ import Clock from "./clock/index";
 import IdleInhibitor from "./idleinhibitor/index";
 import Volume from "./volume/index";
 import Session from "./session/index";
+import Battery from "./battery/index";
 
 const widget = {
   workspaces: (monitor: Monitor) => Workspaces(monitor),
-  windowtitle: (monitor: Monitor) => WindowTitle(),
-  player: (monitor: Monitor) => Player(),
-  systray: (monitor: Monitor) => SysTray(),
-  clock: (monitor: Monitor) => Clock(),
-  volume: (monitor: Monitor) => Volume(),
-  idleinhibitor: (monitor: Monitor) => IdleInhibitor(),
-  session: (monitor: Monitor) => Session(),
+  windowtitle: (_monitor: Monitor) => WindowTitle(),
+  player: (_monitor: Monitor) => Player(),
+  systray: (_monitor: Monitor) => SysTray(),
+  clock: (_monitor: Monitor) => Clock(),
+  volume: (_monitor: Monitor) => Volume(),
+  idleinhibitor: (_monitor: Monitor) => IdleInhibitor(),
+  session: (_monitor: Monitor) => Session(),
+  battery: (_monitor: Monitor) => Battery(),
 };
 
 const Modules = (
