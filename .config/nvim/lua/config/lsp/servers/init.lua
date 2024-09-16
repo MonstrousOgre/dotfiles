@@ -24,7 +24,11 @@ mason_lspconfig.setup_handlers {
     --     capabilities = capabilities
     --   }
     -- else
-    lspconfig[server_name].setup { on_attach = on_attach, capabilities = capabilities }
+    if server_name == "tsserver" then
+      lspconfig["ts_ls"].setup { on_attach = on_attach, capabilities = capabilities }
+    else
+      lspconfig[server_name].setup { on_attach = on_attach, capabilities = capabilities }
+    end
     -- end
   end,
   -- Next, you can provide a dedicated handler for specific servers.

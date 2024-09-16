@@ -27,7 +27,11 @@ fi
 
 source ~/.sh-aliases
 
-if [[ ! (-o login) ]] && [[ (-o interactive) ]] && [[ ! (-v NU_STARTED) ]]; then
+if [[ $(uname -s) == "Linux" && ! (-o login) ]] && [[ (-o interactive) ]] && [[ ! (-v NU_STARTED) ]]; then
+  exec nu
+fi
+
+if [[ $(uname -s) == "Darwin" && (-o login) ]] && [[ (-o interactive) ]] && [[ ! (-v NU_STARTED) ]]; then
   exec nu
 fi
 

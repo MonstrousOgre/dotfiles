@@ -24,5 +24,10 @@ alias upgrade = topgrade
 alias config = /usr/bin/git $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
 alias lz-config = lazygit $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
 
-alias http = ~/.local/bin/http
+let pyPath = $'(^python3 -m site --user-base)/bin'
 
+alias core-http = http
+
+def http [params] {
+  nu -c $'($pyPath)/http ($params)'
+}
