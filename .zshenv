@@ -1,7 +1,8 @@
 source "$HOME/.cargo/env"
 typeset -U PATH path
+PIP_PATH=`python3 -m site --user-base`
 NPM_PACKAGES="${HOME}/.npm-packages"
-path=("$HOME/.local/bin" "`python3 -m site --user-base`/bin" "$HOME/.luarocks/bin" "$NPM_PACKAGES/bin" "$HOME/.spicetify" "$path[@]")
+path=("$HOME/.local/bin" "$PIP_PATH/bin" "$HOME/.luarocks/bin" "$NPM_PACKAGES/bin" "$HOME/.spicetify" "$path[@]")
 export PATH
 
 #export PATH="$HOME/.dotnet/tools:$PATH"
