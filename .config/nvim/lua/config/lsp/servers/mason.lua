@@ -12,7 +12,7 @@ local server_names = {
   "bashls",
   "html",
   "cssls",
-  "tsserver",
+  "ts_ls",
   --"eslint",
   "jsonls",
   "emmet_ls",
