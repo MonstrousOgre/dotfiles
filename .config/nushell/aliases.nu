@@ -31,3 +31,7 @@ alias core-http = http
 def http [params] {
   nu -c $'($pyPath)/http ($params)'
 }
+
+def disown [...command: string] {
+    sh -c '"$@" </dev/null >/dev/null 2>/dev/null & disown' $command.0 ...$command
+}
