@@ -10,7 +10,7 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.HINT] = "󰌶 ",
       [vim.diagnostic.severity.INFO] = " ",
     },
-    linehl = {
+    hl = {
       [vim.diagnostic.severity.ERROR] = "DiagnosticError",
       [vim.diagnostic.severity.WARN] = "DiagnosticWarn",
       [vim.diagnostic.severity.HINT] = "DiagnosticHint",
