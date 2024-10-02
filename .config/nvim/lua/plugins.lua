@@ -116,19 +116,31 @@ require("lazy").setup({
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-ui-select.nvim' }
+    -- dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-ui-select.nvim' }
+    dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
+  -- {
+  --   'kosayoda/nvim-lightbulb',
+  --   config = function()
+  --     require("nvim-lightbulb").setup({
+  --       autocmd = { enabled = true },
+  --       sign = { enabled = false },
+  --       virtual_text = { enabled = true },
+  --       float = { enabled = false },
+  --     })
+  --   end
+  -- },
+
   {
-    'kosayoda/nvim-lightbulb',
+    'nvimdev/lspsaga.nvim',
     config = function()
-      require("nvim-lightbulb").setup({
-        autocmd = { enabled = true },
-        sign = { enabled = false },
-        virtual_text = { enabled = true },
-        float = { enabled = false },
-      })
-    end
+      require('lspsaga').setup({})
+    end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',   -- optional
+      'nvim-tree/nvim-web-devicons',       -- optional
+    }
   },
 
   { 'kevinhwang91/nvim-ufo',   dependencies = 'kevinhwang91/promise-async' },
