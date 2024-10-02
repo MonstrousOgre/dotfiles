@@ -102,12 +102,12 @@ require("lazy").setup({
 
   { "onsails/lspkind-nvim" },
 
-  {
-    "stevearc/dressing.nvim",
-    config = function()
-      require("dressing").setup {}
-    end
-  },
+  -- {
+  --   "stevearc/dressing.nvim",
+  --   config = function()
+  --     require("dressing").setup {}
+  --   end
+  -- },
 
   { "tpope/vim-fugitive" },
 
@@ -116,7 +116,7 @@ require("lazy").setup({
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-ui-select.nvim' }
   },
 
   {
