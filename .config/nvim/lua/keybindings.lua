@@ -42,4 +42,10 @@ set_keymap("n", "<C-a>", "0ggvG$", opts)
 
 set_keymap("v", "p", '"_dP', opts)
 
+if vim.g.neovide == true then
+  set_keymap("n", "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", opts)
+  set_keymap("n", "<C-_>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", opts)
+  set_keymap("n", "<C-)>", ":lua vim.g.neovide_scale_factor = 1<CR>", opts)
+end
+
 ------ Look at barbar bindings
