@@ -1,5 +1,6 @@
 require("config.colorscheme")
-require("config.nvimtree")
+-- require("config.nvimtree")
+require("config.neotree")
 require("config.bufferline")
 require("config.gitsigns")
 require("config.feline")

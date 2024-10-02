@@ -1,6 +1,7 @@
 require("bufferline").setup({
   options = {
     offsets = { { filetype = "NvimTree", text = "File Explorer" } },
+    offsets = { { filetype = "neo-tree", text = "File Explorer" } },
   },
 })
 

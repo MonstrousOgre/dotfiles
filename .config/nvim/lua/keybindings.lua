@@ -12,6 +12,7 @@ vim.b.mapleader = " "
 vim.g.maplocalleader = " "
 
 set_keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
+set_keymap("n", "<Leader>e", ":Neotree toggle<CR>", opts)
 -- set_keymap('n', '<Leader>r', ':RnvimrToggle<CR>', opts)
 
 -- alt + hjkl to resize windows
