@@ -46,6 +46,14 @@ if vim.g.neovide == true then
   set_keymap("n", "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", opts)
   set_keymap("n", "<C-_>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", opts)
   set_keymap("n", "<C-)>", ":lua vim.g.neovide_scale_factor = 1<CR>", opts)
+
+  set_keymap('v', '<sc-c>', '"+y', opts)
+  set_keymap('n', '<sc-v>', 'l"+P', opts)
+  set_keymap('v', '<sc-v>', '"+P', opts)
+  -- set_keymap('c', '<sc-v>', '<C-o>l<C-o>"+<C-o>P<C-o>l', opts)
+  set_keymap('c', '<sc-v>', '<c-r>+', opts)
+  set_keymap('i', '<sc-v>', '<ESC>l"+Pli', opts)
+  set_keymap('t', '<sc-v>', '<C-\\><C-n>"+Pi', opts)
 end
 
 ------ Look at barbar bindings
