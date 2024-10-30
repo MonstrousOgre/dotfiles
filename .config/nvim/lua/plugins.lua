@@ -102,12 +102,32 @@ require("lazy").setup({
 
   { "onsails/lspkind-nvim" },
 
-  -- {
-  --   "stevearc/dressing.nvim",
-  --   config = function()
-  --     require("dressing").setup {}
-  --   end
-  -- },
+  {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup {}
+    end
+  },
+
+  {
+    "aznhe21/actions-preview.nvim",
+    config = function()
+      vim.keymap.set({ "v", "n" }, "gf", require("actions-preview").code_actions)
+    end,
+  },
+
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
+  },
 
   { "tpope/vim-fugitive" },
 
@@ -120,31 +140,30 @@ require("lazy").setup({
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
-  -- {
-  --   'kosayoda/nvim-lightbulb',
-  --   config = function()
-  --     require("nvim-lightbulb").setup({
-  --       autocmd = { enabled = true },
-  --       sign = { enabled = false },
-  --       virtual_text = { enabled = true },
-  --       float = { enabled = false },
-  --     })
-  --   end
-  -- },
-
   {
-    'nvimdev/lspsaga.nvim',
+    'kosayoda/nvim-lightbulb',
     config = function()
-      require('lspsaga').setup({})
-    end,
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',   -- optional
-      'nvim-tree/nvim-web-devicons',       -- optional
-    }
+      require("nvim-lightbulb").setup({
+        autocmd = { enabled = true },
+        sign = { enabled = false },
+        virtual_text = { enabled = true },
+        float = { enabled = false },
+      })
+    end
   },
+
+  -- {
+  --   'nvimdev/lspsaga.nvim',
+  --   config = function()
+  --     require('lspsaga').setup({})
+  --   end,
+  --   dependencies = {
+  --     'nvim-treesitter/nvim-treesitter',   -- optional
+  --     'nvim-tree/nvim-web-devicons',       -- optional
+  --   }
+  -- },
 
   { 'kevinhwang91/nvim-ufo',   dependencies = 'kevinhwang91/promise-async' },
 
   { "luukvbaal/statuscol.nvim" },
-
 })
