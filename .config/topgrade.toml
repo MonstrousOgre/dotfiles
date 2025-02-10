@@ -76,6 +76,7 @@ enable_pip_review_local = true
 [commands]
 #"Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 #"pip packages" = "pip-review --local --auto"
+"Yazi" = "ya pack -u"
 
 [brew]
 #greedy_cask = true
