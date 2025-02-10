@@ -35,3 +35,13 @@ def http [params] {
 def disown [...command: string] {
     sh -c '"$@" </dev/null >/dev/null 2>/dev/null & disown' $command.0 ...$command
 }
+
+def --env y [...args] {
+	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
+	yazi ...$args --cwd-file $tmp
+	let cwd = (open $tmp)
+	if $cwd != "" and $cwd != $env.PWD {
+		cd $cwd
+	}
+	rm -fp $tmp
+}
