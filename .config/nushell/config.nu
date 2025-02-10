@@ -909,5 +909,7 @@ source aliases.nu
 
 source ~/.cache/carapace/init.nu
 
+source ~/.zoxide.nu
+
 use ./themes/monokai-soda.nu
 $env.config = ($env.config | merge {color_config: (monokai-soda)})
