@@ -3,4 +3,4 @@ dark = "monokai-vibrant"
 light = "monokai-vibrant"
 
 [manager]
-border_style  = { fg = "white" }
+border_style = { fg = "white" }

@@ -24,3 +24,5 @@ export MANPAGER="bat -l man -p"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 source "$HOME/.sh-env"
+
+unset __zoxide_hooked
