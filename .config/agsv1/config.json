@@ -2,15 +2,29 @@
   "bars": {
     "eDP-1": {
       "spacing": 0,
-      "start": ["workspaces"],
-      "center": [],
-      "end": []
+      "start": ["session", "workspaces"],
+      "center": ["windowtitle"],
+      "end": [
+        "player",
+        "battery",
+        "volume",
+        "idleinhibitor",
+        "clock",
+        "systray"
+      ]
     },
     "HDMI-A-1": {
       "spacing": 0,
-      "start": ["workspaces"],
-      "center": [],
-      "end": []
+      "start": ["session", "workspaces"],
+      "center": ["windowtitle"],
+      "end": [
+        "player",
+        "battery",
+        "volume",
+        "idleinhibitor",
+        "clock",
+        "systray"
+      ]
     }
   },
   "workspaces": {
