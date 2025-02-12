@@ -25,4 +25,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 source "$HOME/.sh-env"
 
-unset __zoxide_hooked
+if [[ $(uname -s) == "Linux" ]]; then
+  export SHELL=/usr/bin/zsh
+fi
