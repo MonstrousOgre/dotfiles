@@ -6,6 +6,10 @@ $insensitive_fg_color: #{"@insensitive_fg_color"};
 
 $background-color: rgba(#34343b, 0.8);
 
+window {
+  font-family: "PT Sans";
+}
+
 window.Bar {
   color: $theme_fg_color;
   background-color: $background-color;
@@ -66,6 +70,57 @@ window.Bar {
       /*background-color: #eb4d4b;*/
       background-color: #eb4d4b;
       border-radius: 3px;
+    }
+  }
+}
+
+window.dropdown-menu {
+  .dropdown-menu-container {
+    color: $theme_fg_color;
+    padding: 1em;
+    border-radius: 11px;
+    border: 2px solid $theme_selected_bg_color;
+    background-color: $background-color;
+  }
+
+  button {
+    min-width: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+    border-bottom: 3px solid transparent;
+    background: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    /* color: @theme_fg_color; */
+    color: white;
+  }
+
+  button:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  button.nohover:hover,
+  button.disabled:hover {
+    background: transparent;
+  }
+
+  button.disabled {
+    color: $insensitive_fg_color;
+  }
+
+  button:active {
+    background-color: $theme_selected_bg_color;
+  }
+
+  .time {
+    font-size: 1.5em;
+  }
+
+  .audio-menu-content {
+    min-width: 250px;
+
+    .selected {
+      background-color: $theme_selected_bg_color;
     }
   }
 }

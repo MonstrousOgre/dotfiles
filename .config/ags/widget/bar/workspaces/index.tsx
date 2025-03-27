@@ -1,7 +1,7 @@
 import { Variable, GLib, bind } from "astal";
 import { Astal, Gtk, Gdk } from "astal/gtk3";
 import Hyprland from "gi://AstalHyprland";
-import config from "../../config.json";
+import config from "../../../config.json";
 
 const urgentWorkspaces = new Set();
 

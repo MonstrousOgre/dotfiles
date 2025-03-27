@@ -2,14 +2,14 @@
   "bars": {
     "eDP-1": {
       "spacing": 0,
-      "start": ["workspaces"],
-      "center": [],
+      "start": ["session", "workspaces"],
+      "center": ["windowtitle"],
       "end": []
     },
     "HDMI-A-1": {
       "spacing": 0,
-      "start": ["workspaces"],
-      "center": [],
+      "start": ["session", "workspaces"],
+      "center": ["windowtitle"],
       "end": []
     }
   },

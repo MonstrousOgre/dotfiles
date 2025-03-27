@@ -7,8 +7,10 @@ import Battery from "gi://AstalBattery";
 import Wp from "gi://AstalWp";
 import Network from "gi://AstalNetwork";
 import Tray from "gi://AstalTray";
-import config from "../config.json";
+import config from "../../config.json";
 import { Workspaces } from "./workspaces";
+import WindowTitle from "./windowtitle";
+import Session from "./session";
 
 function SysTray() {
   const tray = Tray.get_default();
@@ -135,6 +137,8 @@ function Time({ format = "%H:%M - %A %e." }) {
 
 const widget = {
   workspaces: (monitor: Hyprland.Monitor) => Workspaces(monitor),
+  windowtitle: (_monitor: Hyprland.Monitor) => WindowTitle(),
+  session: (_monitor: Hyprland.Monitor) => Session(),
 };
 
 export default (monitor: Hyprland.Monitor) => {
@@ -142,6 +146,9 @@ export default (monitor: Hyprland.Monitor) => {
   const start = config.bars[monitor.name as keyof typeof config.bars].start.map(
     (key) => widget[key as keyof typeof widget](monitor),
   );
+  const center = config.bars[
+    monitor.name as keyof typeof config.bars
+  ].center.map((key) => widget[key as keyof typeof widget](monitor));
 
   return (
     <window
@@ -154,7 +161,7 @@ export default (monitor: Hyprland.Monitor) => {
         <box hexpand halign={Gtk.Align.START}>
           {start}
         </box>
-        <box></box>
+        <box>{center}</box>
         <box hexpand halign={Gtk.Align.END}></box>
       </centerbox>
     </window>
