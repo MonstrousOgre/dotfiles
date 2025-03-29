@@ -4,13 +4,26 @@
       "spacing": 0,
       "start": ["session", "workspaces"],
       "center": ["windowtitle"],
-      "end": []
+      "end": ["systray"]
     },
     "HDMI-A-1": {
       "spacing": 0,
       "start": ["session", "workspaces"],
       "center": ["windowtitle"],
-      "end": []
+      "end": ["clock", "systray"]
+    },
+    "DP-1": {
+      "spacing": 0,
+      "start": ["session", "workspaces"],
+      "center": ["windowtitle"],
+      "end": [
+        "player",
+        "battery",
+        "volume",
+        "idleinhibitor",
+        "clock",
+        "systray"
+      ]
     }
   },
   "workspaces": {

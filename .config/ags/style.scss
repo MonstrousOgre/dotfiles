@@ -72,6 +72,10 @@ window.Bar {
       border-radius: 3px;
     }
   }
+
+  button.inhibiting {
+    background-color: $theme_selected_bg_color;
+  }
 }
 
 window.dropdown-menu {

@@ -4,7 +4,7 @@ import { globalMousePos } from "./globals";
 import { App } from "astal/gtk3";
 
 export const closeAllMenus = () => {
-  const menuWindows = App.windows
+  const menuWindows = App.get_windows()
     .filter((w) => {
       if (w.name) {
         return /.*menu/.test(w.name);
@@ -14,21 +14,14 @@ export const closeAllMenus = () => {
     })
     .map((w) => w.name);
 
-  console.log(menuWindows);
-
   menuWindows.forEach((w) => {
     if (w) {
-      App.toggle_window(w);
+      App.get_window(w)?.set_visible(false);
     }
   });
 };
 
-export const openMenu = (
-  clicked: any,
-  x: number,
-  y: number,
-  window: string,
-) => {
+export const openMenu = (clicked: any, event: Gdk.Event, window: string) => {
   /*
    * NOTE: We have to make some adjustments so the menu pops up relatively
    * to the center of the button clicked. We don't want the menu to spawn
@@ -48,11 +41,12 @@ export const openMenu = (
   const xAxisOfButtonClick = clicked.get_pointer()[0];
   const middleOffset = middleOfButton - xAxisOfButtonClick;
 
-  const adjustedXCoord = x + middleOffset;
-  const coords = [adjustedXCoord, y];
+  const clickPos = event.get_root_coords();
+  const adjustedXCoord = clickPos[1] + middleOffset;
+  const coords = [adjustedXCoord, clickPos[2]];
 
   globalMousePos.set(coords);
 
-  // closeAllMenus();
+  closeAllMenus();
   App.toggle_window(window);
 };

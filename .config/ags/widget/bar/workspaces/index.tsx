@@ -30,10 +30,11 @@ export const Workspaces = (monitor: Hyprland.Monitor) => {
                 onClicked={() => hypr.dispatch(`workspace`, `${id}`)}
                 setup={(self) => {
                   self.hook(hypr, "urgent", (_, client: Hyprland.Client) => {
-                    console.log(client.workspace.id);
-                    urgentWorkspaces.add(client.workspace.id);
-                    if (client.workspace.id === id)
-                      self.toggleClassName("urgent", true);
+                    if (client) {
+                      urgentWorkspaces.add(client.workspace.id);
+                      if (client.workspace.id === id)
+                        self.toggleClassName("urgent", true);
+                    }
                   });
                 }}
               >

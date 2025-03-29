@@ -4,6 +4,7 @@ import Bar from "./widget/bar/Bar";
 import Hyprland from "gi://AstalHyprland";
 import config from "./config.json";
 import main from "./widget/menus/main";
+import { Window } from "astal/gtk3/widget";
 
 App.start({
   css: style,
@@ -14,6 +15,6 @@ App.start({
         (monitor) => config.bars[monitor.name as keyof typeof config.bars],
       )
       .map(Bar);
-    main.forEach((window) => App.add_window(window));
+    main.forEach((window) => App.add_window(window as Window));
   },
 });

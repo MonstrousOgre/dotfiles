@@ -4,25 +4,6 @@ import options from "../../../config.json";
 import DropDownMenu from "../DropDownMenu";
 import { exec } from "astal";
 
-// const sessionOptions = [
-//   {
-//     icon: icons.session.lock,
-//     command: options.session.lock,
-//   },
-//   {
-//     icon: icons.session.logout,
-//     command: options.session.logout,
-//   },
-//   {
-//     icon: icons.session.restart,
-//     command: options.session.restart,
-//   },
-//   {
-//     icon: icons.session.shutdown,
-//     command: options.session.shutdown,
-//   },
-// ];
-
 export default () => {
   return (
     <DropDownMenu name="sessionmenu">

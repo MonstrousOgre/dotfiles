@@ -3,35 +3,20 @@ import { Variable, GLib, bind } from "astal";
 import { Astal, Gtk, Gdk } from "astal/gtk3";
 import Hyprland from "gi://AstalHyprland";
 import Mpris from "gi://AstalMpris";
-import Battery from "gi://AstalBattery";
 import Wp from "gi://AstalWp";
 import Network from "gi://AstalNetwork";
-import Tray from "gi://AstalTray";
 import config from "../../config.json";
 import { Workspaces } from "./workspaces";
 import WindowTitle from "./windowtitle";
 import Session from "./session";
+import Clock from "./clock";
+import IdleInhibitor from "./idleinhibitor";
+import Volume from "./volume";
+import SysTray from "./systray";
 
-function SysTray() {
-  const tray = Tray.get_default();
-
-  return (
-    <box className="SysTray">
-      {bind(tray, "items").as((items) =>
-        items.map((item) => (
-          <menubutton
-            tooltipMarkup={bind(item, "tooltipMarkup")}
-            usePopover={false}
-            actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
-            menuModel={bind(item, "menuModel")}
-          >
-            <icon gicon={bind(item, "gicon")} />
-          </menubutton>
-        )),
-      )}
-    </box>
-  );
-}
+import { BarConfig } from "../../types/BarConfig";
+import BatteryWidget from "./battery";
+import Player from "./player";
 
 function Wifi() {
   const network = Network.get_default();
@@ -49,34 +34,6 @@ function Wifi() {
             />
           ),
       )}
-    </box>
-  );
-}
-
-function AudioSlider() {
-  const speaker = Wp.get_default()?.audio.defaultSpeaker!;
-
-  return (
-    <box className="AudioSlider" css="min-width: 140px">
-      <icon icon={bind(speaker, "volumeIcon")} />
-      <slider
-        hexpand
-        onDragged={({ value }) => (speaker.volume = value)}
-        value={bind(speaker, "volume")}
-      />
-    </box>
-  );
-}
-
-function BatteryLevel() {
-  const bat = Battery.get_default();
-
-  return (
-    <box className="Battery" visible={bind(bat, "isPresent")}>
-      <icon icon={bind(bat, "batteryIconName")} />
-      <label
-        label={bind(bat, "percentage").as((p) => `${Math.floor(p * 100)} %`)}
-      />
     </box>
   );
 }
@@ -110,45 +67,34 @@ function Media() {
   );
 }
 
-function FocusedClient() {
-  const hypr = Hyprland.get_default();
-  const focused = bind(hypr, "focusedClient");
-
-  return (
-    <box className="Focused" visible={focused.as(Boolean)}>
-      {focused.as(
-        (client) =>
-          client && <label label={bind(client, "title").as(String)} />,
-      )}
-    </box>
-  );
-}
-
-function Time({ format = "%H:%M - %A %e." }) {
-  const time = Variable<string>("").poll(
-    1000,
-    () => GLib.DateTime.new_now_local().format(format)!,
-  );
-
-  return (
-    <label className="Time" onDestroy={() => time.drop()} label={time()} />
-  );
-}
-
 const widget = {
   workspaces: (monitor: Hyprland.Monitor) => Workspaces(monitor),
   windowtitle: (_monitor: Hyprland.Monitor) => WindowTitle(),
   session: (_monitor: Hyprland.Monitor) => Session(),
+  systray: (_monitor: Hyprland.Monitor) => SysTray(),
+  clock: (_monitor: Hyprland.Monitor) => Clock(),
+  idleinhibitor: (_monitor: Hyprland.Monitor) => IdleInhibitor(),
+  volume: (_monitor: Hyprland.Monitor) => Volume(),
+  battery: (_monitor: Hyprland.Monitor) => BatteryWidget(),
+  player: (_monitor: Hyprland.Monitor) => Player(),
 };
+
+type WidgetConfig = keyof typeof widget;
 
 export default (monitor: Hyprland.Monitor) => {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
-  const start = config.bars[monitor.name as keyof typeof config.bars].start.map(
-    (key) => widget[key as keyof typeof widget](monitor),
+
+  const start = config.bars[monitor.name as BarConfig].start.map((key) =>
+    widget[key as WidgetConfig](monitor),
   );
-  const center = config.bars[
-    monitor.name as keyof typeof config.bars
-  ].center.map((key) => widget[key as keyof typeof widget](monitor));
+
+  const center = config.bars[monitor.name as BarConfig].center.map((key) =>
+    widget[key as WidgetConfig](monitor),
+  );
+
+  const end = config.bars[monitor.name as BarConfig].end.map((key) =>
+    widget[key as WidgetConfig](monitor),
+  );
 
   return (
     <window
@@ -162,7 +108,9 @@ export default (monitor: Hyprland.Monitor) => {
           {start}
         </box>
         <box>{center}</box>
-        <box hexpand halign={Gtk.Align.END}></box>
+        <box hexpand halign={Gtk.Align.END}>
+          {end}
+        </box>
       </centerbox>
     </window>
   );

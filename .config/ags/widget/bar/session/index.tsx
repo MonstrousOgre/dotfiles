@@ -1,11 +1,11 @@
 import icons from "../../../utils/icons";
-import { openMenu } from "../../../utils/barUtils";
+import { openMenu } from "../../../utils/menu";
 
 const Session = () => {
   return (
     <button
-      onClick={(clicked, event) => {
-        openMenu(clicked, event.x, event.y, "sessionmenu");
+      onButtonPressEvent={(clicked, event) => {
+        openMenu(clicked, event, "sessionmenu");
       }}
     >
       <icon icon={icons.session.shutdown}></icon>
