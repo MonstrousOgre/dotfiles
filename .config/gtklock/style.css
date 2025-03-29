@@ -15,6 +15,10 @@ window#HDMI-A-1 {
   background-image: url("/home/ogre/.local/share/wallpapers/SamuraiSunset.jpg");
 }
 
+window#DP-1 {
+  background-image: url("/home/ogre/.local/share/wallpapers/SamuraiSunset.jpg");
+}
+
 #window-box {
   padding: 64px;
   /* border: 1px solid black; */
