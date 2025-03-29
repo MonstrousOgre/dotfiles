@@ -1,4 +1,5 @@
 export default {
+  close: "window-close-symbolic",
   session: {
     shutdown: "system-shutdown-symbolic",
     logout: "system-log-out-symbolic",

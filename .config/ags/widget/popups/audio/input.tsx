@@ -28,6 +28,9 @@ export const AudioInput = () => {
                 hexpand
                 drawValue={false}
                 value={bind(microphone, "volume") || 0}
+                onDragged={(self) => {
+                  microphone.set_volume(self.value);
+                }}
               />
             </>
           ) : (

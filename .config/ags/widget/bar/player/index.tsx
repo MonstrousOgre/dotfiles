@@ -22,22 +22,27 @@ const Player = ({ playername } = { playername: "playerctld" }) => {
           }}
           onButtonPressEvent={() => {}}
         >
-          {bind(player, "title").as((title) => (
-            <label
-              className={`track}`}
-              xalign={0}
-              maxWidthChars={50}
-              truncate
-              wrap
-              useMarkup
-            >
-              {identity
-                ? bind(player, "artist").as((artist) =>
-                    artist && artist !== "" ? `${artist} - ${title}` : title,
-                  )
-                : "No Media playing"}
-            </label>
-          ))}
+          <box spacing={10}>
+            {bind(player, "entry").as((entry) =>
+              entry ? <icon icon={entry} /> : <></>,
+            )}
+            {bind(player, "title").as((title) => (
+              <label
+                className={`track}`}
+                xalign={0}
+                maxWidthChars={50}
+                truncate
+                wrap
+                useMarkup
+              >
+                {identity
+                  ? bind(player, "artist").as((artist) =>
+                      artist && artist !== "" ? `${artist} - ${title}` : title,
+                    )
+                  : "No Media playing"}
+              </label>
+            ))}
+          </box>
         </button>
       ))}
       <button

@@ -3,8 +3,10 @@ import style from "./style.scss";
 import Bar from "./widget/bar/Bar";
 import Hyprland from "gi://AstalHyprland";
 import config from "./config.json";
-import main from "./widget/menus/main";
+import main from "./widget/popups/main";
 import { Window } from "astal/gtk3/widget";
+import OSD from "./widget/osd";
+import notifications from "./widget/notifications";
 
 App.start({
   css: style,
@@ -16,5 +18,11 @@ App.start({
       )
       .map(Bar);
     main.forEach((window) => App.add_window(window as Window));
+
+    if (config.osd.allMonitors) monitors.map(OSD);
+    else OSD();
+
+    if (config.osd.allMonitors) monitors.map(notifications);
+    else notifications();
   },
 });

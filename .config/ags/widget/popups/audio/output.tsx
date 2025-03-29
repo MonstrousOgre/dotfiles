@@ -27,6 +27,9 @@ export const AudioOutput = () => {
               hexpand
               drawValue={false}
               value={bind(speaker, "volume") || 0}
+              onDragged={(self) => {
+                speaker.set_volume(self.value);
+              }}
             />
           </>
         ))}
