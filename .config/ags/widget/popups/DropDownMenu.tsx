@@ -1,7 +1,8 @@
 import Hyprland from "gi://AstalHyprland";
 import { globalMousePos } from "../../utils/globals";
 import { bind, exec, Variable } from "astal";
-import { App, Astal, Gtk, Widget } from "astal/gtk3";
+import { App, Astal, Gdk, Gtk, Widget } from "astal/gtk3";
+import { closeAllMenus } from "../../utils/menu";
 
 const moveBoxToCursor = (self: any, fixed: boolean) => {
   if (fixed) {
@@ -96,6 +97,11 @@ export default ({
           }}
           setup={(self) => {
             moveBoxToCursor(self, fixed);
+          }}
+          onKeyReleaseEvent={(self, event) => {
+            if (event.get_keyval()[1] === Gdk.KEY_Escape) {
+              closeAllMenus();
+            }
           }}
         >
           <box className={"dropdown-menu-container"} canFocus>

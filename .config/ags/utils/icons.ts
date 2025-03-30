@@ -1,5 +1,10 @@
 export default {
   close: "window-close-symbolic",
+  clear: "edit-clear-all-symbolic",
+  notifications: {
+    regular: "notification-symbolic",
+    new: "notification-new-symbolic",
+  },
   session: {
     shutdown: "system-shutdown-symbolic",
     logout: "system-log-out-symbolic",

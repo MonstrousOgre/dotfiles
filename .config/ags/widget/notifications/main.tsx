@@ -15,7 +15,6 @@ export const NotificationPopup = ({
       <NotificationIcon notification={notification} />
     </box>
   );
-  console.log(notification.urgency);
   return (
     <box
       className={`notification ${notification.urgency === 2 ? "critical" : ""}`}

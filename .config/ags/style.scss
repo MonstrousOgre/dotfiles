@@ -9,6 +9,10 @@ $background-color: rgba(#34343b, 0.8);
 
 window {
   font-family: "PT Sans";
+
+  levelbar block.full {
+    background-color: $theme_selected_bg_color;
+  }
 }
 
 window.Bar {
@@ -139,8 +143,100 @@ window.osd {
     font-size: 80px;
   }
 
-  levelbar block.full {
+
+}
+
+window.notificationsmenu {
+  all: unset;
+  $background-color: rgba(#34343b, 0.8);
+
+  .header {
+    margin: 0.5em;
+    font-size: 1.4em;
+  }
+
+  button.clear {
+    padding: 5px;
+    font-size: 20px;
+  }
+
+  button.clear:hover {
     background-color: $theme_selected_bg_color;
+  }
+
+  .notifications {
+    padding: 0.5em;
+    background: transparent;
+
+
+    .notification {
+      min-width: 350px;
+      border-radius: 11px;
+      padding: 1em;
+      margin: 0.5em;
+      /*border: 2px solid @wm_borders_edge;*/
+      border: 2px solid $theme_selected_bg_color;
+      /*background-color: @theme_bg_color;*/
+      /* background-color: rgba(29, 32, 48, 0.8); */
+      /* background-color: $background-color; */
+
+      .icon {
+        min-width: 68px;
+        min-height: 68px;
+        margin-right: 1em;
+      }
+
+      .icon image {
+        font-size: 58px;
+        /* to center the icon */
+        margin: 5px;
+        /* color: @theme_fg_color; */
+        color: white;
+      }
+
+      .icon box {
+        min-width: 68px;
+        min-height: 68px;
+        border-radius: 7px;
+      }
+
+      .title {
+        /* color: @theme_fg_color; */
+        color: white;
+        font-size: 1.4em;
+      }
+
+      .body {
+        color: $theme_unfocused_fg_color;
+      }
+
+      .actions .action-button {
+        margin: 0 0.4em;
+        margin-top: 0.8em;
+      }
+
+      .actions .action-button:first-child {
+        margin-left: 0;
+      }
+
+      .actions .action-button:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .notification.critical {
+      /*border: 2px solid lightcoral;*/
+      border: 2px solid #ff0000;
+    }
+
+    button.dismiss {
+      padding: 5px;
+      font-size: 20px;
+    }
+
+    button.dismiss:hover {
+      background-color: $theme_selected_bg_color;
+    }
   }
 }
 
@@ -218,6 +314,66 @@ window.notifications {
 
     button.dismiss:hover {
       background-color: $theme_selected_bg_color;
+    }
+  }
+}
+
+window.playersmenu {
+  .player {
+    min-width: 350px;
+    border-radius: 11px;
+    padding: 1em;
+    /*border: 2px solid @wm_borders_edge;*/
+    /* border: 2px solid $theme_selected_bg_color; */
+    /*background-color: @theme_bg_color;*/
+    /* background-color: rgba(29, 32, 48, 0.8); */
+    /* background-color: $background-color; */
+
+    /* .icon { */
+    /*   min-width: 68px; */
+    /*   min-height: 68px; */
+    /*   margin-right: 1em; */
+    /* } */
+
+    .icon image {
+      font-size: 58px;
+      /* to center the icon */
+      margin: 5px;
+      /* color: @theme_fg_color; */
+      color: white;
+    }
+
+    .icon box {
+      min-width: 68px;
+      min-height: 68px;
+      border-radius: 7px;
+    }
+
+    .title {
+      /* color: @theme_fg_color; */
+      color: white;
+      font-size: 1.4em;
+    }
+
+    .artist {
+      color: $theme_unfocused_fg_color;
+    }
+
+    .actions .action-button {
+      margin: 0 0.4em;
+      margin-top: 0.8em;
+    }
+
+    .actions .action-button:first-child {
+      margin-left: 0;
+    }
+
+    .actions .action-button:last-child {
+      margin-right: 0;
+    }
+
+    .controls {
+      padding: 20px 0;
     }
   }
 }

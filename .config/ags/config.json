@@ -4,13 +4,29 @@
       "spacing": 0,
       "start": ["session", "workspaces"],
       "center": ["windowtitle"],
-      "end": ["systray"]
+      "end": [
+        "player",
+        "battery",
+        "volume",
+        "idleinhibitor",
+        "clock",
+        "systray",
+        "notifications"
+      ]
     },
     "HDMI-A-1": {
       "spacing": 0,
       "start": ["session", "workspaces"],
       "center": ["windowtitle"],
-      "end": ["clock", "systray"]
+      "end": [
+        "player",
+        "battery",
+        "volume",
+        "idleinhibitor",
+        "clock",
+        "systray",
+        "notifications"
+      ]
     },
     "DP-1": {
       "spacing": 0,
@@ -22,7 +38,8 @@
         "volume",
         "idleinhibitor",
         "clock",
-        "systray"
+        "systray",
+        "notifications"
       ]
     }
   },
@@ -82,6 +99,7 @@
     "timeout": 5000
   },
   "notifications": {
-    "allMonitors": false
+    "allMonitors": false,
+    "timeout": 5000
   }
 }

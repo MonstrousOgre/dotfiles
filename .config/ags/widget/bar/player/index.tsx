@@ -2,6 +2,7 @@ import Mpris from "gi://AstalMpris";
 import icons from "../../../utils/icons";
 import { Gdk } from "astal/gtk3";
 import { bind } from "astal";
+import { openMenu } from "../../../utils/menu";
 
 const Player = ({ playername } = { playername: "playerctld" }) => {
   const player = Mpris.Player.new(playername);
@@ -20,7 +21,9 @@ const Player = ({ playername } = { playername: "playerctld" }) => {
                 break;
             }
           }}
-          onButtonPressEvent={() => {}}
+          onButtonPressEvent={(self, event) => {
+            openMenu(self, event, "playersmenu");
+          }}
         >
           <box spacing={10}>
             {bind(player, "entry").as((entry) =>

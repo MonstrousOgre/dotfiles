@@ -1,9 +1,6 @@
-import { App } from "astal/gtk3";
-import { Variable, GLib, bind } from "astal";
-import { Astal, Gtk, Gdk } from "astal/gtk3";
+import { bind } from "astal";
+import { Astal, Gtk } from "astal/gtk3";
 import Hyprland from "gi://AstalHyprland";
-import Mpris from "gi://AstalMpris";
-import Wp from "gi://AstalWp";
 import Network from "gi://AstalNetwork";
 import config from "../../config.json";
 import { Workspaces } from "./workspaces";
@@ -17,6 +14,7 @@ import SysTray from "./systray";
 import { BarConfig } from "../../types/BarConfig";
 import BatteryWidget from "./battery";
 import Player from "./player";
+import Notifications from "./notifications";
 
 function Wifi() {
   const network = Network.get_default();
@@ -38,35 +36,6 @@ function Wifi() {
   );
 }
 
-function Media() {
-  const mpris = Mpris.get_default();
-
-  return (
-    <box className="Media">
-      {bind(mpris, "players").as((ps) =>
-        ps[0] ? (
-          <box>
-            <box
-              className="Cover"
-              valign={Gtk.Align.CENTER}
-              css={bind(ps[0], "coverArt").as(
-                (cover) => `background-image: url('${cover}');`,
-              )}
-            />
-            <label
-              label={bind(ps[0], "metadata").as(
-                () => `${ps[0].title} - ${ps[0].artist}`,
-              )}
-            />
-          </box>
-        ) : (
-          <label label="Nothing Playing" />
-        ),
-      )}
-    </box>
-  );
-}
-
 const widget = {
   workspaces: (monitor: Hyprland.Monitor) => Workspaces(monitor),
   windowtitle: (_monitor: Hyprland.Monitor) => WindowTitle(),
@@ -77,6 +46,7 @@ const widget = {
   volume: (_monitor: Hyprland.Monitor) => Volume(),
   battery: (_monitor: Hyprland.Monitor) => BatteryWidget(),
   player: (_monitor: Hyprland.Monitor) => Player(),
+  notifications: (_monitor: Hyprland.Monitor) => Notifications(),
 };
 
 type WidgetConfig = keyof typeof widget;
