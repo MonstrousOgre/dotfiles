@@ -25,7 +25,6 @@ export default () => {
             </box>
             <box />
             <box halign={Gtk.Align.END} spacing={10}>
-              <label>Clear All</label>
               <button
                 className={"clear"}
                 onButtonReleaseEvent={(self, event) => {
@@ -35,7 +34,10 @@ export default () => {
                   }
                 }}
               >
-                <icon icon={icons.clear} />
+                <box spacing={5}>
+                  <label>Clear All</label>
+                  <icon icon={icons.clear} />
+                </box>
               </button>
             </box>
           </centerbox>
