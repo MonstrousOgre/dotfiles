@@ -5,6 +5,7 @@ import { NotificationPopup } from "../../notifications/main";
 import icons from "../../../utils/icons";
 import { Gtk } from "astal/gtk3";
 import { closeAllMenus } from "../../../utils/menu";
+import { dismissNotificationPopup } from "../../notifications/daemon";
 
 export default () => {
   const notifd = Notifd.get_default();
@@ -29,14 +30,17 @@ export default () => {
                 className={"clear"}
                 onButtonReleaseEvent={(self, event) => {
                   if (event.get_button()[1] === 1) {
-                    notifd.notifications.forEach((n) => n.dismiss());
+                    notifd.notifications.forEach((n) => {
+                      dismissNotificationPopup(n.id);
+                      n.dismiss();
+                    });
                     closeAllMenus();
                   }
                 }}
               >
                 <box spacing={5}>
                   <label>Clear All</label>
-                  <icon icon={icons.clear} />
+                  <icon icon={icons.clearAll} />
                 </box>
               </button>
             </box>

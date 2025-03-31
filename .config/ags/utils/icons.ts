@@ -1,6 +1,6 @@
 export default {
-  close: "window-close-symbolic",
-  clear: "edit-clear-all-symbolic",
+  clear: "edit-clear-symbolic",
+  clearAll: "edit-clear-all-symbolic",
   notifications: {
     regular: "notification-symbolic",
     new: "notification-new-symbolic",

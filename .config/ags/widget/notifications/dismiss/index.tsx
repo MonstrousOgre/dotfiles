@@ -1,6 +1,7 @@
 import Notifd from "gi://AstalNotifd";
 
 import icons from "../../../utils/icons";
+import { dismissNotificationPopup } from "../daemon";
 
 export const Dismiss = ({
   notification,
@@ -9,8 +10,11 @@ export const Dismiss = ({
 }) => (
   <button
     className={"dismiss"}
-    onButtonReleaseEvent={() => notification.dismiss()}
+    onButtonReleaseEvent={() => {
+      dismissNotificationPopup(notification.id);
+      notification.dismiss();
+    }}
   >
-    <icon icon={icons.close} />
+    <icon icon={icons.clear} />
   </button>
 );
