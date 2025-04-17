@@ -323,7 +323,7 @@ window.notifications {
 
 window.playersmenu {
   .player {
-    min-width: 350px;
+    min-width: 400px;
     border-radius: 11px;
     padding: 1em;
     /*border: 2px solid @wm_borders_edge;*/
@@ -358,21 +358,9 @@ window.playersmenu {
       font-size: 1.4em;
     }
 
-    .artist {
+    .artist,
+    .album {
       color: $theme_unfocused_fg_color;
-    }
-
-    .actions .action-button {
-      margin: 0 0.4em;
-      margin-top: 0.8em;
-    }
-
-    .actions .action-button:first-child {
-      margin-left: 0;
-    }
-
-    .actions .action-button:last-child {
-      margin-right: 0;
     }
 
     .controls {

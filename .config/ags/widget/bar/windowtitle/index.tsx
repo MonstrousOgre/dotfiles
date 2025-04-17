@@ -11,13 +11,15 @@ const WindowTitle = () => {
     ) : (
       <box spacing={8} tooltipText={bind(client, "title")}>
         {bind(client, "class").as((windowClass) => {
-          const applications = apps.exact_query(windowClass);
+          let app = apps.list.find(
+            (app) =>
+              app.wmClass === windowClass ||
+              app.entry === `${windowClass}.desktop`,
+          );
 
-          return windowClass === "" || applications.length === 0 ? (
-            <></>
-          ) : (
+          return windowClass !== "" && app ? (
             <>
-              <icon icon={applications[0].iconName ?? ""} />
+              <icon icon={app.iconName ?? ""} />
               <label
                 className={"client-title"}
                 xalign={0}
@@ -26,9 +28,11 @@ const WindowTitle = () => {
                 wrap
                 useMarkup
               >
-                {applications[0].name ?? ""}
+                {app.name ?? ""}
               </label>
             </>
+          ) : (
+            <></>
           );
         })}
       </box>
