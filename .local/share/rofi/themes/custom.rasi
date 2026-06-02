@@ -2,12 +2,12 @@
 
 * {
     /*border:         #1CE3D1EE; */
-    border:         #5657f5ff; 
-    background:     #31313Acc;
+    border:         #F06292ff; 
+    background:     #1d212fcc;
     background-alt: #282B31FF;
     foreground:     #FFFFFFFF;
     /*selected:       #64727d77;*/
-    selected:       #5657f5ff;
+    selected:       #F0629299;
     active:         #98C379FF;
     urgent:         #E06C75FF;
 }
