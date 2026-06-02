@@ -152,6 +152,13 @@ hl.window_rule({
 
 hl.layer_rule({
   match = {
+    namespace = "gtk-layer-shell"
+  },
+  blur = true,
+})
+
+hl.layer_rule({
+  match = {
     namespace = "rofi",
   },
   blur = true,
