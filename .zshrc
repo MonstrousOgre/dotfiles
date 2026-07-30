@@ -32,7 +32,7 @@ if [[ $(uname -s) == "Linux" && ! (-o login) ]] && [[ (-o interactive) ]] && [[ 
 fi
 
 if [[ $(uname -s) == "Darwin" && (-o login) ]] && [[ (-o interactive) ]] && [[ ! (-v NU_STARTED) ]]; then
-  exec nu
+  [ -x $HOME/.cargo/bin/nu ] && SHELL=$HOME/.cargo/bin/nu exec nu
 fi
 
 function y() {

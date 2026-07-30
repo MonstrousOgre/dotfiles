@@ -1,11 +1,12 @@
 [misc]
+
 # Don't ask for confirmations
 #assume_yes = true
 
 # Disable specific steps - same options as the command line flag
 #disable = ["system", "emacs"]
 #disable = ["firmware","vim"]
-disable = ["firmware","spicetify","containers", "vscode"]
+disable = ["firmware","spicetify","containers", "vscode", "tlmgr"]
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
