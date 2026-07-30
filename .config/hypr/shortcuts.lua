@@ -136,10 +136,6 @@ hl.bind(mainMod .. " + " .. "code:59", hl.dsp.focus({ monitor = -1 }))
 
 hl.bind(mainMod .. " + " .. "code:60", hl.dsp.focus({ monitor = "+1" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "code:59", hl.dsp.focus({ monitor = "left" }))
-
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "code:60", hl.dsp.focus({ monitor = "right" }))
-
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "code:59", hl.dsp.window.move({ monitor = -1 }))
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "code:60", hl.dsp.window.move({ monitor = "+1" }))
@@ -179,5 +175,3 @@ end)
 hl.bind("CTRL + ALT" .. " + " .. "Delete", hl.dsp.exec_cmd("wlogout"))
 
 hl.bind("CTRL + ALT" .. " + " .. "l", hl.dsp.exec_cmd("gtklock --follow-focus"))
-
--- bind = CTRL ALT,l, exec, hyprlock
