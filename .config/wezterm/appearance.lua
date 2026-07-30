@@ -13,6 +13,7 @@ function M.apply_to_config(config)
 
   if wezterm.target_triple:find('linux') then
     background = '#1d212f'
+    config.wayland_window_background_blur = true
   elseif wezterm.target_triple:find('apple') then
     background = '#413c3a'
   end
