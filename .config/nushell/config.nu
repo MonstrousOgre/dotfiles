@@ -1,11 +1,22 @@
-# Nushell Config File
+# config.nu
 #
-# version = "0.94.2"
+# Installed by:
+# version = "0.102.0"
+#
+# This file is used to override default Nushell settings, define
+# (or import) custom commands, or run any other startup tasks.
+# See https://www.nushell.sh/book/configuration.html
+#
+# This file is loaded after env.nu and before login.nu
+#
+# You can open this file in your default editor using:
+# config nu
+#
+# See `help config nu` for more options
+#
+# You can remove these comments if you want or leave
+# them for future reference.
 
-# For more information on defining custom themes, see
-# https://www.nushell.sh/book/coloring_and_theming.html
-# And here is the theme collection
-# https://github.com/nushell/nu_scripts/tree/main/themes
 let dark_theme = {
     # color for nushell primitives
     separator: white
@@ -390,21 +401,21 @@ $env.config = {
     ]
 
     keybindings: [
-        {
-            name: completion_menu
-            # modifier: none
-            modifier: control
-            # keycode: tab
-            keycode: char_t
-            mode: [emacs vi_normal vi_insert]
-            event: {
-                until: [
-                    { send: menu name: completion_menu }
-                    { send: menunext }
-                    { edit: complete }
-                ]
-            }
-        }
+        # {
+        #     name: completion_menu
+        #     # modifier: none
+        #     modifier: control
+        #     # keycode: tab
+        #     keycode: char_t
+        #     mode: [emacs vi_normal vi_insert]
+        #     event: {
+        #         until: [
+        #             { send: menu name: completion_menu }
+        #             { send: menunext }
+        #             { edit: complete }
+        #         ]
+        #     }
+        # }
         {
             name: ide_completion_menu
             # modifier: control
@@ -551,7 +562,20 @@ $env.config = {
                     { send: right }
                 ]
             }
-        }
+        },
+        {
+            name: move_right_or_take_history_hint
+            modifier: control
+            keycode: space
+            mode: [emacs, vi_normal, vi_insert]
+            event: {
+                until: [
+                    { send: historyhintcomplete }
+                    { send: menuright }
+                    { send: right }
+                ]
+            }
+        },
         {
             name: move_one_word_left
             modifier: control

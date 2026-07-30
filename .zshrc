@@ -27,7 +27,7 @@ fi
 
 source ~/.sh-aliases
 
-if [[ $(uname -s) == "Linux" && ! (-o login) ]] && [[ (-o interactive) ]] && [[ ! (-v NU_STARTED) ]]; then
+if [[ $(uname -s) == "Linux" ]] && [[ (-o interactive) ]] && [[ -n "$DISPLAY" || -n "$WAYLAND_DISPLAY" ]] && [[ ! (-v NU_STARTED) ]]; then
   [ -x $HOME/.cargo/bin/nu ] && SHELL=$HOME/.cargo/bin/nu exec nu
 fi
 

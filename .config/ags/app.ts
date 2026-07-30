@@ -10,6 +10,7 @@ import notifications from "./widget/notifications";
 
 App.start({
   css: style,
+  iconTheme: "Papirus-Dark",
   main() {
     const monitors = Hyprland.get_default().monitors;
     const windows = monitors

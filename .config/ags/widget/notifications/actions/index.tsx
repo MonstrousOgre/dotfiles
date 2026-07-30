@@ -5,7 +5,7 @@ export const Actions = ({
 }: {
   notification: Notifd.Notification;
 }) => (
-  <box className={"actions"}>
+  <box spacing={10} className={"actions"}>
     {notification.actions.map((action) => (
       <button
         onButtonReleaseEvent={() => {

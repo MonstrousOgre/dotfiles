@@ -89,14 +89,14 @@ hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen())
 
 hl.bind(mainMod .. " + " .. "M", hl.dsp.window.fullscreen())
 
-hl.bind(mainMod .. " + " .. "RETURN", hl.dsp.exec_cmd("kitty"))
+hl.bind(mainMod .. " + " .. "RETURN", hl.dsp.exec_cmd(os.getenv("TERMINAL")))
 
 
 hl.bind(mainMod .. " + " .. "SPACE", hl.dsp.exec_cmd("rofi -show combi"))
 
 hl.bind(mainMod .. " + " .. "E", hl.dsp.exec_cmd("dolphin"))
 
-hl.bind(mainMod .. " + " .. "B", hl.dsp.exec_cmd("kitty btm"))
+hl.bind(mainMod .. " + " .. "B", hl.dsp.exec_cmd(os.getenv("TERMINAL") .. " -e btm"))
 
 hl.bind(mainMod .. " + " .. "H", hl.dsp.focus({ direction = "left" }))
 
@@ -132,13 +132,17 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "code:34", hl.dsp.window.move({ 
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "code:35", hl.dsp.window.move({ workspace = "+1", follow = false }))
 
-hl.bind(mainMod .. " + " .. "code:59", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + " .. "code:59", hl.dsp.focus({ monitor = -1 }))
 
-hl.bind(mainMod .. " + " .. "code:60", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + " .. "code:60", hl.dsp.focus({ monitor = "+1" }))
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "code:59", hl.dsp.focus({ monitor = "left" }))
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "code:60", hl.dsp.focus({ monitor = "right" }))
+
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "code:59", hl.dsp.window.move({ monitor = -1 }))
+
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "code:60", hl.dsp.window.move({ monitor = "+1" }))
 
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("lightctl up"))
 
@@ -160,22 +164,16 @@ hl.bind("XF86AudioStop", hl.dsp.exec_cmd("playerctl stop"))
 
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("qalculate-qt"))
 
-hl.bind("PRINT",
-  hl.dsp.exec_cmd(
-    "hyprshot -m region --raw | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"))
 
-hl.bind("SHIFT + PRINT",
-  hl.dsp.exec_cmd(
-    "hyprshot -m output --raw | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"))
+hl.bind("PRINT", hl.plugin.hyprcapture.open)
 
+-- hl.bind("SUPER + SHIFT + w", function()
+--   hl.plugin.hyprcapture.open("window")
+-- end)
 
-
-
--- bind = , PRINT, exec, grim -g "$(slurp -o -r -c '##ff0000ff')" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
-
--- bind = , PRINT, exec, hyprshot -m region --raw | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
-
--- bind = SHIFT, PRINT, exec, hyprshot -m output --raw | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+hl.bind("SHIFT + PRINT", function()
+  hl.plugin.hyprcapture.open("fullscreen")
+end)
 
 
 hl.bind("CTRL + ALT" .. " + " .. "Delete", hl.dsp.exec_cmd("wlogout"))

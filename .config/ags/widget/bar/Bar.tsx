@@ -47,6 +47,7 @@ const widget = {
   battery: (_monitor: Hyprland.Monitor) => BatteryWidget(),
   player: (_monitor: Hyprland.Monitor) => Player(),
   notifications: (_monitor: Hyprland.Monitor) => Notifications(),
+  network: (_monitor: Hyprland.Monitor) => Wifi(),
 };
 
 type WidgetConfig = keyof typeof widget;

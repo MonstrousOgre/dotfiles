@@ -18,6 +18,7 @@ export const NotificationPopup = ({
   return (
     <box
       className={`notification ${notification.urgency === 2 ? "critical" : ""}`}
+      spacing={10}
       vertical
     >
       <box>

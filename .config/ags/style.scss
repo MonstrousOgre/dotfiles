@@ -5,7 +5,7 @@ $theme_selected_bg_color: #{"@theme_selected_bg_color"};
 $insensitive_fg_color: #{"@insensitive_fg_color"};
 $theme_unfocused_fg_color: #{"@theme_unfocused_fg_color"};
 
-$background-color: rgba(#34343b, 0.8);
+$background-color: rgba(#1d212f, 0.8);
 
 window {
   font-family: "PT Sans";
@@ -168,6 +168,7 @@ window.notificationsmenu {
   }
 
   .notifications {
+    all: unset;
     padding: 0.5em;
     background: transparent;
 

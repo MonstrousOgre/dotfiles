@@ -13,8 +13,8 @@ const WindowTitle = () => {
         {bind(client, "class").as((windowClass) => {
           let app = apps.list.find(
             (app) =>
-              app.wmClass === windowClass ||
-              app.entry === `${windowClass}.desktop`,
+              app.entry === `${windowClass}.desktop` ||
+              app.wmClass === windowClass,
           );
 
           return windowClass !== "" && app ? (

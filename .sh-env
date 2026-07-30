@@ -2,3 +2,5 @@
 
 # Personal
 export DIR_PERSONAL=/mnt/Kash/PS
+
+source "$HOME/.sh-private"

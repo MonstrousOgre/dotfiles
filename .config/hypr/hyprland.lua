@@ -126,7 +126,7 @@ hl.config({
     -- col.inactive_border = "rgba(1d212fcc)",
     col = {
       active_border = 0xffF06292,
-      inactive_border = 0x1d212fcc,
+      inactive_border = 0xcc1d212f,
     },
     layout = "dwindle",
   },
