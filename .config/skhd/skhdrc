@@ -183,7 +183,7 @@ alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 # alt - return : open -a /Applications/iTerm.app
 # alt - return : open -a iTerm
-alt - return : open -a Kitty
+alt - return : open -a $TERMINAL
 alt - f : open -a Finder
 alt - e : open -a Commander\ One
 

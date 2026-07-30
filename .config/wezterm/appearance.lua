@@ -16,6 +16,7 @@ function M.apply_to_config(config)
     config.wayland_window_background_blur = true
   elseif wezterm.target_triple:find('apple') then
     background = '#413c3a'
+    config.macos_window_background_blur = 64
   end
 
   config.colors = { background = background }
