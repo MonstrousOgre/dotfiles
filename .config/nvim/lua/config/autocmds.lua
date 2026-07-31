@@ -37,8 +37,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Diagnostic stuff
     vim.keymap.set("n", "<space>d", vim.diagnostic.open_float, opts)
-    vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "<C-p>", function() vim.diagnostic.jump({ count = -1 }) end, opts)
+    vim.keymap.set("n", "<C-n>", function() vim.diagnostic.jump({ count = 1 }) end, opts)
     vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
     -- vim.keymap.set("n", "<space>f", vim.lsp.buf.format { async = true }, opts)
