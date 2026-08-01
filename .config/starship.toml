@@ -1,24 +1,13 @@
 # Don't print a new line at the start of the prompt
 # add_newline = false
 
-[cmd_duration]
-#show_notifications = true
-
 [git_branch]
 symbol = " "
 
-[hostname]
-#ssh_only = false
-
-[line_break]
-#disabled = true
-
-[status]
-disabled = false
-
-[time]
-use_12hr = true
-#disabled = false
-
 [username]
-#show_always = true
+show_always = true
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
