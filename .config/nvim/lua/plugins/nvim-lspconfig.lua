@@ -10,5 +10,6 @@ return {
     -- })
 
     vim.lsp.enable("qml-language-server")
+    vim.lsp.enable("nushell")
   end
 }

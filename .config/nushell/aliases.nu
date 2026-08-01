@@ -2,6 +2,8 @@
 # alias sudo = sudo 
 # alias sudoedit = sudoedit 
 
+# $env.config.abbreviations = {}
+
 # lsd aliases
 # alias ls = lsd
 alias l = ls -l
@@ -21,15 +23,15 @@ alias yay = paru
 
 alias upgrade = topgrade
 
-alias config = /usr/bin/git $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
-alias lz-config = lazygit $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
+alias dotconfig = /usr/bin/git $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
+alias lz-dot = lazygit $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
 
 let pyPath = $'(^python3 -m site --user-base)/bin'
 
 alias core-http = http
 
 def http [params] {
-  nu -c $'($pyPath)/http ($params)'
+    nu -c $'($pyPath)/http ($params)'
 }
 
 def disown [...command: string] {
@@ -37,11 +39,11 @@ def disown [...command: string] {
 }
 
 def --env y [...args] {
-	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
-	yazi ...$args --cwd-file $tmp
-	let cwd = (open $tmp)
-	if $cwd != "" and $cwd != $env.PWD {
-		cd $cwd
-	}
-	rm -fp $tmp
+    let tmp = (mktemp -t "yazi-cwd.XXXXXX")
+    yazi ...$args --cwd-file $tmp
+    let cwd = (open $tmp)
+    if $cwd != "" and $cwd != $env.PWD {
+        cd $cwd
+    }
+    rm -fp $tmp
 }

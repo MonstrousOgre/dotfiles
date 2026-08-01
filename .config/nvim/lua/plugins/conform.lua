@@ -14,6 +14,7 @@ return {
       css = { "prettierd", "prettier", stop_after_first = true },
       json = { "prettierd", "prettier", stop_after_first = true },
       yaml = { "prettierd", "prettier", stop_after_first = true },
+      nu = { "nufmt" },
     },
     format_on_save = {
       -- These options will be passed to conform.format()
