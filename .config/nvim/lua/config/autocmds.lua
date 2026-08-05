@@ -2,55 +2,64 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
   callback = function(ev)
     -- Unset 'formatexpr'
-    local opts = { buffer = ev.buf }
+    local default_opts = { buffer = ev.buf }
+
+    local function map(mode, lhs, rhs, extra)
+      vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", default_opts, extra))
+    end
+
+
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+    map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+    map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to definition" })
+    map("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
 
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+    map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+    map("n", "<space>D", vim.lsp.buf.type_definition, { desc = "Type definition" })
 
     -- For signature help
-    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-    vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+    map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature help" })
+    map("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature help" })
 
 
-    vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set("n", "<space>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
+    map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, { desc = "Add workspace folder" })
+    map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, { desc = "Remove workspace folder" })
+    map("n", "<space>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
+      { desc = "List workspace folders" })
 
     -- For renaming
-    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set("v", "<space>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set("i", "<F2>", vim.lsp.buf.rename, opts)
+    map("n", "<space>rn", vim.lsp.buf.rename, { desc = "Rename" })
+    map("v", "<space>rn", vim.lsp.buf.rename, { desc = "Rename" })
+    map("i", "<F2>", vim.lsp.buf.rename, { desc = "Rename" })
 
 
     -- Code Actions
-    -- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set({ "v", "n" }, "<space>ca", require("actions-preview").code_actions)
+    -- map("n", "<space>ca", vim.lsp.buf.code_action, {desc = ""})
+    map({ "v", "n" }, "<space>ca", require("actions-preview").code_actions, { desc = "Code actions" })
 
-    -- vim.keymap.set("n", "<space>ci", "<cmd>:Lspsaga incoming_calls, opts)
-    -- vim.keymap.set("n", "<space>co", "<cmd>:Lspsaga outgoing_calls, opts)
+    -- map("n", "<space>ci", "<cmd>:Lspsaga incoming_calls, {desc = ""})
+    -- map("n", "<space>co", "<cmd>:Lspsaga outgoing_calls, {desc = ""})
 
     -- Diagnostic stuff
-    vim.keymap.set("n", "<space>d", vim.diagnostic.open_float, opts)
+    map("n", "<space>d", vim.diagnostic.open_float, { desc = "Show diagnostics" })
 
-    vim.keymap.set("n", "<C-p>", function() vim.diagnostic.jump({ count = -1, on_jump = vim.diagnostic.open_float }) end,
-      opts)
+    map("n", "gp", function() vim.diagnostic.jump({ count = -1, on_jump = vim.diagnostic.open_float }) end,
+      { desc = "Previous diagnostic" })
 
-    vim.keymap.set("n", "<C-n>", function() vim.diagnostic.jump({ count = 1, on_jump = vim.diagnostic.open_float }) end,
-      opts)
+    map("n", "gn", function() vim.diagnostic.jump({ count = 1, on_jump = vim.diagnostic.open_float }) end,
+      { desc = "Next diagnostic" })
 
-    vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
+    map("n", "<space>q", vim.diagnostic.setloclist, { desc = "" })
 
-    -- vim.keymap.set("n", "<space>f", vim.lsp.buf.format { async = true }, opts)
-    vim.keymap.set("n", "<space>f", function() require('conform').format({ async = true, lsp_fallback = true }) end, opts)
+    -- map("n", "<space>f", vim.lsp.buf.format { async = true }, {desc = ""})
+    map("n", "<space>f", function() require('conform').format({ async = true, lsp_fallback = true }) end,
+      { desc = "Format" })
     -- For formatting selected text
-    -- vim.keymap.set("v", "<space>f", vim.lsp.buf.format { async = true }, opts)
-    vim.keymap.set("v", "<space>f", function() require('conform').format({ async = true, lsp_fallback = true }) end, opts)
+    -- map("v", "<space>f", vim.lsp.buf.format { async = true }, {desc = ""})
+    map("v", "<space>f", function() require('conform').format({ async = true, lsp_fallback = true }) end,
+      { desc = "Format" })
   end,
 
 })
