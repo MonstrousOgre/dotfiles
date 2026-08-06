@@ -41,27 +41,26 @@
 -- }
 
 return {
-  "polirritmico/monokai-nightasty.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function(
-  )
-    vim.opt.background = "dark" -- default to dark or light style
+	"polirritmico/monokai-nightasty.nvim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.opt.background = "dark" -- default to dark or light style
 
-    local opts = {
-      dark_style_background = "transparent",  -- default, dark, transparent, #RRGGBB
-      light_style_background = "transparent", -- default, dark, transparent, #RRGGBB
-      hl_styles = {
-        -- Background styles for floating windows and sidebars (panels):
-        floats = "transparent",   -- default, dark, transparent
-        sidebars = "transparent", -- default, dark, transparent
-      },
-    }
-    require("monokai-nightasty").setup(opts) -- ...and then load the theme:
-    require("monokai-nightasty").load()
+		local opts = {
+			dark_style_background = "transparent", -- default, dark, transparent, #RRGGBB
+			light_style_background = "transparent", -- default, dark, transparent, #RRGGBB
+			hl_styles = {
+				-- Background styles for floating windows and sidebars (panels):
+				floats = "transparent", -- default, dark, transparent
+				sidebars = "transparent", -- default, dark, transparent
+			},
+		}
+		require("monokai-nightasty").setup(opts) -- ...and then load the theme:
+		require("monokai-nightasty").load()
 
-    -- As an alternative, pass the options directly into load and it will run setup
-    -- the first time it is executed:
-    require("monokai-nightasty").load(opts)
-  end
+		-- As an alternative, pass the options directly into load and it will run setup
+		-- the first time it is executed:
+		require("monokai-nightasty").load(opts)
+	end,
 }

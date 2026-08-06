@@ -40,19 +40,19 @@
 -- }
 
 return {
-  "nvzone/floaterm",
-  dependencies = "nvzone/volt",
-  -- Register the keys directly to trigger the plugin load
-  keys = {
-    {
-      "<Leader>t",
-      function()
-        require("floaterm").toggle()
-      end,
-      mode = { "n", "t" },
-      desc = "Toggle Floaterm",
-    },
-  },
-  -- Keeps default configurations intact
-  opts = {},
+	"nvzone/floaterm",
+	dependencies = "nvzone/volt",
+	-- Register the keys directly to trigger the plugin load
+	keys = {
+		{
+			"<Leader>t",
+			function()
+				require("floaterm").toggle()
+			end,
+			mode = { "n", "t" },
+			desc = "Toggle Floaterm",
+		},
+	},
+	-- Keeps default configurations intact
+	opts = {},
 }

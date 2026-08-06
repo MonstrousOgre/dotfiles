@@ -1,7 +1,7 @@
 local default_opts = { noremap = true, silent = true }
 
 local function map(mode, lhs, rhs, extra)
-  vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", default_opts, extra))
+	vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", default_opts, extra))
 end
 
 map("n", "<Space>", "<NOP>", {})
@@ -39,17 +39,17 @@ map("n", "<C-a>", "0ggvG$", { desc = "Select all" })
 map("v", "p", '"_dP', { desc = "" })
 
 if vim.g.neovide == true then
-  map("n", "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { desc = "" })
-  map("n", "<C-_>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", { desc = "" })
-  map("n", "<C-)>", ":lua vim.g.neovide_scale_factor = 1<CR>", { desc = "" })
+	map("n", "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { desc = "" })
+	map("n", "<C-_>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", { desc = "" })
+	map("n", "<C-)>", ":lua vim.g.neovide_scale_factor = 1<CR>", { desc = "" })
 
-  map('v', '<sc-c>', '"+y', { desc = "" })
-  map('n', '<sc-v>', 'l"+P', { desc = "" })
-  map('v', '<sc-v>', '"+P', { desc = "" })
-  -- set_keymap('c', '<sc-v>', '<C-o>l<C-o>"+<C-o>P<C-o>l', {desc = ""})
-  map('c', '<sc-v>', '<c-r>+', { desc = "" })
-  map('i', '<sc-v>', '<ESC>l"+Pli', { desc = "" })
-  map('t', '<sc-v>', '<C-\\><C-n>"+Pi', { desc = "" })
+	map("v", "<sc-c>", '"+y', { desc = "" })
+	map("n", "<sc-v>", 'l"+P', { desc = "" })
+	map("v", "<sc-v>", '"+P', { desc = "" })
+	-- set_keymap('c', '<sc-v>', '<C-o>l<C-o>"+<C-o>P<C-o>l', {desc = ""})
+	map("c", "<sc-v>", "<c-r>+", { desc = "" })
+	map("i", "<sc-v>", '<ESC>l"+Pli', { desc = "" })
+	map("t", "<sc-v>", '<C-\\><C-n>"+Pi', { desc = "" })
 end
 
 map("n", "<TAB>", ":BufferLineCycleNext<CR>", { desc = "" })
