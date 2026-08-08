@@ -7,8 +7,8 @@ sbar.bar({
   border_color = colors.bar.border,
   -- shadow = true,
   sticky = true,
-  padding_right = 10,
-  padding_left = 10,
-  blur_radius = 20,
+  padding_right = 15,
+  padding_left = 15,
+  blur_radius = 50,
   topmost = "window",
 })
