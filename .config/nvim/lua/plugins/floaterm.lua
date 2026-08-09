@@ -45,7 +45,7 @@ return {
 	-- Register the keys directly to trigger the plugin load
 	keys = {
 		{
-			"<Leader>t",
+			"<C-/>",
 			function()
 				require("floaterm").toggle()
 			end,
