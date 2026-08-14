@@ -184,11 +184,10 @@
 # # alt - return : open -a /Applications/iTerm.app
 # # alt - return : open -a iTerm
 # alt - r : yabai --restart-service && sketchybar --reload
-# alt - w : yabai -m window --close
+alt - r : sketchybar --reload
+alt - w : yabai -m window --close
 
 
 alt - return : open -a $TERMINAL
 alt - f : open -a Finder
-alt - e : open -a Commander\ One
-
-alt - w : osascript -e 'tell application "System Events" to perform action "AXPress" of (click button 1 of window 1 of (first process whose frontmost is true))'
+alt - e : open -a Marta

@@ -16,7 +16,7 @@ animation_fps = 100.0
 #   and you must toggle activation via a keybind (toggle_space_activated).
 # - If false, spaces are managed by default and you can disable specific ones.
 # Default is true; uncomment to change.
-#default_disable = false
+default_disable = false
 
 # Mouse/Focus behavior
 # - focus_follows_mouse: moving the mouse into a window focuses it
@@ -58,7 +58,7 @@ auto_focus_blacklist = []
 #   "rift-cli subscribe cli --event windows_changed --command sh --args -c --args 'sketchybar --trigger rift_windows_changed RIFT_WORKSPACE_NAME=\"$RIFT_WORKSPACE_NAME\" RIFT_WINDOW_COUNT=\"$RIFT_WINDOW_COUNT\"'"
 # ]
 
-run_on_start = []
+run_on_start = [ "sketchybar --reload" ]
 
 # Hot Reloading
 # - If true, rift will watch the config file for changes and reload automatically.
@@ -525,4 +525,4 @@ comb1 = "Alt + Shift"
 "Alt + Ctrl + S" = "serialize"
 "Alt + Ctrl + Q" = "save_and_exit"
 
-"Alt + W" = "close_window"
+# "Alt + W" = "close_window"
