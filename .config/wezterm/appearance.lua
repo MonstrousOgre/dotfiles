@@ -4,7 +4,7 @@ local M = {}
 function M.apply_to_config(config)
 	-- Set  base color scheme
 	config.color_scheme = "Monokai Soda"
-	config.window_background_opacity = 0.8
+	config.window_background_opacity = 0.7
 
 	-- config.font_size = 10
 
@@ -15,7 +15,7 @@ function M.apply_to_config(config)
 		background = "#1d212f"
 		config.wayland_window_background_blur = true
 	elseif wezterm.target_triple:find("apple") then
-		background = "#413c3a"
+		background = "#222222"
 		config.macos_window_background_blur = 64
 	end
 
