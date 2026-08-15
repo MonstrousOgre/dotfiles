@@ -17,6 +17,7 @@ return {
 			toml = { "taplo" },
 			nu = { "nufmt" },
 			lua = { "stylua" },
+			nix = { "alejandra" },
 		},
 		format_on_save = {
 			-- These options will be passed to conform.format()
