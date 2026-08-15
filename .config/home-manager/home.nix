@@ -28,6 +28,8 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     nixd
+    rustc
+    cargo
     nushell
     starship
     carapace
@@ -130,7 +132,7 @@
       cat = "bat";
       yay = "paru";
       upgrade = "topgrade";
-      dotconfig = "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
+      dotconfig = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
       lz-dot = "lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
     };
 
