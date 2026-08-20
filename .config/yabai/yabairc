@@ -17,9 +17,9 @@ yabai -m config                                 \
     focus_follows_mouse          off            \ 
     window_origin_display        default        \
     window_placement             second_child   \
-    window_zoom_persist          on             \
+    window_zoom_persist          off            \
     window_topmost               off            \
-    window_shadow                on             \
+    window_shadow                off            \
     window_animation_duration    0.0            \
     window_animation_frame_rate  120            \
     window_opacity_duration      0.0            \
@@ -42,7 +42,7 @@ yabai -m config                                 \
     left_padding                 12             \
     right_padding                12             \
     window_gap                   06             \
-    layout                       float            \
+    layout                       float          \
     mouse_modifier               alt            \
     mouse_action1                move           \
     mouse_action2                resize         \

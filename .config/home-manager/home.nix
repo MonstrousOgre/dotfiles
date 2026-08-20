@@ -135,6 +135,11 @@
       dotconfig = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
       lz-dot = "lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
     };
+    envExtra = ''
+      if [ -f "$HOME/.sh-private" ]; then
+        source "$HOME/.sh-private"
+      fi
+    '';
 
     # history.size = 10000;
     # history.ignoreAllDups = true;

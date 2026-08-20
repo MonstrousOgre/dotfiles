@@ -184,10 +184,10 @@
 # # alt - return : open -a /Applications/iTerm.app
 # # alt - return : open -a iTerm
 # alt - r : yabai --restart-service && sketchybar --reload
-alt - r : sketchybar --reload
-alt - w : yabai -m window --close
+# alt - r : sketchybar --reload
+alt - w : /opt/homebrew/bin/yabai -m window --close
 
 
 alt - return : open -a $TERMINAL
-alt - f : open -a Finder
-alt - e : open -a Marta
+alt - e : open -a Finder
+alt - m : open -a Marta

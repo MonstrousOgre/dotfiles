@@ -12,7 +12,7 @@ return {
 	hightlight = 0xffc23175,
 
 	bar = {
-		bg = 0xb3222222,
+		bg = 0xcc222222,
 		border = 0xff5f5852,
 	},
 	popup = {

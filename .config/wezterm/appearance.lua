@@ -6,7 +6,16 @@ function M.apply_to_config(config)
 	config.color_scheme = "Monokai Soda"
 	config.window_background_opacity = 1.0
 
-	-- config.font_size = 10
+	config.font_size = 14
+	-- config.use_fancy_tab_bar = false
+
+	config.window_frame = {
+		active_titlebar_bg = "#1e1e1e",
+		inactive_titlebar_bg = "#1e1e1e",
+
+		font = wezterm.font("Hermit"),
+		font_size = 14,
+	}
 
 	-- Apply background color based on the platform
 	local background = "#000000"
@@ -17,7 +26,8 @@ function M.apply_to_config(config)
 		config.wayland_window_background_blur = true
 	elseif wezterm.target_triple:find("apple") then
 		background = "#222222"
-		config.window_background_opacity = 0.7
+		-- background = "#413c3a"
+		config.window_background_opacity = 0.8
 		config.macos_window_background_blur = 64
 	end
 
