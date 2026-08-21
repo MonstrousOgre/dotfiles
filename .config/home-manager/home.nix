@@ -30,6 +30,11 @@
     nixd
     rustc
     cargo
+    python3
+    # lua
+    # luarocks
+    lua5_1
+    lua51Packages.luarocks
     nushell
     starship
     carapace
