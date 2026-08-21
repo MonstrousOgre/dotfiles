@@ -5,6 +5,14 @@ return {
 		"romus204/tree-sitter-manager.nvim",
 	},
 	opts = {
+		display = {
+			chat = {
+				window = {
+					layout = "vertical",
+					width = 0.4,
+				},
+			},
+		},
 		interactions = {
 			chat = {
 				-- adapter = "groq",

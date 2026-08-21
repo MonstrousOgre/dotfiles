@@ -72,6 +72,14 @@ return {
 	config = function()
 		require("cyberdream").setup({
 			transparent = true,
+			theme = {
+				overrides = function(colors)
+					return {
+						FloatBorder = { fg = colors.cyan, bg = colors.none },
+						WinSeparator = { fg = colors.grey, bg = colors.none },
+					}
+				end,
+			},
 		})
 		vim.cmd.colorscheme("cyberdream")
 	end,

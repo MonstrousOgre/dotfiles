@@ -4,14 +4,15 @@ local M = {}
 function M.apply_to_config(config)
 	-- Set  base color scheme
 	config.color_scheme = "Monokai Soda"
+	config.colors = require("cyberdream")
 	config.window_background_opacity = 1.0
 
 	config.font_size = 14
 	-- config.use_fancy_tab_bar = false
 
 	config.window_frame = {
-		active_titlebar_bg = "#1e1e1e",
-		inactive_titlebar_bg = "#1e1e1e",
+		-- active_titlebar_bg = "#1e1e1e",
+		-- inactive_titlebar_bg = "#1e1e1e",
 
 		font = wezterm.font("Hermit"),
 		font_size = 14,

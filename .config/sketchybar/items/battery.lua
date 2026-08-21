@@ -28,14 +28,14 @@ local function battery_update()
 				charge = tonumber(charge)
 			end
 
-			if found and charge > 80 then
-				icon = icons.battery._100
+			if found and charge > 90 then
+				icon = icons.battery._90
 			elseif found and charge > 60 then
-				icon = icons.battery._75
-			elseif found and charge > 40 then
-				icon = icons.battery._50
-			elseif found and charge > 20 then
-				icon = icons.battery._25
+				icon = icons.battery._60
+			elseif found and charge > 30 then
+				icon = icons.battery._30
+			elseif found and charge > 10 then
+				icon = icons.battery._10
 			else
 				icon = icons.battery._0
 			end

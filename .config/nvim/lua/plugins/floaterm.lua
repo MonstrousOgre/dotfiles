@@ -49,7 +49,7 @@ return {
 			function()
 				require("floaterm").toggle()
 			end,
-			mode = { "n", "t" },
+			mode = { "n", "t", "i" },
 			desc = "Toggle Floaterm",
 		},
 	},

@@ -37,6 +37,7 @@
     yazi
     bat
     lsd
+    gitui
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -140,6 +141,7 @@
         source "$HOME/.sh-private"
       fi
     '';
+    # initContent = "eval \"$(starship init zsh)\"";
 
     # history.size = 10000;
     # history.ignoreAllDups = true;
