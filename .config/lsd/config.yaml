@@ -24,6 +24,7 @@ color:
   # When "classic" is set, this is set to "never".
   # Possible values: never, auto, always
   when: auto
+  theme: custom
 
 # == Date ==
 # This specifies the date format for the date column. The freeform format
