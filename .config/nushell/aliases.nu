@@ -23,7 +23,8 @@ alias yay = paru
 
 alias upgrade = topgrade
 
-alias dotconfig = /usr/bin/git $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
+alias dotconfig = git $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
+alias dotconfig-ui = gitui --directory ~/.dotfiles --workdir ~/
 alias lz-dot = lazygit $'--git-dir=($env.HOME)/.dotfiles/' $'--work-tree=($env.HOME)'
 
 let pyPath = $'(^python3 -m site --user-base)/bin'

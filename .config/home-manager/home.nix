@@ -41,8 +41,12 @@
     zoxide
     yazi
     bat
+    ripgrep
     lsd
     gitui
+
+    colloid-gtk-theme
+    colloid-icon-theme
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -139,6 +143,7 @@
       yay = "paru";
       upgrade = "topgrade";
       dotconfig = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
+      dotconfig-ui = "gitui --directory ~/.dotfiles --workdir ~/";
       lz-dot = "lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
     };
     envExtra = ''

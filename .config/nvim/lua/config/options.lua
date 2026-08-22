@@ -31,11 +31,13 @@ local options = {
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 	wrap = false, -- display lines as one long line
 	scrolloff = 8, -- is one of my fav
+
 	sidescrolloff = 8,
 	guifont = "monospace:h17", -- the font used in graphical neovim applications
 	colorcolumn = "99999",
 	signcolumn = "auto:2",
 	spelllang = { "en" }, -- set language for spellchecking
+	foldcolumn = "1",
 }
 
 vim.opt.shortmess:append("c")
@@ -44,7 +46,10 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
--- vim.o.statuscolumn = "%C%s%l%r"
+-- Display side-by-side relative and absolute line numbers using expressions
+-- vim.opt.statuscolumn = "%C %s %{v:relnum} %{v:lnum}"
+
+-- vim.opt.statuscolumn = "%C%s %{v:relnum} %{v:lnum}"
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])

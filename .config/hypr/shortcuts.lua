@@ -74,9 +74,6 @@ hl.bind(mainMod .. " + " .. "mouse:272", hl.dsp.window.drag(), { mouse = true })
 
 hl.bind(mainMod .. " + " .. "mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-
-
-
 hl.bind(mainMod .. " + " .. "W", hl.dsp.window.close())
 
 hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "Q", hl.dsp.exit())
@@ -90,7 +87,6 @@ hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + " .. "M", hl.dsp.window.fullscreen())
 
 hl.bind(mainMod .. " + " .. "RETURN", hl.dsp.exec_cmd(os.getenv("TERMINAL")))
-
 
 hl.bind(mainMod .. " + " .. "SPACE", hl.dsp.exec_cmd("rofi -show combi"))
 
@@ -160,17 +156,15 @@ hl.bind("XF86AudioStop", hl.dsp.exec_cmd("playerctl stop"))
 
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("qalculate-qt"))
 
-
-hl.bind("PRINT", hl.plugin.hyprcapture.open)
+-- hl.bind("PRINT", hl.plugin.hyprcapture.open)
 
 -- hl.bind("SUPER + SHIFT + w", function()
 --   hl.plugin.hyprcapture.open("window")
 -- end)
 
-hl.bind("SHIFT + PRINT", function()
-  hl.plugin.hyprcapture.open("fullscreen")
-end)
-
+-- hl.bind("SHIFT + PRINT", function()
+--   hl.plugin.hyprcapture.open("fullscreen")
+-- end)
 
 hl.bind("CTRL + ALT" .. " + " .. "Delete", hl.dsp.exec_cmd("wlogout"))
 

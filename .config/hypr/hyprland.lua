@@ -19,10 +19,10 @@
 --monitor=,preferred,auto,1
 
 hl.monitor({
-  output   = "eDP-1",
-  mode     = "preferred",
-  position = "0x0",
-  scale    = 1,
+	output = "eDP-1",
+	mode = "preferred",
+	position = "0x0",
+	scale = 1,
 })
 
 --monitor=HDMI-A-1,preferred,auto,1,mirror,eDP-1
@@ -36,10 +36,10 @@ hl.monitor({
 -- monitor=HDMI-A-1,2560x1440@144,1920x-360,1
 
 hl.monitor({
-  output   = "DP-1",
-  mode     = "2560x1440@180",
-  position = "1920x-360",
-  scale    = 1,
+	output = "DP-1",
+	mode = "2560x1440@180",
+	position = "1920x-360",
+	scale = 1,
 })
 
 -- monitor=DP-1,2560x1440@180,1920x-360,1.333333
@@ -53,7 +53,6 @@ hl.monitor({
 -- See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
 -- Execute your favorite apps at launch
-
 
 -- Source a file (multi-file configs)
 
@@ -86,21 +85,21 @@ local env = require("env")
 -- For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 
 hl.config({
-  input = {
-    kb_layout = "us",
-    kb_variant = "",
-    kb_model = "",
-    kb_options = "",
-    kb_rules = "",
-    follow_mouse = 1,
-    touchpad = {
-      --natural_scroll = no
-      natural_scroll = true,
-    },
-    sensitivity = 0,
-    -- -1.0 - 1.0, 0 means no modification.
-    numlock_by_default = true,
-  },
+	input = {
+		kb_layout = "us",
+		kb_variant = "",
+		kb_model = "",
+		kb_options = "",
+		kb_rules = "",
+		follow_mouse = 1,
+		touchpad = {
+			--natural_scroll = no
+			natural_scroll = true,
+		},
+		sensitivity = 0,
+		-- -1.0 - 1.0, 0 means no modification.
+		numlock_by_default = true,
+	},
 })
 
 -- device:elan0521:01-04f3:31b1-touchpad {
@@ -110,79 +109,79 @@ hl.config({
 -- }
 
 hl.config({
-  general = {
-    -- See https://wiki.hyprland.org/Configuring/Variables/ for more
-    gaps_in = 10,
-    gaps_out = 20,
-    border_size = 3,
-    --col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-    -- col.active_border = rgba(5657f5ff)
-    --col.active_border = rgba(ff8f36ee) rgba(ff368fee) 45deg
-    -- col.active_border = rgba(5657f5ff)
-    -- col.active_border = "rgba(F06292ff)",
-    --col.inactive_border = rgba(595959aa)
-    -- col.inactive_border = rgba(32343dcc)
-    --col.inactive_border = rgba(31313acc)
-    -- col.inactive_border = "rgba(1d212fcc)",
-    col = {
-      active_border = 0xffF06292,
-      inactive_border = 0xcc1d212f,
-    },
-    layout = "dwindle",
-  },
+	general = {
+		-- See https://wiki.hyprland.org/Configuring/Variables/ for more
+		gaps_in = 10,
+		gaps_out = 20,
+		border_size = 1,
+		--col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+		-- col.active_border = rgba(5657f5ff)
+		--col.active_border = rgba(ff8f36ee) rgba(ff368fee) 45deg
+		-- col.active_border = rgba(5657f5ff)
+		-- col.active_border = "rgba(F06292ff)",
+		--col.inactive_border = rgba(595959aa)
+		-- col.inactive_border = rgba(32343dcc)
+		--col.inactive_border = rgba(31313acc)
+		-- col.inactive_border = "rgba(1d212fcc)",
+		col = {
+			active_border = 0xffF06292,
+			inactive_border = 0xcc1d212f,
+		},
+		layout = "dwindle",
+	},
 })
 
 hl.config({
-  decoration = {
-    -- See https://wiki.hyprland.org/Configuring/Variables/ for more
-    rounding = 20,
-    blur = {
-      enabled = true,
-      size = 15,
-      passes = 3,
-      noise = 0.2,
-      contrast = 1,
-      new_optimizations = true,
-      popups = true,
-    },
-    shadow = {
-      enabled = true,
-      range = 9,
-      render_power = 3,
-      color = "rgba(31313a11)",
-    },
-  },
+	decoration = {
+		-- See https://wiki.hyprland.org/Configuring/Variables/ for more
+		rounding = 20,
+		blur = {
+			enabled = true,
+			size = 15,
+			passes = 3,
+			noise = 0.2,
+			contrast = 1,
+			new_optimizations = true,
+			popups = true,
+		},
+		shadow = {
+			enabled = true,
+			range = 9,
+			render_power = 3,
+			color = "rgba(31313a11)",
+		},
+	},
 })
 
 hl.config({
-  animations = {
-    enabled = true,
-    -- Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
-  },
+	animations = {
+		enabled = true,
+		-- Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+	},
 })
 
 hl.config({
-  dwindle = {
-    -- See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-    -- pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-    preserve_split = true,
-    -- you probably want this
-    force_split = 2,
-  },
+	dwindle = {
+		-- See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+		-- pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+		preserve_split = true,
+		-- you probably want this
+		force_split = 2,
+	},
 })
 
 hl.config({
-  master = {
-    -- See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-    -- new_is_master = true
-  },
+	master = {
+		-- See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+		-- new_is_master = true
+	},
 })
 
 hl.config({
-  gestures = {
-    -- See https://wiki.hyprland.org/Configuring/Variables/ for more
-    -- workspace_swipe = off
-  },
+	gestures = {
+		-- See https://wiki.hyprland.org/Configuring/Variables/ for more
+		-- workspace_swipe = off
+	},
 })
 
 -- Example per-device config
@@ -206,17 +205,17 @@ hl.config({
 -- See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
 hl.config({
-  misc = {
-    disable_hyprland_logo = true,
-    disable_splash_rendering = true,
-    middle_click_paste = false,
-  },
+	misc = {
+		disable_hyprland_logo = true,
+		disable_splash_rendering = true,
+		middle_click_paste = false,
+	},
 })
 
 hl.config({
-  cursor = {
-    no_hardware_cursors = true,
-  },
+	cursor = {
+		no_hardware_cursors = true,
+	},
 })
 
 -- experimental {
