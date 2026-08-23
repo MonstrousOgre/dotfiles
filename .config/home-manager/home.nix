@@ -44,6 +44,7 @@
     ripgrep
     lsd
     gitui
+    bottom
 
     colloid-gtk-theme
     colloid-icon-theme
