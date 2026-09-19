@@ -8,8 +8,8 @@
 
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    qtengine = {
-      url = "github:kossLAN/qtengine";
+    workstation = {
+      url = "path:./hosts/workstation";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -18,6 +18,7 @@
     self,
     nixpkgs,
     nix-darwin,
+    workstation,
     ...
   }: {
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
@@ -28,7 +29,7 @@
       };
 
       modules = [
-        ./hosts/workstation/configuration.nix
+        workstation.nixosModules.default
       ];
     };
 
