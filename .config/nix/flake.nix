@@ -7,19 +7,29 @@
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
 
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    workstation = {
+      url = "path:./hosts/workstation";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
     nix-darwin,
+    workstation,
     ...
   }: {
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
+      specialArgs = {
+        inherit inputs;
+      };
+
       modules = [
-        ./hosts/workstation/configuration.nix
+        workstation.nixosModules.default
       ];
     };
 

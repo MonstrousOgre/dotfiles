@@ -11,8 +11,8 @@ return {
 				{ text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
 				{ text = { "%s", " " }, click = "v:lua.ScSa" },
 				-- { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
-				{ text = { "%{v:relnum}", " " }, click = "v:lua.ScLa" },
 				{ text = { "%{v:lnum}", " " }, click = "v:lua.ScLa" },
+				{ text = { "%{v:relnum}", " " }, click = "v:lua.ScLa" },
 			},
 		})
 	end,

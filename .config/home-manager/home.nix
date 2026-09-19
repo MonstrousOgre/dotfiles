@@ -31,6 +31,7 @@
     rustc
     cargo
     python3
+    nodejs
     # lua
     # luarocks
     lua5_1
@@ -45,6 +46,8 @@
     lsd
     gitui
     bottom
+    tree-sitter
+    gnumake
 
     colloid-gtk-theme
     colloid-icon-theme
