@@ -24,11 +24,27 @@
   boot.loader.limine = {
     enable = true;
     efiSupport = true;
+    maxGenerations = 5;
+    extraConfig = ''
+      remember_last_entry: yes
+    '';
     extraEntries = ''
       /Windows
           protocol: efi
           path: uuid(fefe821b-f46c-4f4e-8645-6b1a6727dfdd):/EFI/Microsoft/Boot/bootmgfw.efi
     '';
+  };
+
+  environment.etc.crypttab = {
+    mode = "0600";
+    text = ''
+      veracrypt-data PARTUUID=ba32e70d-d279-4ed3-b935-9b8dc48e61aa /dev/null tcrypt-veracrypt,tcrypt-keyfile=/root/veracrypt-data.key
+    '';
+  };
+
+  fileSystems."/mnt/Kash" = {
+    device = "/dev/mapper/veracrypt-data";
+    fsType = "ntfs";
   };
 
   networking.hostName = "gojira"; # Define your hostname.
@@ -98,6 +114,11 @@
     lazygit
     clang
     floorp-bin
+    proton-vpn
+    obsidian
+    beeper
+    calibre
+    spotify
     # Use kdePackages.qtstyleplugin-kvantum for Qt6 / Plasma 6
     # Use libsForQt5.qtstyleplugin-kvantum for Qt5
     kdePackages.qtstyleplugin-kvantum
@@ -116,6 +137,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.tailscale.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -160,6 +183,11 @@
     glibc
     # Add other common libraries required by your LSPs here
   ];
+
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true; # Open ports in the firewall for Syncthing. (NOTE: this will not open syncthing gui port)
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

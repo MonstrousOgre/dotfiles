@@ -7,6 +7,11 @@
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
 
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    qtengine = {
+      url = "github:kossLAN/qtengine";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -17,6 +22,10 @@
   }: {
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+
+      specialArgs = {
+        inherit inputs;
+      };
 
       modules = [
         ./hosts/workstation/configuration.nix
