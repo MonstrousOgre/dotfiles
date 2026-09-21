@@ -46,6 +46,10 @@
     fsType = "ntfs";
   };
 
+  # Ensure storage mounting services are enabled
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   networking.hostName = "gojira"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
@@ -133,6 +137,8 @@
   # };
 
   # List services that you want to enable:
+
+  services.flatpak.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
