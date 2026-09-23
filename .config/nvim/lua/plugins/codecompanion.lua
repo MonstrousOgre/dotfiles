@@ -9,8 +9,9 @@ return {
 			chat = {
 				window = {
 					layout = "vertical",
-					width = 0.4,
+					width = 0.3,
 				},
+				show_settings = true,
 			},
 		},
 		interactions = {
@@ -33,6 +34,9 @@ return {
 						schema = {
 							model = {
 								default = "deepseek/deepseek-v4-flash-0731",
+							},
+							reasoning_effort = {
+								default = "high",
 							},
 							max_tokens = {
 								default = 16384, -- Scale this up safely (max output limit is 384,000)

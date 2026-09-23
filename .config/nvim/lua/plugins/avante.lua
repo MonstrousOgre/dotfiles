@@ -11,9 +11,13 @@ return {
 		{
 			"MeanderingProgrammer/render-markdown.nvim",
 			opts = {
-				file_types = { "markdown", "Avante" },
+				file_types = { "markdown", "Avante", "codecompanion" },
+				render_modes = true, -- Render in ALL modes
+				sign = {
+					enabled = false, -- Turn off in the status column
+				},
 			},
-			ft = { "markdown", "Avante" },
+			ft = { "markdown", "Avante", "codecompanion" },
 		},
 		{
 			"HakonHarnes/img-clip.nvim",
