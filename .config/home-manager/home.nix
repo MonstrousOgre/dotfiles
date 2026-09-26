@@ -1,12 +1,12 @@
 {
   config,
   pkgs,
+  qml-language-server,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "ogre";
-  # home.homeDirectory = "/Users/ogre";
   home.homeDirectory =
     if pkgs.stdenv.hostPlatform.isDarwin
     then "/Users/ogre"
@@ -48,6 +48,8 @@
     bottom
     tree-sitter
     gnumake
+
+    qml-language-server.packages.${pkgs.system}.default
 
     colloid-gtk-theme
     colloid-icon-theme
