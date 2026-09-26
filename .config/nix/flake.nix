@@ -12,6 +12,11 @@
       url = "path:./hosts/workstation";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mac = {
+      url = "path:./hosts/mac";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -19,6 +24,7 @@
     nixpkgs,
     nix-darwin,
     workstation,
+    mac,
     ...
   }: {
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
@@ -35,7 +41,7 @@
 
     darwinConfigurations."Kashs-MacBook-Air" = nix-darwin.lib.darwinSystem {
       modules = [
-        ./hosts/mac/configuration.nix
+        mac.darwinModules.default
 
         {
           system.configurationRevision =

@@ -19,6 +19,22 @@
         "type": "path"
       }
     },
+    "mac": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./hosts/mac",
+        "type": "path"
+      },
+      "original": {
+        "path": "./hosts/mac",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -80,6 +96,7 @@
     },
     "root": {
       "inputs": {
+        "mac": "mac",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "workstation": "workstation"
