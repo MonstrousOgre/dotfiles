@@ -5,6 +5,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -117,6 +118,7 @@
     lazygit
     clang
     floorp-bin
+    inputs.zen-browser.packages.${pkgs.system}.default
     proton-vpn
     obsidian
     beeper

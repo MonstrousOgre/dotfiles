@@ -9,15 +9,16 @@
         "qtengine": "qtengine"
       },
       "locked": {
-        "lastModified": 1789825592,
-        "narHash": "sha256-ZEV/ghrYvpP/GwhdpNP5+GGax5X0CtGP3gz7uWxdmEM=",
-        "path": "/home/ogre/.config/nix/modules/hyprland",
+        "path": "../../modules/hyprland",
         "type": "path"
       },
       "original": {
-        "path": "/home/ogre/.config/nix/modules/hyprland",
+        "path": "../../modules/hyprland",
         "type": "path"
-      }
+      },
+      "parent": [
+        "workstation"
+      ]
     },
     "mac": {
       "inputs": {
@@ -107,7 +108,8 @@
         "hyprland": "hyprland",
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "zen-browser": "zen-browser"
       },
       "locked": {
         "path": "./hosts/workstation",
@@ -118,6 +120,27 @@
         "type": "path"
       },
       "parent": []
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "workstation",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790240349,
+        "narHash": "sha256-uMC3vdi/AdbRLsKCJle4VAIV9e3HEJhe4CZzvA0FXNw=",
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
+        "rev": "6979f283e596eead5459a6f181dbb735a10c8588",
+        "type": "github"
+      },
+      "original": {
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
+        "type": "github"
+      }
     }
   },
   "root": "root",

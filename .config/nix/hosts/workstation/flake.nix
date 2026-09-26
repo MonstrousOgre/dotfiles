@@ -8,16 +8,25 @@
       url = "path:../../modules/hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
     hyprland,
     ...
   }: {
-    nixosModules.default = {
-      imports = [
+    nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
+
+      modules = [
         ./configuration.nix
         hyprland.nixosModules.default
       ];

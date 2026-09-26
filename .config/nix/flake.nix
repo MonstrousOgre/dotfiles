@@ -19,25 +19,15 @@
     };
   };
 
-  outputs = inputs @ {
+  outputs = {
     self,
-    nixpkgs,
     nix-darwin,
     workstation,
     mac,
     ...
   }: {
-    nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-
-      specialArgs = {
-        inherit inputs;
-      };
-
-      modules = [
-        workstation.nixosModules.default
-      ];
-    };
+    nixosConfigurations.workstation =
+      workstation.nixosConfigurations.workstation;
 
     darwinConfigurations."Kashs-MacBook-Air" = nix-darwin.lib.darwinSystem {
       modules = [
