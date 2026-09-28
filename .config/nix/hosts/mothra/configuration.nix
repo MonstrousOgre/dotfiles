@@ -1,8 +1,18 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
+  system.primaryUser = "ogre";
+
+  imports = [
+    ./homebrew.nix
+  ];
+
+  # Ensure homebrew binaries are added to system $PATH
+  environment.systemPath = [
+    "/opt/homebrew/bin"
+  ];
+
   environment.systemPackages = with pkgs; [
-    vim
     lazygit
   ];
 
