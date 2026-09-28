@@ -15,7 +15,6 @@
     gojira = {
       url = "path:./hosts/gojira";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.hyprland.follows = "hyprland";
     };
 
     mothra = {

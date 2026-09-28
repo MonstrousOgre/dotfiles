@@ -1,13 +1,12 @@
 {
   description = "Modules common to all my configurations";
 
-  outputs = {
-    self,
-    ...
-  }: let
+  outputs = {self, ...}: let
     module = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [
-        obsidian
+        wget
+        neovim
+        lazygit
       ];
     };
   in {
