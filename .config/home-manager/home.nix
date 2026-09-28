@@ -1,6 +1,8 @@
 {
   config,
+  inputs,
   pkgs,
+  lib,
   qml-language-server,
   ...
 }: {
@@ -49,7 +51,8 @@
     tree-sitter
     gnumake
 
-    qml-language-server.packages.${pkgs.system}.default
+    qt6.qtdeclarative
+    qml-language-server.packages.${stdenv.hostPlatform.system}.default
 
     colloid-gtk-theme
     colloid-icon-theme

@@ -8,9 +8,12 @@
 
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    hyprland.url = "path:./modules/hyprland";
+
     workstation = {
       url = "path:./hosts/workstation";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprland.follows = "hyprland";
     };
 
     mac = {
@@ -21,13 +24,21 @@
 
   outputs = {
     self,
+    nixpkgs,
     nix-darwin,
     workstation,
     mac,
+    hyprland,
     ...
   }: {
-    nixosConfigurations.workstation =
-      workstation.nixosConfigurations.workstation;
+    nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+
+      modules = [
+        workstation.nixosModules.default
+        hyprland.nixosModules.default
+      ];
+    };
 
     darwinConfigurations."Kashs-MacBook-Air" = nix-darwin.lib.darwinSystem {
       modules = [

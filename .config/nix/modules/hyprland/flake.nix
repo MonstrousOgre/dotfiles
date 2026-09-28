@@ -10,8 +10,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, qtengine, ... }: {
-    nixosModules.default = { config, lib, pkgs, ... }: let
+  outputs = {
+    self,
+    nixpkgs,
+    qtengine,
+    ...
+  }: {
+    nixosModules.default = {
+      config,
+      lib,
+      pkgs,
+      ...
+    }: let
       cfg = config.my.desktop.hyprland;
     in {
       imports = [qtengine.nixosModules.default];
@@ -64,6 +74,7 @@
           hypridle
           gtklock
           rofi
+          hyprpicker
           kdePackages.breeze
           kdePackages.breeze.qt5 # Needed if you want Qt5 support.
           kdePackages.breeze-icons
@@ -74,4 +85,3 @@
     };
   };
 }
-
