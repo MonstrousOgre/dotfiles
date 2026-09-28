@@ -50,6 +50,7 @@
       "yabai"
       "skhd"
       "sketchybar"
+      "lua"
     ];
 
     # GUI Applications (.app bundles)
@@ -67,6 +68,22 @@
       "raycast"
       "sf-symbols"
       "wezterm"
+
+      "beeper"
+      "commander-one"
+      "discord"
+      "google-chrome"
+      "google-drive"
+      "kobo"
+      "obsidian"
+      "readest"
+      "spotify"
+      "tailscale-app"
+      "trilium-notes"
+      "vlc"
+      "whatsapp"
+      "zen"
+      "zoom"
     ];
 
     # Mac App Store Applications (Requires `mas` CLI tool in brews)
