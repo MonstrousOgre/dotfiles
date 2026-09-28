@@ -120,7 +120,6 @@
     floorp-bin
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     proton-vpn
-    obsidian
     beeper
     calibre
     spotify

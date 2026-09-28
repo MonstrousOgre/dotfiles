@@ -41,6 +41,17 @@
         "type": "github"
       }
     },
+    "common": {
+      "locked": {
+        "path": "./modules/common",
+        "type": "path"
+      },
+      "original": {
+        "path": "./modules/common",
+        "type": "path"
+      },
+      "parent": []
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -616,6 +627,7 @@
     },
     "root": {
       "inputs": {
+        "common": "common",
         "hyprland": "hyprland",
         "mac": "mac",
         "nix-darwin": "nix-darwin",

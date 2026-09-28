@@ -10,6 +10,8 @@
 
     hyprland.url = "path:./modules/hyprland";
 
+    common.url = "path:./modules/common";
+
     workstation = {
       url = "path:./hosts/workstation";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,6 +31,7 @@
     workstation,
     mac,
     hyprland,
+    common,
     ...
   }: {
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
@@ -37,12 +40,14 @@
       modules = [
         workstation.nixosModules.default
         hyprland.nixosModules.default
+        common.nixosModules.default
       ];
     };
 
     darwinConfigurations."Kashs-MacBook-Air" = nix-darwin.lib.darwinSystem {
       modules = [
         mac.darwinModules.default
+        common.darwinModules.default
 
         {
           system.configurationRevision =
