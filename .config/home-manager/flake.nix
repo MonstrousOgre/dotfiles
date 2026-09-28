@@ -1,9 +1,8 @@
 # Home Manager configuration managed as a Nix flake.
 #
-# Apply it with:
-#   home-manager switch --flake /home/ogre/.config/home-manager
-# or from this directory:
-#   home-manager switch --flake .
+# Apply it from this directory with the entry matching your host:
+#   home-manager switch --flake .#mac          # macOS (Apple Silicon)
+#   home-manager switch --flake .#workstation  # Linux (x86_64)
 #
 # The first build (or `nix flake lock`) generates ./flake.lock, which pins
 # the exact nixpkgs and home-manager revisions.
@@ -19,7 +18,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # QML language server; follows our nixpkgs so the whole configuration
-    # evaluates against a single, consistent package set.
+    # evaluates against a single, consistent package set. Only used on
+    # Linux (see home.nix), never evaluated on macOS.
     qml-language-server = {
       url = "github:cushycush/qml-language-server";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,16 +32,19 @@
     qml-language-server,
     ...
   }: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    homeConfigurations.ogre = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [./home.nix];
-      # Expose flake inputs to the module arguments of home.nix.
-      extraSpecialArgs = {
-        inherit qml-language-server;
+    mkConfig = system:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        modules = [./home.nix];
+        # Expose flake inputs to the module arguments of home.nix.
+        extraSpecialArgs = {
+          inherit qml-language-server;
+        };
       };
+  in {
+    homeConfigurations = {
+      mac = mkConfig "aarch64-darwin";
+      workstation = mkConfig "x86_64-linux";
     };
   };
 }

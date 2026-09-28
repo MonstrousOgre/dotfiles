@@ -25,51 +25,42 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-    nixd
-    rustc
-    cargo
-    python3
-    nodejs
-    # lua
-    # luarocks
-    lua5_1
-    lua51Packages.luarocks
-    nushell
-    starship
-    carapace
-    zoxide
-    yazi
-    bat
-    ripgrep
-    lsd
-    gitui
-    bottom
-    tree-sitter
-    gnumake
+  home.packages = with pkgs;
+    [
+      # # Adds the 'hello' command to your environment. It prints a friendly
+      # # "Hello, world!" when run.
+      # pkgs.hello
+      nixd
+      rustc
+      cargo
+      python3
+      nodejs
+      # lua
+      # luarocks
+      lua5_1
+      lua51Packages.luarocks
+      nushell
+      starship
+      carapace
+      zoxide
+      yazi
+      bat
+      ripgrep
+      lsd
+      gitui
+      bottom
+      tree-sitter
+      gnumake
+    ]
+    ++ (lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+      # QML tooling is Linux-only; skip on macOS (qtdeclarative and the
+      # qml-language-server flake don't build there).
+      qt6.qtdeclarative
+      qml-language-server.packages.${stdenv.hostPlatform.system}.default
 
-    qt6.qtdeclarative
-    qml-language-server.packages.${stdenv.hostPlatform.system}.default
-
-    colloid-gtk-theme
-    colloid-icon-theme
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-  ];
+      colloid-gtk-theme
+      colloid-icon-theme
+    ]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
