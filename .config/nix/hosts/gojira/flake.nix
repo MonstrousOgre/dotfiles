@@ -1,5 +1,5 @@
 {
-  description = "Workstation configuration";
+  description = "gojira configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";

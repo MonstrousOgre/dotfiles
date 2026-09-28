@@ -68,6 +68,23 @@
         "type": "github"
       }
     },
+    "gojira": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "zen-browser": "zen-browser"
+      },
+      "locked": {
+        "path": "./hosts/gojira",
+        "type": "path"
+      },
+      "original": {
+        "path": "./hosts/gojira",
+        "type": "path"
+      },
+      "parent": []
+    },
     "hyprcapture": {
       "inputs": {
         "hyprland": "hyprland_2",
@@ -495,18 +512,18 @@
         "type": "github"
       }
     },
-    "mac": {
+    "mothra": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "path": "./hosts/mac",
+        "path": "./hosts/mothra",
         "type": "path"
       },
       "original": {
-        "path": "./hosts/mac",
+        "path": "./hosts/mothra",
         "type": "path"
       },
       "parent": []
@@ -628,11 +645,11 @@
     "root": {
       "inputs": {
         "common": "common",
+        "gojira": "gojira",
         "hyprland": "hyprland",
-        "mac": "mac",
+        "mothra": "mothra",
         "nix-darwin": "nix-darwin",
-        "nixpkgs": "nixpkgs_3",
-        "workstation": "workstation"
+        "nixpkgs": "nixpkgs_3"
       }
     },
     "systems": {
@@ -649,26 +666,6 @@
         "repo": "default-linux",
         "type": "github"
       }
-    },
-    "workstation": {
-      "inputs": {
-        "hyprland": [
-          "hyprland"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "zen-browser": "zen-browser"
-      },
-      "locked": {
-        "path": "./hosts/workstation",
-        "type": "path"
-      },
-      "original": {
-        "path": "./hosts/workstation",
-        "type": "path"
-      },
-      "parent": []
     },
     "xdph": {
       "inputs": {
@@ -726,7 +723,7 @@
     "zen-browser": {
       "inputs": {
         "nixpkgs": [
-          "workstation",
+          "gojira",
           "nixpkgs"
         ]
       },

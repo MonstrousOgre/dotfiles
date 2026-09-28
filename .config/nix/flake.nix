@@ -12,14 +12,14 @@
 
     common.url = "path:./modules/common";
 
-    workstation = {
-      url = "path:./hosts/workstation";
+    gojira = {
+      url = "path:./hosts/gojira";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.hyprland.follows = "hyprland";
     };
 
-    mac = {
-      url = "path:./hosts/mac";
+    mothra = {
+      url = "path:./hosts/mothra";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -28,25 +28,25 @@
     self,
     nixpkgs,
     nix-darwin,
-    workstation,
-    mac,
+    gojira,
+    mothra,
     hyprland,
     common,
     ...
   }: {
-    nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.gojira = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
       modules = [
-        workstation.nixosModules.default
+        gojira.nixosModules.default
         hyprland.nixosModules.default
         common.nixosModules.default
       ];
     };
 
-    darwinConfigurations."Kashs-MacBook-Air" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations.mothra = nix-darwin.lib.darwinSystem {
       modules = [
-        mac.darwinModules.default
+        mothra.darwinModules.default
         common.darwinModules.default
 
         {
