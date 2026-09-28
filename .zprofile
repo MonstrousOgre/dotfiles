@@ -1,13 +1,1 @@
-if [[ $(uname -s) == "Linux" ]]; then
-  if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-    # exec Hyprland
-    #exec startplasma-wayland
-    #exec startx
-  fi
-  if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 2 ]; then
-    #exec startx
-  fi
-fi
-if [[ $(uname -s) == "Darwin" ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+/nix/store/82nbpwnqnwqz353j8zp7f9zk8h802wv4-home-manager-files/.zprofile
