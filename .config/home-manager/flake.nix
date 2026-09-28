@@ -43,8 +43,8 @@
       };
   in {
     homeConfigurations = {
-      mac = mkConfig "aarch64-darwin";
-      workstation = mkConfig "x86_64-linux";
+      mothra = mkConfig "aarch64-darwin";
+      gojira = mkConfig "x86_64-linux";
     };
   };
 }
