@@ -17,6 +17,8 @@ Repeater {
         Layout.preferredWidth: 24
         Layout.preferredHeight: 24
 
+        cursorShape: Qt.PointingHandCursor
+
         acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
 
         onClicked: mouse => {

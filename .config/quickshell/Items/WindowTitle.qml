@@ -22,7 +22,7 @@ RowLayout {
 
     IconImage {
         implicitSize: 16
-        anchors.verticalCenter: parent.verticalCenter
+        Layout.alignment: parent.verticalCenter
         visible: desktopEntry && desktopEntry.icon !== ""
         source: Quickshell.iconPath(desktopEntry ? desktopEntry.icon : "", true)
     }

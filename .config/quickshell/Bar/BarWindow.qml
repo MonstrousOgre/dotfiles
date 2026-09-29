@@ -13,7 +13,7 @@ PanelWindow {
     margins {
         left: 20
         right: barWindow.margins.left
-        top: 1
+        top: 8
     }
 
     // Position at the top of each monitor
@@ -46,10 +46,18 @@ PanelWindow {
         WindowTitle {}
     }
 
-    Section {
+    RowLayout {
         anchors.right: parent.right
-        Tray {}
-        Audio {}
-        Clock {}
+
+        implicitHeight: parent.height
+
+        Section {
+            Tray {}
+        }
+
+        Section {
+            Audio {}
+            Clock {}
+        }
     }
 }

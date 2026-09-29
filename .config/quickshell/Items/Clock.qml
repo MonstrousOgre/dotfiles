@@ -25,11 +25,11 @@ Item {
     MouseArea {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
-        onClicked: calendarPopup.visible = !calendarPopup.visible
+        onClicked: popup.visible = !popup.visible
     }
 
     Calendar {
-        id: calendarPopup
+        id: popup
 
         anchor.item: root
         anchor.edges: Edges.Bottom | Edges.Right

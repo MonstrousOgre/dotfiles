@@ -4,12 +4,9 @@ import Quickshell
 
 import "../"
 
-PopupWindow {
+BasePopup {
     id: root
 
-    color: Colors.background
-
-    // Cell & Padding constants
     readonly property real cellSize: 36
     readonly property real cellHeight: 32
     readonly property real margins: 16
@@ -38,140 +35,120 @@ PopupWindow {
 
     grabFocus: true
 
-    implicitWidth: (cellSize * 7) + (margins * 2)
-    implicitHeight: mainLayout.implicitHeight + (margins * 2)
+    // --- Header: Month/Year & Navigation ---
+    RowLayout {
+        Layout.fillWidth: true
 
-    Rectangle {
-        anchors.fill: parent
+        Text {
+            text: "<"
+            color: Colors.foreground
+            font.bold: true
+            font.pixelSize: 14
+            Layout.alignment: Qt.AlignVCenter
 
-        color: Colors.sectionBackground
-        border.color: Colors.workspaceBorder
-        border.width: 1
-        radius: 12
-
-        ColumnLayout {
-            id: mainLayout
-
-            anchors.fill: parent
-            anchors.margins: root.margins
-            spacing: 10
-
-            // --- Header: Month/Year & Navigation ---
-            RowLayout {
-                Layout.fillWidth: true
-
-                Text {
-                    text: "<"
-                    color: Colors.foreground
-                    font.bold: true
-                    font.pixelSize: 14
-                    Layout.alignment: Qt.AlignVCenter
-
-                    MouseArea {
-                        anchors.fill: parent
-                        anchors.margins: -8
-                        cursorShape: Qt.PointingHandCursor
-                        onClicked: {
-                            if (root.displayMonth === 0) {
-                                root.displayMonth = 11;
-                                root.displayYear--;
-                            } else {
-                                root.displayMonth--;
-                            }
-                        }
-                    }
-                }
-
-                Text {
-                    text: Qt.formatDate(new Date(root.displayYear, root.displayMonth, 1), "MMMM yyyy")
-                    color: Colors.foreground
-                    font.bold: true
-                    font.pixelSize: 15
-                    Layout.fillWidth: true
-                    horizontalAlignment: Text.AlignHCenter
-                }
-
-                Text {
-                    text: ">"
-                    color: Colors.foreground
-                    font.bold: true
-                    font.pixelSize: 14
-                    Layout.alignment: Qt.AlignVCenter
-
-                    MouseArea {
-                        anchors.fill: parent
-                        anchors.margins: -8
-                        cursorShape: Qt.PointingHandCursor
-                        onClicked: {
-                            if (root.displayMonth === 11) {
-                                root.displayMonth = 0;
-                                root.displayYear++;
-                            } else {
-                                root.displayMonth++;
-                            }
-                        }
+            MouseArea {
+                anchors.fill: parent
+                anchors.margins: -8
+                cursorShape: Qt.PointingHandCursor
+                onClicked: {
+                    if (root.displayMonth === 0) {
+                        root.displayMonth = 11;
+                        root.displayYear--;
+                    } else {
+                        root.displayMonth--;
                     }
                 }
             }
+        }
 
-            // --- Days of Week Header ---
-            Grid {
-                columns: 7
-                Layout.fillWidth: true
+        Text {
+            text: Qt.formatDate(new Date(root.displayYear, root.displayMonth, 1), "MMMM yyyy")
+            color: Colors.foreground
+            font.bold: true
+            font.pixelSize: 15
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
+        }
 
-                Repeater {
-                    model: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
-                    Text {
-                        width: root.cellSize
-                        height: 24
-                        text: modelData
-                        color: Colors.foreground
-                        font.pixelSize: 12
-                        font.bold: true
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
+        Text {
+            text: ">"
+            color: Colors.foreground
+            font.bold: true
+            font.pixelSize: 14
+            Layout.alignment: Qt.AlignVCenter
+
+            MouseArea {
+                anchors.fill: parent
+                anchors.margins: -8
+                cursorShape: Qt.PointingHandCursor
+                onClicked: {
+                    if (root.displayMonth === 11) {
+                        root.displayMonth = 0;
+                        root.displayYear++;
+                    } else {
+                        root.displayMonth++;
                     }
                 }
             }
+        }
+    }
 
-            // --- Month Grid ---
-            Grid {
-                columns: 7
-                Layout.fillWidth: true
+    // --- Days of Week Header ---
+    Grid {
+        columns: 7
+        Layout.fillWidth: true
 
-                // Blank slots before day 1
-                Repeater {
-                    model: root.startDayOfWeek(root.displayYear, root.displayMonth)
-                    Item {
-                        width: root.cellSize
-                        height: root.cellHeight
-                    }
+        Repeater {
+            model: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+            Text {
+                width: root.cellSize
+                height: 24
+                text: modelData
+                color: Colors.foreground
+                font.pixelSize: 12
+                font.bold: true
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+    }
+
+    // --- Month Grid ---
+    Grid {
+        columns: 7
+        Layout.fillWidth: true
+
+        // Blank slots before day 1
+        Repeater {
+            model: root.startDayOfWeek(root.displayYear, root.displayMonth)
+            Item {
+                width: root.cellSize
+                height: root.cellHeight
+            }
+        }
+
+        // Days of month
+        Repeater {
+            model: root.daysInMonth(root.displayYear, root.displayMonth)
+
+            Rectangle {
+                width: root.cellSize
+                height: root.cellHeight
+                radius: 6
+
+                readonly property int dayNumber: index + 1
+                readonly property bool isToday: {
+                    return root.today.getDate() === dayNumber && root.today.getMonth() === root.displayMonth && root.today.getFullYear() === root.displayYear;
                 }
 
-                // Days of month
-                Repeater {
-                    model: root.daysInMonth(root.displayYear, root.displayMonth)
+                color: isToday ? Colors.accent : "transparent"
 
-                    Rectangle {
-                        width: root.cellSize
-                        height: root.cellHeight
-                        radius: 6
-
-                        readonly property int dayNumber: index + 1
-                        readonly property bool isToday: {
-                            return root.today.getDate() === dayNumber && root.today.getMonth() === root.displayMonth && root.today.getFullYear() === root.displayYear;
-                        }
-
-                        color: isToday ? Colors.accent : "transparent"
-
-                        Text {
-                            anchors.centerIn: parent
-                            text: dayNumber
-                            color: isToday ? Colors.sectionBackground : Colors.foreground
-                            font.bold: isToday
-                            font.pixelSize: 12
-                        }
-                    }
+                Text {
+                    anchors.centerIn: parent
+                    text: dayNumber
+                    color: isToday ? Colors.sectionBackground : Colors.foreground
+                    font.bold: isToday
+                    font.pixelSize: 12
                 }
             }
         }
