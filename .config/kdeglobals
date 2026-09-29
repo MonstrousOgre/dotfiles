@@ -134,6 +134,14 @@ ForegroundVisited=120,120,120
 
 [General]
 ColorSchemeHash=697626961cd3018a86d5d1b6a546c7ac8b282d8c
+XftAntialias=true
+XftHintStyle=hintslight
+XftSubPixel=vbgr
+fixed=Hermit,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
+font=PT Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
+menuFont=PT Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
+smallestReadableFont=PT Sans,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
+toolBarFont=PT Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
 
 [Icons]
 Theme=Colloid-Pink-Dark
@@ -146,6 +154,7 @@ frameContrast=0.2
 [WM]
 activeBackground=51,51,51
 activeBlend=171,171,171
+activeFont=PT Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
 activeForeground=252,252,252
 inactiveBackground=66,66,66
 inactiveBlend=85,85,85
