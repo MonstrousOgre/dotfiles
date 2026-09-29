@@ -10,7 +10,7 @@ function M.apply_to_config(config)
 	-- config.use_fancy_tab_bar = false
 
 	config.window_frame = {
-		-- active_titlebar_bg = "#1e1e1e",
+		active_titlebar_bg = "rgba(36, 36, 36, 0.8)",
 		-- inactive_titlebar_bg = "#1e1e1e",
 
 		font = wezterm.font("Hermit"),
@@ -22,6 +22,7 @@ function M.apply_to_config(config)
 	if wezterm.target_triple:find("linux") then
 		-- background = "#1d212f"
 		-- background = "#31313A"
+		background = "#242424"
 		config.window_background_opacity = 0.8
 		-- config.wayland_window_background_blur = true
 		config.kde_window_background_blur = true
@@ -34,7 +35,9 @@ function M.apply_to_config(config)
 		config.window_frame.font_size = 14
 	end
 
-	config.colors = { background = background }
+	config.colors = {
+		background = background,
+	}
 
 	config.font = wezterm.font("Hermit")
 	config.hide_tab_bar_if_only_one_tab = true
