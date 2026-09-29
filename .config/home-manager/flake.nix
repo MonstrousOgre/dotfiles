@@ -1,8 +1,8 @@
 # Home Manager configuration managed as a Nix flake.
 #
 # Apply it from this directory with the entry matching your host:
-#   home-manager switch --flake .#mac          # macOS (Apple Silicon)
-#   home-manager switch --flake .#workstation  # Linux (x86_64)
+#   home-manager switch --flake .#mothra  # macOS (Apple Silicon)
+#   home-manager switch --flake .#gojira  # Linux (x86_64)
 #
 # The first build (or `nix flake lock`) generates ./flake.lock, which pins
 # the exact nixpkgs and home-manager revisions.
@@ -19,7 +19,7 @@
     };
     # QML language server; follows our nixpkgs so the whole configuration
     # evaluates against a single, consistent package set. Only used on
-    # Linux (see home.nix), never evaluated on macOS.
+    # Linux (see gojira.nix), never evaluated on macOS.
     qml-language-server = {
       url = "github:cushycush/qml-language-server";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,19 +32,20 @@
     qml-language-server,
     ...
   }: let
-    mkConfig = system:
+    mkConfig = system: hostModule:
       home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        modules = [./home.nix];
-        # Expose flake inputs to the module arguments of home.nix.
+        # Each host file imports ./common.nix itself.
+        modules = [hostModule];
+        # Expose flake inputs to the module arguments (used by gojira.nix).
         extraSpecialArgs = {
           inherit qml-language-server;
         };
       };
   in {
     homeConfigurations = {
-      mothra = mkConfig "aarch64-darwin";
-      gojira = mkConfig "x86_64-linux";
+      mothra = mkConfig "aarch64-darwin" ./mothra.nix;
+      gojira = mkConfig "x86_64-linux" ./gojira.nix;
     };
   };
 }

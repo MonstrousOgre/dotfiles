@@ -1,18 +1,13 @@
+# Configuration shared by every host.
+#
+# Host-specific options live in mothra.nix (macOS) and gojira.nix (Linux).
 {
-  config,
-  inputs,
   pkgs,
-  lib,
-  qml-language-server,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+  # manage. home.homeDirectory is set per host in mothra.nix / gojira.nix.
   home.username = "ogre";
-  home.homeDirectory =
-    if pkgs.stdenv.hostPlatform.isDarwin
-    then "/Users/ogre"
-    else "/home/ogre";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -51,16 +46,7 @@
       bottom
       tree-sitter
       gnumake
-    ]
-    ++ (lib.optionals pkgs.stdenv.hostPlatform.isLinux [
-      # QML tooling is Linux-only; skip on macOS (qtdeclarative and the
-      # qml-language-server flake don't build there).
-      qt6.qtdeclarative
-      qml-language-server.packages.${stdenv.hostPlatform.system}.default
-
-      colloid-gtk-theme
-      colloid-icon-theme
-    ]);
+    ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -110,10 +96,6 @@
     "$HOME/.npm-packages/bin"
     "$HOME/.spicetify"
   ];
-
-  # home-manager.users.ogre = {
-  #   programs.zsh.enable = true;
-  # };
 
   programs.zsh = {
     enable = true;
