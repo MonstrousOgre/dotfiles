@@ -140,11 +140,11 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("lightctl up"))
 
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("lightctl down"))
 
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +5%"))
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
 
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -5%"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
 
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"))
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
 
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
 
@@ -156,15 +156,23 @@ hl.bind("XF86AudioStop", hl.dsp.exec_cmd("playerctl stop"))
 
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("qalculate-qt"))
 
--- hl.bind("PRINT", hl.plugin.hyprcapture.open)
+hl.bind("PRINT", function()
+	if hl.plugin.hyprcapture then
+		hl.plugin.hyprcapture.open()
+	end
+end)
 
--- hl.bind("SUPER + SHIFT + w", function()
---   hl.plugin.hyprcapture.open("window")
--- end)
+hl.bind("SUPER + SHIFT + w", function()
+	if hl.plugin.hyprcapture then
+		hl.plugin.hyprcapture.open("window")
+	end
+end)
 
--- hl.bind("SHIFT + PRINT", function()
---   hl.plugin.hyprcapture.open("fullscreen")
--- end)
+hl.bind("SHIFT + PRINT", function()
+	if hl.plugin.hyprcapture then
+		hl.plugin.hyprcapture.open("fullscreen")
+	end
+end)
 
 hl.bind("CTRL + ALT" .. " + " .. "Delete", hl.dsp.exec_cmd("wlogout"))
 
