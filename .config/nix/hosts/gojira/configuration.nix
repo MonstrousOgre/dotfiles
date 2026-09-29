@@ -177,6 +177,7 @@
     packages = with pkgs; [
       nerd-fonts.symbols-only
       hermit
+      material-symbols
     ];
   };
 
