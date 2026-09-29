@@ -178,6 +178,8 @@
       nerd-fonts.symbols-only
       hermit
       material-symbols
+      paratype-pt-sans
+      lexend
     ];
   };
 
