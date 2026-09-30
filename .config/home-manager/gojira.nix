@@ -21,6 +21,21 @@
     style.name = "kvantum";
   };
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
+    package = null;
+    portalPackage = null;
+
+    plugins = [
+      # hyprcapture.packages.${pkgs.stdenv.hostPlatform.system}.hyprcapture
+    ];
+
+    extraConfig = ''
+      require("general")
+    '';
+  };
+
   home.packages = with pkgs; [
     qt6.qtdeclarative
     qml-language-server.packages.${pkgs.stdenv.hostPlatform.system}.default
