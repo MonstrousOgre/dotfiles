@@ -115,10 +115,14 @@
     zsh
     clang
     obsidian
+    trilium-desktop
     floorp-bin
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     proton-vpn
+    protonmail-desktop
     beeper
+    rambox
+    franz
     calibre
     spotify
     # Use kdePackages.qtstyleplugin-kvantum for Qt6 / Plasma 6
@@ -126,6 +130,7 @@
     kdePackages.qtstyleplugin-kvantum
     # kvantummanager
   ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
