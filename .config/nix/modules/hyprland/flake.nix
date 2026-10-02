@@ -2,7 +2,7 @@
   description = "Hyprland module";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs = {
@@ -38,6 +38,7 @@
           gtklock
           rofi
           hyprpicker
+          hyprshot
           kdePackages.qt6ct
           libsForQt5.qt5ct
           kdePackages.qqc2-desktop-style
